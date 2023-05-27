@@ -1,0 +1,133 @@
+parte 2/ portugol
+scrath
+portugol
+c
+
+Porugol
+
+escreva () // saida de dados
+leia() // entrada de dados
+limpa() // limpa console
+
+"\n" // quebra de linha // caractere de escape
+
+// tipo de dado
+const tipo // constante
+inteiro // inteiro
+real // float // ponto flutuante / decimal
+caracter // caracter 'a'
+cadeia  //   string // texto
+logico // bolean
+vazio // funcao // void retorno vaazio tipo imprime linha
+
+		inteiro num1 = 2
+		inteiro num2 = 1
+		logico veri 
+
+		veri = num1 > num2
+
+		escreva(veri)
+// operacao de atribuicao
+
+inteiro a
+a = 2
+
+// operador aritmetico
++
+inteiro / inteiro
+inteiro /  real
+real / inteiro
+real / real
+-
+inteiro / inteiro
+inteiro /  real
+real / inteiro
+real / real
+*
+inteiro / inteiro
+inteiro /  real
+real / inteiro
+real / real
+/
+inteiro / inteiro
+inteiro /  real
+real / inteiro
+real / real
+%
+
+//  operado Relacional
+==
+!=
+>
+>
+>=
+<=
+
+compara valores logicos e devolve verdadeiro ou falso
+
+// operador logico
+e
+ou
+nao (not)
+
+estrutura de decisao "se" // if
+se (){
+}
+se (){
+} senao {
+}
+
+if// identado
+programa
+{
+	
+	funcao inicio()
+	{
+		inteiro idade
+		leia(idade)
+
+		se (idade>=18){
+			escreva("maior de idaede")
+		}senao se(idade>=16)
+		{
+			escreva("ja pode votar, mas nao e mairo")
+		}
+		senao{
+			escreva("de menor, e nao pode votar")
+		}
+		
+
+	
+	}
+}
+
+
+estrutura de decisao escolha-caso switch case
+escolha(parametro){
+caso 1:
+//
+pare
+caso 2:
+//
+pare
+
+caso contrario:        // default
+//
+pare   
+
+
+estrutura de decisao equanto // while
+faça- equanto // do while
+
+equanto(condicao)        
+{
+//
+}
+
+faca{
+}equanto(condicao)
+
+estrutura de decisao para // for
+
+para (int i = 0; ate quando; incremento){
+}
