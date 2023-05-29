@@ -9,14 +9,14 @@ double - numero de dupla precisao '3.14159'
 void = sem tipo de dado definido - = nada
 
 
-#include <stdio.h> // Inclusão dos comandos da biblioteca Standard I/O
+#include <stdio.h> // Inclusão Qdos comandos da biblioteca Standard I/O
 #include <math.h> // Inclusão dos comandos da biblioteca matemática do C
 
 O “#include” também é chamado de diretiva. Na verdade, para o C, qualquer declaração que comece com “#” é chamada de diretiva.
 
 Delimitadores de blocos
 
-Qualquer trecho de código que iremos escrever precisará estar delimitado em um bloco que chamamos de “corpo”. Os delimitadores de corpos ou blocos no C são as chaves (“{“ e “}”). Qualquer trecho de código deverá estar delimitado entre as chaves para se tornar uma instrução C válida.
+Qualquer trecho de código queQue chamamos de “corpo”. Os delimitadores de corpos ou blocos no C são as chaves (“{“ e “}”). Qualquer trecho de código deverá estar delimitado entre as chaves para se tornar uma instrução C válida.
 
 Podemos ver isso quando verificamos o método main() destacado acima. Vamos voltar a ele:
 
