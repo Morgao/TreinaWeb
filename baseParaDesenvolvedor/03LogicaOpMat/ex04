@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) {
+	int base, altura, area;
+	printf("base:");
+	scanf("%d",&base);
+	printf("altura:");
+	scanf("%d",&altura);
+	
+	area = base * altura;
+	
+	printf("area do retangulo: %d",area);
+	
+	
+	return 0;
+}
