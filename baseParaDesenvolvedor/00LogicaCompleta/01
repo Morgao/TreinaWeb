@@ -1,0 +1,34 @@
+O C é uma linguagem com as seguintes características:
+
+    Imperativa: o desenvolvedor é obrigado a informar o “passo-a-passo” do que deve ser feito, dando “ordens” à linguagem através de comandos;
+    Procedural: basicamente, isso quer dizer que a escrita do código é baseada em procedures e funções (mais à frente entenderemos estes conceitos de maneira mais concreta – por hora, entenda que ela espera que você parta seu algoritmo em partes menores que podem conversar entre si – os procedimentos).
+
+
+É importante também frisar que o C é uma linguagem compilada, ou seja: o código que você escrever com o C precisa passar pela validação e processamento de uma ferramenta chamada compilador.
+
+Estrutura básica de um software em C
+
+Todo software escrito em C possui uma estrutura padrão, contendo os seguintes componentes como o método main(), a área de referências e o corpo dos métodos. Vamos investigar mais a fundo estes componentes.
+
+Quando nos referenciamos a métodos, entenda como sendo um determinado trecho de código responsável por executar uma tarefa distinta. Mais à frente este conceito será melhor esclarecido.
+
+Você não precisa se preocupar neste curso com o “int” e o “void” antes do “main()”... Mas, para conhecimento, ele determina o que o “main()” irá retornar para o sistema operacional quando o programa for finalizado. Se for um “int”, ele deverá retornar um número inteiro; se for um “void”, quer dizer que ele retornará nada. Isso é importante, tendo em vista que os sistemas operacionais podem utilizar este retorno para avaliarem se um programa foi executado com sucesso ou não. Por exemplo, se você digita o comando “dir” no prompt de comando do Windows, ele na verdade irá chamar um executável chamado “dir.exe”, que fica na pasta de sistema do Windows. O Windows sabe que o dir realmente foi executado corretamente através do número que ele retornar... Para o Windows por exemplo, se qualquer programa retornar “0”, ele considera a execução como sucesso. Outros sistemas operacionais seguem a mesma ideia.
+
+Declaração de variáveis
+
+O C não fixa uma área para declaração de variáveis: elas podem ser declaradas em qualquer ponto do código. Agora, é importante sempre lembrarmos que a variável só poderá ser utilizada do lugar que ela foi declarada em diante, nunca para trás.
+
+Para declararmos uma variável em C, nós definimos o seu tipo e damos um nome; e, opcionalment
+
+Includes
+
+Nas aplicações que formos desenvolver, inclusive neste curso, precisaremos de recursos “estendidos” da linguagem, além dos recursos-padrão. Um exemplo é se precisarmos ler informações a serem fornecidas pelo usuário através do console... Para conseguirmos realizar esta operação, precisaremos do comando “scanf” da linguagem C, porém, ele só está disponível em uma biblioteca externa, a STDIO (Standard I/O). Para conseguirmos utilizar esta biblioteca externa, nós precisamos “incluí-la” em nossa aplicação, para fazermos corretamente o link entre nossa aplicação e a biblioteca externa (link esse chamado também de “referência”). Nós fazemos isso com o comando “#include” no começo de nossa aplicação. Veja os exemplos abaixo:
+
+
+
+#include <stdio.h> // Inclusão dos comandos da biblioteca Standard I/O
+#include <math.h> // Inclusão dos comandos da biblioteca matemática do C
+
+O “#include” também é chamado de diretiva. Na verdade, para o C, qualquer declaração que comece com “#” é chamada de diretiva.
+
+Veja que todo o código que iremos escrever deverá estar entre as chaves delimitadoras do método main(). Se escrevermos um código fora deste bloco, nosso código não será compilado, já que no C é regra que todo e qualquer código, com algumas exceções estruturais, esteja delimitado dentro de um bloco.
