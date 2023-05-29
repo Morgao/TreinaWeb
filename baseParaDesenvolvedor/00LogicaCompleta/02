@@ -1,0 +1,67 @@
+// tipos de variaveis
+char  - caracter - 'a'
+%c - caracater - %s stirng - %d string de interio
+int - numero inteiro positivo e negativo '1' '-1'
+%d inteiro
+float - numero de precisao simples decimal '1.5' 
+%f float // %.2f
+double - numero de dupla precisao '3.14159'
+void = sem tipo de dado definido - = nada
+
+
+#include <stdio.h> // Inclusão dos comandos da biblioteca Standard I/O
+#include <math.h> // Inclusão dos comandos da biblioteca matemática do C
+
+O “#include” também é chamado de diretiva. Na verdade, para o C, qualquer declaração que comece com “#” é chamada de diretiva.
+
+Delimitadores de blocos
+
+Qualquer trecho de código que iremos escrever precisará estar delimitado em um bloco que chamamos de “corpo”. Os delimitadores de corpos ou blocos no C são as chaves (“{“ e “}”). Qualquer trecho de código deverá estar delimitado entre as chaves para se tornar uma instrução C válida.
+
+Podemos ver isso quando verificamos o método main() destacado acima. Vamos voltar a ele:
+
+#include <stdio.h>
+
+void main() {
+  char letra = ‘’;
+scanf("%c", &letra);
+// Enquanto o usuário não apertar ENTER, o console aguardará o usuário terminar a digitação.
+// Quando ENTER for pressionado, o scanf() fará a leitura e transportará o valor lido para a variável apontada
+
+char nome[50]; // Um nome de até 50 caracteres
+scanf("%s", &nome);
+
+int numero = 0;
+scanf("%d", &numero);
+
+float numeroQuebrado = 0;
+scanf("%f", &numeroQuebrado);
+}
+
+
+printf("Olá mundo!"); // Irá escrever "Olá mundo!"
+int a = 3;
+printf("Valor de a: %d", a); // Irá escrever "Valor de a: 3" - %d será substituído pelo valor de a, interpretado como um inteiro
+int b = 1;
+printf("Valor de a e b: %d e %d", a, b); // Irá escrever "Valor de a e b: 3 e 1
+
+
+float numero = 123.889999;
+
+printf("%.2f", numero); //exibe 123.89
+
+printf("%.3f", numero); //exibe 123.890
+
+printf("%.4f", numero); //exibe 123.8900
+
+
+ printf("sua idade é %d anos %c\n",idade);
+
+
+#include <conio.h>   // necessário para as funções clrscr e getch
+
+Estrutura de dados: vetores ou arrays
+
+Um vetor é uma série ou lista de valores presentes na memória do computador, de mesmo nome e tipo de dado, mas diferenciados por números especiais chamados índices. Normalmente, todos os valores de um vetor têm algo em comum. Por exemplo, eles podem representar uma lista de identificação de funcionários ou uma lista de preços dos itens de uma loja, ou mesmo uma lista de nomes dos seus melhores amigos. Pegando como exemplo a lista com os nomes de seus melhores amigos: nosso array ou vetor provavelmente deverá ser do tipo char. Cada posição de nosso vetor – já que um vetor é segmentado – receberá um índice, do tipo inteiro, de acordo com a sua posição. Se tivéssemos um vetor com os nomes “José”, “João” e “Paulo” respectivamente, eles teriam os índices 0, 1 e 2. É importante sempre se lembrar: no C e na grande maioria das linguagens de programação, a contagem começa do número 0, e não do 1. O interessante é que não precisaremos criar três variáveis distintas para guardar o nome de cada um dos três amigos citados anteriormente: nós podemos centralizar o armazenamento destas informações em um único lugar, o que torna o código mais legível.
+
+Em C, para criarmos vetores, temos a seguinte sintaxe:
