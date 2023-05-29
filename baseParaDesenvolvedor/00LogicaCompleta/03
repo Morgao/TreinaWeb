@@ -1,0 +1,135 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+   
+    printf("Hello world");
+
+    return 0;
+}
+
+    int dias = anos * 365;
+    printf("%d",dias);
+
+    int c = ;
+    c = (5 * (Fahrenheit-32)/9);
+    printf("%d",c);
+    
+
+int c = (5 * (temperatura-32)/9);
+    printf("%d",c);
+
+#include <stdio.h>
+#include <locale.h>
+void main(void)
+{
+  setlocale(LC_ALL, "Portuguese");
+  printf("Utilizando caracteres e acentuação da língua portuguesa!\n\n");
+}
+
+
+    printf("Alimentação %.0f %\n",(alimentacao/salario)*100);
+    printf("Moradia %.0f %\n",(moradia/salario)*100);
+    printf("Saúde %.0f % \n",(saude/salario)*100);
+    printf("Outros %.0f %\n",(outros/salario)*100);
+
+estrutura de decisao // if ou switch
+
+sswitch(codigoBarras){
+    case 1:
+        printf("Leite Integral - 3,80");
+        break;
+    
+    case 2:
+        printf("Manteiga - 5,98");
+        break;
+    
+    case 3:
+        printf("Café 500g - 8,25");
+        break;
+    
+    default: 
+        printf("Produto não cadastrado");
+        break;
+     
+}
+    //Informe seu código aqui
+    
+
+
+  int media = ((p1 + p2 * 2) + (p3 * 3)
+ + (tf))/7;
+ if(media>=9){
+     printf("A");
+ }else if(media>= 7.5 && media< 9.00){
+     printf("B");
+ }else if(media>=6.0 && media< 7.5){
+     printf("C");
+ }else{
+     printf("D");
+ }
+
+    if(essenciais<=50){
+        printf("Gastos essenciais: dentro da regra");
+    }else{
+        printf("Gastos essenciais: acima da regra");
+    }
+    if(prioridades<=15){
+        printf("Prioridades financeiras: dentro da regra");
+    }else{
+        printf("Prioridades financeiras: acima da regra");
+    }
+    if(estiloDeVida<=35){
+        printf("Estilo de vida: dentro da regra");
+    }else{
+        printf("Estilo de vida: acima da regra");
+    }
+
+while (<condição de repetição>) {
+    // Código a ser repetido
+}
+
+#include <string.h>
+se sao iguais = ou != strpcmp(comparacao de stings, "valor da comparacao")
+
+while (strcmp(&nome, "PARAR") !=0){}
+
+for (<variável de controle> = <valor inicial>; <condição de repetição>; <incremento>){
+    // Código a ser repetido
+}
+ for(int i=1;i<=10;i=i+1){
+    printf("%d x %d = %d\n",i, numero, i*numero);
+}
+
+int meuVetor[3];
+
+meuVetor[0] = 25;
+meuVetor[1] = 36;
+meuVetor[2] = 45;
+
+
+Algoritmos e complexidade assintótica
+
+Em uma das vídeo-aulas a seguir, você ouvirá falar sobre o termo “complexidade assintótica”... Mas, o que será que vem a ser esta complexidade?
+
+De maneira bem generalista, nós chamamos de complexidade assintótica a medição do custo computacional para execução de um algoritmo. Esse custo pode ser verificado nas seguintes vertentes:
+
+    Temporal: vertente que leva em consideração o tempo de execução de um algoritmo. Quanto mais demorada a execução, maior em teoria é a complexidade assintótica temporal do algoritmo;
+    Espacial: vertente que leva em consideração os recursos da máquina (processador, memória, acesso a disco rígido) para execução do algoritmo. Quanto mais estes recursos são utilizados, maior é a complexidade assintótica espacial do algoritmo.
+
+Dessa maneira, é importante que consigamos criar algoritmos com complexidade assintótica menor possível, tanto na vertente temporal quanto na vertente espacial.
+
+Uma das formas de se explicitar a notação assintótica de um algoritmo é através de uma notação conhecida como “Big-O”. Nessa notação, pegamos o pior caso de execução de um algoritmo, analisamos a complexidade assintótica dele e a definimos através da notação de uma função chamada “O” (daí vem o nome Big-O). Esta letra “O” maiúscula é, na verdade, a representação da letra “omicrôn”.
+
+A maneira de calcularmos a complexidade assintótica de um algoritmo de maneira geral pode se mostrar um processo matemático complexo. Porém, existem alguns exemplos onde podemos notar facilmente esta complexidade. Vamos ver os exemplos abaixo:
+C# (C Sharp)
+
+Na linha acima, temos um comando de atribuição de valor para uma variável. O esforço computacional para execução desta linha é o mesmo tanto do ponto de vista temporal quanto do ponto de vista espacial, pois esta linha poderá ser executada n vezes que o computador gastará a mesma quantidade de processador e memória, assim como também demorará o mesmo tempo. Neste caso, nós podemos falar que a complexidade deste algoritmo é O(1), ou seja, possui uma complexidade assintótica constante.
+C# (C Sharp)
+
+Este algoritmo já não possui uma complexidade constante. Na verdade, o tempo de execução dele vai variar de acordo com o tamanho do laço que ele irá executar. Se o laço for até 1, ele terá complexidade O(1); se for até 2, ele terá complexidade O(2); se ele for até 3, ele terá complexidade O(3); se ele for até n, ele terá complexidade O(n).
+C# (C Sharp)
+
+Este algoritmo já possui uma complexidade maior que o anterior. Ele possui dois laços aninhados. Dessa maneira, ele terá complexidade relacionada à quantidade de laços do primeiro nível multiplicado pela quantidade de laços do segundo nível. Neste caso, costumamos afirmar que a complexidade assintótica do algoritmo é O(n2).
+
+É importante termos em mente que nossos algoritmos devem ter a complexidade mais próxima de O(1) ou O(n), mesmo que não será possível construirmos algoritmos com estas complexidades em todos os trechos. Também tenha em mente que mensurar a complexidade assintótica de um algoritmo pode não se revelar tão simples como descrito aqui, pois aqui temos apenas uma pequena introdução para que você possa compreender alguns termos utilizados em algumas vídeo-aulas deste ponto em diante. Porém, recomendamos que você, quando possível, dê uma olhadinha nesse assunto. Grandes players, como Microsoft, Google, Apple e Amazon costumam incluir questões relacionadas à complexidade assintótica de algoritmos em seus processos seletivos.
