@@ -1,0 +1,74 @@
+int i = 0;
+  float aux = 0;
+  float aux2 = 0;
+  float total =0;
+  float media = 0;
+  int alteracoes = 1;
+  float maior = 0;
+  float menor = 0;
+  
+  for(i = 0; i<qtdFamilias;i++){
+      
+      aux2 = rendaFamilias[i];
+      total = total + aux2;
+  }
+ 
+  
+  media = total/qtdFamilias;
+  
+  aux = 0;
+  aux2 = 0;
+  
+  
+  printf("Média - %.2f\n",media);
+ 
+    
+  while(alteracoes>0){
+      alteracoes = 0;
+  for(i=0;i<qtdFamilias-1;i++){
+      if(rendaFamilias[i] > rendaFamilias[i+1]){
+          aux = rendaFamilias[i];
+          aux2 = rendaFamilias[i+1];
+          rendaFamilias[i] = aux2;
+          rendaFamilias[i+1] = aux;
+          alteracoes = alteracoes + 1;
+          
+         }
+      
+  }
+  }
+
+  menor = 
+ printf("Maior - %.2f\n",rendaFamilias[qtdFamilias-1]);
+printf("Menor - %.2f\n",rendaFamilias[0]); 
+
+
+float juros = 0;
+float acumulado;
+juros = porcentagemJuros / 100;
+acumulado = 0;
+for(int i = 0; i < qtdAportes; i++){
+    acumulado = acumulado + (juros * acumulado);
+acumulado = acumulado + valorAporte[i];
+}
+printf("%4.2f", acumulado);
+
+Exercício 1: Escreva um programa em C que consiga ler um valor em dólares e devolva para o usuário este valor convertido em reais. Considere que US$ 1,00 = R$ 3,85.
+
+Exercício 2: Escreva um programa em C que, a partir da leitura das medidas dos lados de um retângulo (comprimento e largura) calcule e informe a área e o perímetro do retângulo. Lembre-se: a área de um retângulo é definida por comprimento * altura e o perímetro é definido por 2 * comprimento + 2 * altura.
+
+Exercício 3: Escreva um programa em C que consiga calcular o imposto sobre terrenos em uma determinada região. Nesta região, o imposto sobre terrenos é calculado a partir da área total do terreno (em m²) e a área construída do terreno (também em m²); sendo que para cada m² construído são cobrados R$ 5,00 e para cada m² não construído são cobrados R$ 3,80.
+
+Exercício 4: Escreva um programa em C que faça com que um gato dê um miado com uma intensidade informada pelo usuário. Enquanto o usuário não digitar “PARAR”, o personagem deverá continuar solicitado “níveis de miado” e os emitindo no nível pedido pelo usuário. Considere como intensidade do miado a quantidade de letras “I” na palavra “MIAU”. Por exemplo, se o usuário informar 6 como intensidade, deverá ser escrito “MIIIIIIAU”; se o usuário informar 3 como intensidade, deverá ser escrito “MIIIAU”.
+
+Exercício 5: Escreva um programa em C que emita o som de miados durante x vezes, quantidade de vezes esta que deverá ser informada previamente pelo usuário. Considere como emissão de um miado a escrita no Console da palavra “MIAU”.
+
+É hora de praticar!
+
+Separarmos mais uma pequena lista com alguns exercícios específicos para serem escritos em C. Não se esqueça: se você tiver qualquer dúvida ou tiver dificuldades para concluir o raciocínio de algum exercício, é só nos chamar no canal de Suporte.
+
+Exercício 1: Escreva um programa em C que forneça o fatorial de um número fornecido pelo usuário. Para lembrar: por exemplo, o fatorial de 2 (2!) é igual 2 * 1, que é igual a 2. O fatorial de 4 (4!) é igual a 4 * 3 * 2 * 1, que é igual a 24.
+
+Exercício 2: Escreva um programa em C que, através da leitura de um número fornecido pelo usuário, indique se este número é primo. Lembrando: a condição para um número ser considerado primo é que este seja divisível somente por ele mesmo e por 1. Um exemplo de número primo é o número 11.
+
+Exercício 3: Escreva um programa em C que, através da leitura de um número fornecido pelo usuário, gere a sequência de Fibonacci com a quantidade de termos indicada pelo usuário. A sequência de Fibonacci, basicamente, consiste na geração do número seguinte através da soma dos dois números anteriores... Por exemplo: 1, 1, 2 (1 + 1), 3 (1 + 2), 5 (3 + 2), e assim por diante. Por exemplo, se o usuário fornecer o número 4, devem ser indicados os 4 primeiros números da sequência, que são 1, 1, 2 e 3.
