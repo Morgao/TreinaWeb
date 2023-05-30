@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[]) {
+	
+	int a;
+	a = 0;
+	
+	for(a;a<11;a++){
+		printf("Treina Web %d!\n",a);
+	}
+	
+	
+	
+	
+	
+
+
+	
+	return 0;
+}
