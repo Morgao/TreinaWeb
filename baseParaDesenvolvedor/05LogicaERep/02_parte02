@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void main () {
+	
+	int a, b, aux,i;
+	aux = 0;
+	
+	
+	printf("digite o numero inicial:  ");
+	scanf("%d",&a);
+	printf("digite o numero final:  ");
+	scanf("%d",&b);
+
+	if((a>0)&&(a<b)){
+		for(a;a<=b;a++){
+			for( i=1;i<=a;i++){
+				if(a % i == 0){
+					aux++;
+				}
+			
+			}if(aux == 2){
+				printf("o numero %d e primo:\n",a);
+			}else{
+				printf("o numero %d nao e primo XX\n",a);
+			}
+			aux =0;
+		}
+	}
+	else{
+		printf("digite o primeiro numer menor que o segundo e maior que 0.");
+	}
+
+	
+	
+	
+
+
+	
+	return 0;
+}
