@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void main () {
+	
+	int a, div,i;
+	printf("digite um numer: ");
+	scanf("%d",&a);
+
+	for( i = 1;i<=a;i++){
+		if(a % i ==0 ){
+		div++;
+		}
+	}
+	if((div==2 )){
+		printf("numero e primo YYY %d"),a;
+	}
+	else {
+		printf("numero nao e primo XXX%d",a);
+	}
+	
+	
+	
+
+
+	
+	return 0;
+}
