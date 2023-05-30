@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h> 
+
+
+int main(int argc, char *argv[]) {
+	
+	
+	int idade;
+	
+	
+	printf("qual sua idade: ");
+	scanf("%d",&idade);
+	
+	if(idade>=18 && idade<=60){
+		printf("voce e obrigado a votar xxx");
+	}else if(idade>60){
+		printf("voce pode votar mas nao e obrigado yyy");
+	}else if(idade>=16 && idade<=18){
+		printf("voce pode votar mas nao e obrigado yyy");
+	}else if(idade<16){
+		printf("voce nao pode votar");
+	}
+	
+	
+
+
+	
+	return 0;
+}
