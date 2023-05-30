@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h> 
+
+
+int main(int argc, char *argv[]) {
+	
+	
+	int a,b,c, aux;
+	
+	
+	printf("quantidade atual em estoque: ");
+	scanf("%d",&a);
+	printf("quantidade maxima em estoque: ");
+	scanf("%d",&b);
+	printf("quantidade minima em estoque:  ");
+	scanf("%d",&c);
+	
+	aux = (b+c)/2;
+	
+	if(a>=aux){
+		printf("nao efetuar compra");
+	}else{
+		printf("efeetuar compras");
+	}
+	
+
+	
+	return 0;
+}
