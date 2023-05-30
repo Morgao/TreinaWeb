@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+
+int main(int argc, char *argv[]) {
+	
+	
+	int a,b, aux;
+	
+	
+	printf("digite um numero:");
+	scanf("%d",&a);
+	printf("digite outro numero?");
+	scanf("%d",&b);
+	
+	if(a>b){
+		printf("a e maior b");
+		
+	}else{
+		printf("b e maior");
+	}
+	
+	return 0;
+}
