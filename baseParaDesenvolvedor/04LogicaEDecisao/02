@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h> 
+
+
+int main(int argc, char *argv[]) {
+	
+	
+	int a,b, aux;
+	
+	
+	printf("digite um numero:");
+	scanf("%d",&a);
+	printf("digite outro numero?");
+	scanf("%d",&b);
+	
+	if(a<b){
+		printf("b e maior");
+		if(a==b){
+			printf("a e igual a b");
+		}
+		else{
+			printf("a e b sao diferentes");
+		}	
+	}
+	
+	return 0;
+}
