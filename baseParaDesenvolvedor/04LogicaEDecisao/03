@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h> 
+
+
+int main(int argc, char *argv[]) {
+	
+	
+	int a,b, aux;
+	
+	
+	printf("digite a primeira nota:");
+	scanf("%d",&a);
+	printf("digite a segunda nota");
+	scanf("%d",&b);
+	
+	aux = (a + b)/2;
+	if(aux>=6){
+		printf("aluno aprovado");
+	}else{
+		printf("aluno repovado");
+	}
+	
+	return 0;
+}
