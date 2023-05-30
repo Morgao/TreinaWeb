@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void main () {
+	
+	int a;
+	
+	
+	
+	printf("digite um numero entre 12 e 20: ");
+	scanf("%d",&a);
+	
+	while(a<12 || a>20){
+		printf("entrada invalida\n");
+		printf("digite um numero entre 12 e 20:\n ");
+		printf("digite o numero novamente\n");
+		scanf("%d",&a);
+	}	
+	
+		printf("numero digitado YYY: %d ",a);
+
+
+	
+
+
+	
+
+
+	
+	return 0;
+}
