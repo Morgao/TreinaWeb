@@ -1,0 +1,82 @@
+// nao concluido
+Desafio de Código
+Como funciona?
+Cupom do cliente
+
+Seu Luiz da padaria ficou extremamente feliz com o cadastro de produtos que fizemos para ele. Agora ele quer melhorar o sistema, permitindo que ele forneça o código e a quantidade de cada produto e o sistema apresente para ele imprimir o cupom do cliente.
+
+Vamos considerar o cadastro de produtos que usamos anteriormente:
+
+Código de barras | Nome Produto   | Valor
+---------------- | -----------    | ------
+        1        | Leite Integral | 3.80
+        2        | Manteiga       | 5.98
+        3        | Café 500g      | 8.25
+
+Os dados dos códigos de produtos e as quantidades serão representados em 2 arrays diferentes, que utilizam a mesma posição para um determinado produtoXquantidade. Veja o exemplo abaixo:
+
+códigos     = [3, 1, 2]
+quantidades = [1, 4, 1]
+
+Para o exemplo acima, teríamos o seguinte cupom:
+
+Café 500g x 1 - 8.25
+Leite Integral x 4 - 15.20
+Manteiga x 1 - 5.98
+total - 29,43
+
+Teremos como entrada os vetores, produtos e quantidades com valores inteiro representando os códigos de produto e suas respectivas quantidades. E a variável qtdLinhas do tipo inteiro que indica quantas linhas existem no cupom, para o exemplo acima essa variável teria o valor 3.
+
+Obs: a saída precisa estar no formato de cupom descrito acima.
+C / C++
+Em dúvida sobre como funcionam os desafios de código?Clique aquie saiba mais.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+void main () {
+	float valor[3]; // valor do produto
+	int codigo[3]; // codigo
+	int qtdLinhas[3]; // quantas linhas
+	int produtos[3];
+	int quantidades[3];
+	float total[3];
+	
+	int i, j;
+	
+	valor[0] = 3.80;
+	valor[1] = 5.98;
+	valor[2] = 8.25;
+	codigo[0] = 1;
+	codigo[1] = 2;
+	codigo[2] = 3;
+	
+	for(i=0;i<3;i++){
+		printf("digite o produto: \n");
+		scanf("%d",&produtos[i]);
+	}
+	for(i=0;i<3;i++){
+		printf("digite a quantidade: \n");
+		scanf("%d",&quantidades[i]);
+	}
+	for(i=0;i<3;i++){
+		for(j=0;j<3;j++){
+			if(produtos[i]==1){
+				total[i] = valor[i] * quantidades[i];
+			}else if(produtos[i]==2){
+				total[i] = valor[i] * quantidades[i];
+			}else if(produtos[i]==3){
+				total[i] = valor[i] * quantidades[i];
+			}
+ 
+			
+		}
+	}
+	for(i=0;i<3;i++){
+		printf("produto quantidade %d - %f\n",quantidades[i],total[i]);
+	}
+}
+
+	
+
