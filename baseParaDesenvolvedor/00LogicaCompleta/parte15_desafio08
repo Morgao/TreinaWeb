@@ -1,0 +1,12 @@
+int media = ((p1 + p2 * 2) + (p3 * 3)
+ + (tf))/7;
+ if(media>=9){
+     printf("A");
+ }else if(media>= 7.5 && media< 9.00){
+     printf("B");
+ }else if(media>=6.0 && media< 7.5){
+     printf("C");
+ }else{
+     printf("D");
+ }
+    //Informe seu código aqui
