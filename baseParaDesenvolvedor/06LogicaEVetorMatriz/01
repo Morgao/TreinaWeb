@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+//#include <locale.h>
+
+void main () {
+	
+	////setlocale(LC_ALL, "Portuguese");
+	int vet[5];
+	int i;
+	for( i = 0;i<5;i++){
+		printf("digite um numero %d posicao:",i+1);
+		scanf("%d",&vet[i]);
+	}
+
+	for(i=0;i<5;i++){
+		printf("posicao %d numero armazenado %d\n",i+1,vet[i]);
+	}
+
+
+}
+
+	
+
