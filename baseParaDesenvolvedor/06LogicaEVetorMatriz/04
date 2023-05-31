@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+void main () {
+	
+	setlocale(LC_ALL, "Portuguese");
+	int i, j;
+	int vet[5];
+	int aux;
+	
+	for(i=0;i<5;i++){
+		printf("digite um numero: \n");
+		scanf("%d",&vet[i]);		
+	}
+	
+	for(i=0;i<4;i++){
+		for(j=0;j<4;j++){
+			if(vet[i]>vet[i+1]){
+				aux = vet[i];
+				vet[i] = vet[i+1];
+				vet[i+1] = aux;
+			}
+		}
+	}
+	
+	for(i=0;i<5;i++){
+		printf("vetor na posicao %d %d\n",i,vet[i]);
+	}
+}
+
+	
+
