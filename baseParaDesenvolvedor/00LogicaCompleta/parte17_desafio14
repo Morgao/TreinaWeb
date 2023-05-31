@@ -1,0 +1,9 @@
+float juros = 0;
+float acumulado;
+juros = porcentagemJuros / 100;
+acumulado = 0;
+for(int i = 0; i < qtdAportes; i++){
+    acumulado = acumulado + (juros * acumulado);
+acumulado = acumulado + valorAporte[i];
+}
+printf("%4.2f", acumulado);
