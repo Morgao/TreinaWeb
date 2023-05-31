@@ -1,0 +1,3 @@
+let primeiroNumero: number = readNumber(); let segundoNumero: number = readNumber();
+let soma: number = primeiroNumero + segundoNumero; let subtracao: number = primeiroNumero - segundoNumero; let multiplicacao: number = primeiroNumero * segundoNumero;
+let divisao: number = primeiroNumero / segundoNumero; let modulo: number = primeiroNumero % segundoNumero; console.log(soma); console.log(subtracao); console.log(multiplicacao); console.log(divisao); console.log(modulo);
