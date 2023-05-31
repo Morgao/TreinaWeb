@@ -1,0 +1,2 @@
+let primeiroNumero: number = readNumber(); let segundoNumero: number = readNumber();
+let soma: number = primeiroNumero + segundoNumero; console.log(soma);
