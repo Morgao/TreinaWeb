@@ -1,0 +1,4 @@
+char modelo = 'T';
+    float preco = 45.98;
+    int capacidade = 32;
+//Informe seu código aqui
