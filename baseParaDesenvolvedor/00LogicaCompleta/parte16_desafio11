@@ -1,0 +1,6 @@
+double porcentagem = 0;
+   porcentagem = (100 - porcentagemDecrecimo) / 100; 
+for(int contador=1; contador <= qtdParcelas; contador++) {
+    printf("%d - %4.2f\n", contador, parcelaInicial );
+    parcelaInicial  = (parcelaInicial  * porcentagem);
+}
