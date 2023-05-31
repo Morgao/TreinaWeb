@@ -1,0 +1,5 @@
+let numero: number = readNumber();
+console.log("Tabuada de "+numero+":");
+for(let i = 1; i <= 10;i=i+1){
+    console.log(numero + " x " + i + " = " + numero * i );
+}
