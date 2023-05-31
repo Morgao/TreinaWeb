@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+void main () {
+	
+	int mat1[2][2];
+	int mat2[2][2];
+	int soma[2][2];
+	int i, j;
+	
+	for(i=0;i<2;i++){
+		for(j=0;j<2;j++){
+			printf("matriz A digite a linha %d e colula %d ",i,j);
+			scanf("%d", &mat1[i][j]);
+		}
+	}
+	for(i=0;i<2;i++){
+		for(j=0;j<2;j++){
+			printf("matri B digite a linha %d e colula %d ",i,j);
+			scanf("%d", &mat2[i][j]);
+		}
+	}
+	
+	for(i=0;i<2;i++){
+		for(j=0;j<2;j++){
+			soma[i][j] = mat1[i][j] + mat2[i][j];
+		}
+	}
+	for(i=0;i<2;i++){
+		for(j=0;j<2;j++){
+			printf("\nmatriz soma linha %d coluna %d soma %d \n",i,j,soma[i][j]);
+		}
+	}
+}
+
+	
+
