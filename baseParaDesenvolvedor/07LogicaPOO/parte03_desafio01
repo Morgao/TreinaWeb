@@ -1,0 +1,8 @@
+class Pessoa {
+  nome: string = 'Joaquim';
+  idade: number = 0;
+
+  fazerAniversario() {
+    this.idade = this.idade + 1;
+  }
+}
