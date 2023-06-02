@@ -1,0 +1,18 @@
+
+
+class Circulo{
+    raio: number;
+    pi: number = 3.14;
+    area: number;
+    calcularArea(raio: number): void{
+        area: number = 0;
+        pi: number = 3.14;
+        area = pi * (this.raio *this.raio);
+
+    }
+
+    
+}
+
+let novoCirculo: Circulo = new Circulo(5);
+novoCirculo.calcularArea();
