@@ -31,3 +31,11 @@ class Retangulo{
         return perimetro;
     }
 }   
+
+let novoRetangulo01: Retangulo = new Retangulo();
+
+novoRetangulo01.altura = 4;
+novoRetangulo01.largura = 2;
+console.log(novoRetangulo01);
+console.log(novoRetangulo01.area);
+console.log(novoRetangulo01.perimetro);
