@@ -1,0 +1,49 @@
+class NomePascalCase {
+
+
+}
+
+
+constructor(titutal: string){
+	this.titular = titular;
+	this.saldo = 0;
+}
+
+	depositar(valor: number): void {
+	if (valor > 0){
+	this.saldo = this.saldo + valor;
+	}
+
+	sacar(valor: number): void {
+	if (valor > 0 && valor <= this.saldo) {
+	this.saldo = this.saldo - valor;
+	}
+]
+}
+let nomeDoJoaquim: Nome = new Nome();
+
+
+class Conta{
+	titular: string;
+	saldo: number;
+	constructor(titular: string){
+	this.titular = titular;
+	this.saldo = 0;
+}
+}
+
+let contaDoCleyson: Conta = new Conta("Clayson");
+console.log(contaDoCleyson);
+
+
+class Conta{
+	titular: string;
+	saldo: number;
+	constructor(titular: string){
+	this.titular = titular;
+	this.saldo = 0;
+}
+}
+
+let contaDoCleyson: Conta = new Conta("Clayson");
+console.log(contaDoCleyson);
