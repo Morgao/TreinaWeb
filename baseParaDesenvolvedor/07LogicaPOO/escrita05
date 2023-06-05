@@ -1,0 +1,67 @@
+class Conta {
+    private _titular: string;
+    private _saldo: number;
+    protected xpto: number = 0;
+    
+    constructor(titular: string) {
+        this._titular = titular;
+        this._saldo = 0;
+    }
+
+    get titular(): string{
+        return this._titular;
+    }
+
+    set titular(titular: string) {
+        this._titular = titular;
+    }
+
+    get saldo(): number {
+        return this._saldo;
+    }
+
+    public depositar(valor: number): void {
+        if (valor > 0){
+            this._saldo = this.saldo + valor;
+        }    
+    }
+
+    public sacar(valor: number): void {
+        if (valor > 0 && valor <= this._saldo) {
+            this._saldo = this._saldo - valor;
+        }
+    }
+}
+// extends contacorrente é sub classe da classe conta
+class ContaCorrente extends Conta {
+// override sobrescreve o metado da classe mae
+    public  override sacar(valor: number): void {
+        let acrescimo = (1/100) * valor;
+        let valorTotal = valor + acrescimo;
+        super.sacar(valorTotal);
+        this.xpto = xpto;
+    }
+
+}
+
+class ContaPoupanca extends Conta {
+
+    public override depositar(valor: number): void {
+       
+            let acrescimo = (1/100) * valor;
+            let valorTotal = valor + acrescimo;
+            // super faz referencia da classe mae
+            super.depositar(valorTotal);
+            this.xpto = this.xpto +50;
+        
+    }
+
+}
+
+let conta1 = new Conta("JOTA");
+let conta2 = new ContaCorrente("Julia");
+let conta3 = new ContaPoupanca("JOao");
+
+console.log(conta1);
+console.log(conta2);
+console.log(conta3);
