@@ -1,0 +1,8 @@
+git init
+gid add
+git commit -m "mensagem"
+git push -u origin master
+git pull -u origin master
+git revert
+git log
+git status
