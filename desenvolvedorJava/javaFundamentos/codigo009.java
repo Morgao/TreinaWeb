@@ -1,0 +1,38 @@
+package br.com.treinaweb.main;
+
+import java.util.Scanner;
+
+public class Main {
+	static int resultado;
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.print("Digite o primeiro numero: "); 
+		int numero1 = scanner.nextInt(); 
+		System.out.print("Digite a operacao: "); 
+		char operacao = scanner.next().charAt(0);
+		System.out.print("Digite o segundo numero: ");
+		int numero2 = scanner.nextInt();
+		
+		
+		switch (operacao) {
+			case '+':
+				resultado = numero1 + numero2;
+			break;
+			case '-':
+				resultado = numero1 - numero2;
+			break;
+			case '*':
+				resultado = numero1 * numero2;
+			break;
+			case '/':
+				resultado = numero1 / numero2;
+			break;
+			default:
+				System.out.println("Operacao invalida!");					
+		}
+		System.out.println(String.format("o resultado de %d %c %d = %d",numero1,operacao,numero2,resultado));
+		scanner.close();
+	}
+}
