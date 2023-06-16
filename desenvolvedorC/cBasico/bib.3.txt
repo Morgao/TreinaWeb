@@ -1,0 +1,839 @@
+Pré-processadores
+
+A partir deste tópico você conhecerá as diretivas que existem no pré-processador de C.
+
+Saiba que todas as diretivas iniciam com um caractere jogo da velha (#) e que cada diretiva é única em sua linha, nunca podendo ser adicionadas duas diretivas em uma mesma linha. Veja:
+
+Correto:
+#include<stdio.h>
+#include<stdlib-h>
+Errado:
+#include<stdio.h> #include<stdlib-h>
+
+#define
+
+O uso da diretiva #define pode definir um macro que substituirá um identificador sempre que o mesmo for encontrado dentro do código do programa.
+
+Veja a forma dessa diretiva:
+
+#define nome_macro string
+Por exemplo:
+#define ERROU "Isso foi um grande erro"
+
+
+Depois de adicionar a diretiva #define, um nome ou identificador é escrito para o macro e depois, entre aspas duplas (“”), é escrita a mensagem que se deseja substituir pelo identificador ERROU quando ele for encontrado no código-fonte.
+
+Caso você não tenha entendido o porquê do nome macro citado acima, saiba que essa denominação é padrão de C ANSI, que define o identificador da diretiva como um nome de macro e o processo de substituição que existe entre o identificador e o conteúdo entre aspas duplas de substituição de macros.
+
+Agora veja um exemplo dessa diretiva:
+
+#include<stdio.h>
+#define ERRO "Grande erro"
+
+void main()
+{
+
+    int x;
+
+    for(x = 0; x<3; x++)
+    {
+        printf("Numero : %i\n\n",x);
+
+        if(x == 2)
+        {
+            printf("%s\n",ERRO);
+        }
+    }
+
+}
+
+O código acima se manteve usando apenas a biblioteca stdio.h, seguida pelo pré-processador define, que recebeu um nome de macro ERRO com uma mensagem de erro como valor:
+
+#include<stdio.h>
+#define ERRO "Grande erro"
+
+
+
+
+Dentro da função main() foi declarada uma variável do tipo int com o nome x e, para usar essa variável, foi criado um laço do tipo for que tem a função de contar três ciclos.
+
+Dentro desse laço foram exibidos os valores obtidos de x e, no final, foi adicionada ao código uma condicional que verifica se o valor de x é igual a 2. Se for, a mensagem contida no pré-processador é exibida:
+
+void main()
+{
+    int x;
+    for(x = 0; x<3; x++)
+    {
+        printf("Numero : %i\n\n",x);
+        if(x == 2)
+        {
+            printf("%s\n",ERRO);
+        }
+    }
+}
+
+#undef
+
+A diretiva #undef é extremamente simples, sua função é remover a definição anterior de um macro.
+
+Imagine que, em certo ponto do código, você defina um macro; porém, mais à frente você resolva remover essa definição por algum motivo.
+
+Para isso basta usar a seguinte diretiva:
+
+#undef nome do macro
+
+Veja um exemplo:
+
+#include<stdio.h>
+#define ERRO "Grande erro"
+void main()
+{
+    int x;
+
+    for(x = 0; x<3; x++)
+    {
+        printf("Numero : %i\n\n",x);
+
+        if(x == 2)
+        {
+            printf("%s\n",ERRO);
+        }
+    }
+
+    #undef ERRO
+
+  printf("%s\n",ERRO);
+}
+
+Acima, foi usado como exemplo o código apresentado para exemplificar o funcionamento de #define. Veja que no final do código foi adicionado o pré-processador #undef acompanhado do macro ERRO já definido:
+
+#undef ERRO
+
+Ao utilizar o código, a definição de ERRO foi retirada. Assim, se for tentado imprimir seu valor dará uma mensagem de erro.
+
+#if #else #elif #endif
+
+Agora conheça as diretivas de compilação condicional. Elas facilitam o desenvolvimento de programas e a portabilidade entre máquinas ou ambientes.
+
+Você irá entendê-las com exemplos bem práticos. As primeiras são #if e #endif, que têm a seguinte estrutura:
+
+#if expressão
+  Sequencia de comandos
+#endif
+
+
+
+Note que a estrutura é muito parecida com as condicionais IF, já estudadas.
+
+A diferença mais visível é que, ao invés de fechar a condicional em chaves {}, é usada a diretiva #endif.
+
+Veja um exemplo:
+
+#include<stdio.h>
+
+#define MAX 50
+
+void main()
+{
+    #if MAX < 100
+        printf("O numero %i nao e tao maximo assim\n",MAX);
+    #endif // MAX
+}
+No exemplo acima foi mantida a estrutura básica dos códigos, incluindo apenas uma biblioteca ao código; depois dessa inclusão foi definido um valor para o macro MAX. Veja:
+#include<stdio.h>
+#define MAX 50
+
+Por fim, dentro da função main() foi criada uma condicional com os pré-processadores #if e #endeif, onde foi verificado se o valor do macro MAX é menor que 100. Se for, é exibida uma mensagem com printf(), dizendo que esse macro não é tão Maximo assim:
+
+void main()
+{
+    #if MAX < 100
+        printf("O numero %i nao e tao maximo assim\n",MAX);
+    #endif // MAX
+}
+
+
+
+Veja a imagem do código compilado:
+
+Agora conheça mais um “aliado” desse código – o #else.
+
+Veja no exemplo abaixo como é simples e fácil a sua utilização:
+
+
+#include<stdio.h>
+
+#define MAX 50
+
+void main()
+{
+    #if MAX > 100
+        printf("O numero %i e maximo mesmo\n",MAX);
+    #else
+        printf("O numero %i nao e tao maximo assim\n",MAX);
+    #endif
+}
+
+
+
+Acima, foi mantido o exemplo usado para explicar o #if e #endif, porém com uma pequena alteração: a adição do #else, que verifica se a primeira condição foi satisfeita; se a resposta for negativa, o código após o #else é executado.
+
+Nesse código, será obtida a mesma mensagem do código anterior.
+
+Para finalizar esta etapa você conhecerá o #elif, que é muito parecido com o elseif mostrado anteriormente.
+
+Até a função é a mesma, que verifica outra condição para o macro caso a condição principal não tenha sido satisfeita.
+
+Veja um exemplo:
+
+
+#include<stdio.h>
+
+#define MAX 50
+
+void main()
+{
+
+    #if MAX > 100
+
+        printf("O numero %i e maximo mesmo\n",MAX);
+
+    #elif MAX > 30
+
+        printf("O numero %i nao e tao maximo assim\n",MAX);
+
+    #else
+
+       printf("O numero %i e menor que 30\n",MAX);
+
+    #endif
+}
+
+
+
+Neste exemplo também se fez questão de manter o código anterior para que, dessa forma, fosse mais fácil compreender o conceito explicado.
+
+No código acima foi usado #elif para verificar uma condição secundária, já que a principal não foi satisfeita; e essa condição é verificar se MAX é maior que 30 (e sabe-se que, afinal, MAX vale 50).
+
+Então é exibida a mensagem desencadeada por #elif.
+
+#ifdef #ifndef
+
+Conheça mais duas diretivas de compilação condicional (ou pré-processadores), o #ifdef e ifndef, que significam “Se definido” e “Se não definido”, respectivamente.
+
+Veja a forma da primeira diretiva:
+
+#ifdef nome do macro
+  Códigos
+#endif
+
+
+
+Veja que #ifdef verifica se um macro foi definido através da diretiva #define; se a resposta for positiva um código é desencadeado.
+
+O #ifndef faz exatamente o contrário, se um macro não tiver sido definido através da diretiva #define um código é desencadeado. Veja a forma dessa diretiva:
+
+#ifndef nome do macro
+  Códigos
+#endif
+#ifndef nome do macro
+  Códigos
+#endif
+
+Muito simples, não é mesmo? Agora pratique o que foi aprendido com um código de exemplo:
+
+#include<stdio.h>
+
+#define MAX 100
+
+void main()
+{
+
+    #ifdef MAX
+        printf("MAX foi definido com o valor %i\n\n",MAX);
+    #endif // MAX
+
+    #undef MAX
+
+    #ifndef MAX
+        printf("MAX nao foi definido\n\n");
+    #endif // MAX
+
+}
+
+
+
+No exemplo acima foram criadas duas condicionais: uma #ifdef e outra ifndef, ambas dentro do mesmo arquivo de código.
+
+Na condicional #ifdef, se MAX estiver definido, uma mensagem é exibida dizendo o valor que foi definido para esse macro. Já em #ifndef é verificado se MAX não foi definido; caso ele não tenha sido, uma mensagem é exibida, dizendo que o mesmo não foi definido:
+
+
+#ifdef MAX
+        printf("MAX foi definido com o valor %i\n\n",MAX);
+    #endif // MAX
+
+E
+
+    #ifndef MAX
+        printf("MAX nao foi definido\n\n");
+    #endif // MAX
+
+
+Mas, repare em um detalhe: antes da criação da segunda condicional – a #ifndef – foi usado o undef para retirar a definição de MAX. Com isso aparecerá na tela a impressão de ambas as mensagens, pois em #ifdef realmente MAX estava definido; porém, antes de #ifndef, foi retirada essa definição com undef:
+
+#undef MAX
+
+
+
+Veja o resultado da compilação desse código:
+
+
+#error
+
+A diretiva #error provoca uma parada de compilação do programa. Veja sua forma:
+
+
+Repare que a mensagem de erro não está entre aspas. Fique atento porque ela pode aparecer junto com outras informações, de acordo com cada compilador.
+
+#line
+
+A diretiva #line tem a função de alterar o conteúdo dos identificadores LINE e FILE, que são identificadores predefinidos do compilador.
+
+Com essa diretiva é possível definir um ponto de partida para a contagem de linhas do programa, assim como definir uma string para o nome do arquivo.
+
+Veja a forma dessa diretiva:
+
+
+#line numero de linhas "nome do arquivo"
+
+Entenda melhor essa diretiva com o auxílio de um exemplo:
+#include<stdio.h>
+
+#line 50 "Exemplo Line"
+void main()
+{
+    printf("linhas = %i\narquivo = %s \n",__LINE__,__FILE__);
+
+}
+
+
+
+No exemplo acima a diretiva #line foi usada para definir a partir de qual número serão contadas as linhas do programa; e também foi definido o nome para o arquivo:
+
+
+#line 50 "Exemplo Line"
+
+Depois, dentro da função main(), foi usada a função printf() para exibir a contagem das linhas, feita a partir da linha subsequente à linha da diretiva #line; também foi exibido o nome do arquivo adicionado na diretiva:
+
+void main()
+{
+    printf("linhas = %i\narquivo = %s \n",__LINE__,__FILE__);
+}
+
+Fique atento: para retornar os valores de linhas e nome de arquivo adicionados na diretiva #line é preciso usar os identificadores __LINE__ e __FILE__; o primeiro retorna o número de linhas e o segundo o nome do arquivo.
+
+Veja na imagem o resultado da compilação do código:
+
+#pragma
+
+A diretiva #pragma permite que várias instruções sejam dadas ao compilador. Por exemplo, uma instrução de tracing nada mais é do que uma execução passo a passo do programa.
+
+Filas e Pilhas
+
+Neste tópico você verá uma breve introdução sobre filas e pilhas. No módulo intermediário você trabalhará muito com elas.
+
+Todo mundo já entrou em uma fila na vida, seja uma fila de banco, da lanchonete, do cinema, enfim.
+
+O conceito de fila em C é muito parecido com o conceito de fila do mundo real.
+
+No mundo real, se não houver um fura-fila, é certo que o primeiro a entrar na fila será o primeiro a sair dela, assim como o segundo a entrar será o segundo a sair, e assim sucessivamente.
+
+Em C isso também acontece, e essa ação recebe o nome de FIFO (first in first out) ou primeiro que entra primeiro que sai.
+
+Veja a imagem que demonstra esse funcionamento:
+
+Já uma pilha é o contrário da fila. Enquanto as filas têm a premissa de fazer sair primeiro o primeiro que entrou, as pilhas se comportam de maneira inversa: o último a entrar na pilha é o primeiro a sair.
+
+Essa ação recebe o nome de LIFO (Last In First Out). Parando para pensar, isso faz sentido. Imagine uma pilha com 100 pratos: o último prato a ser colocado, certamente será mais fácil de pegar do que o primeiro, que está embaixo de 99 pratos.
+
+É preciso que você entenda bem esses conceitos, assim como structs, funções e ponteiros. O módulo intermediário aprofunda o trabalho com as filas e pilhas.
+
+OpenGL
+
+OpenGL é um programa de interface para hardware gráfico. Em outras palavras, Opengl é uma biblioteca gráfica.
+
+Essa poderosa API (Application Programming Interface) é usada para criar aplicações 2D e 3D, que podem ser feitas usando linguagens de programação que façam chamadas às bibliotecas de OpenGl.
+
+A linguagem C é uma das linguagens que permite trabalhar com essa maravilhosa API gráfica.
+
+A partir do próximo módulo você aprenderá a trabalhar com essa API que é muito conhecida, principalmente no mundo dos games.
+
+Prepare-se e estude bem o conteúdo deste módulo; ele servirá de base para o próximo curso, que trata do maravilhoso mundo gráfico.
+
+Prepare-se para controlar a força!
+
+Projeto final: máquina de cálculos
+
+Neste projeto final você desenvolverá um pequeno programa capaz de calcular soma, subtração, divisão, multiplicação e área de triângulos.
+
+A ideia geral desse programa é oferecer ao usuário um menu simples, onde seja possível escolher a operação a ser feita. É preciso oferecer a oportunidade de informar ao programa quais números devem ser usados nos cálculos.
+
+Segue o código do projeto:
+
+#include<stdio.h>
+
+void main()
+{
+    int Escolha;
+
+Retorno:
+    printf("\n\n\n\n");
+    Menu();
+
+        do{
+printf("Digite um numero inteiro valido");
+            scanf("%i",&Escolha);
+
+        }while(Escolha > 5);
+
+
+        switch(Escolha)
+        {
+
+        case 0:
+            printf("\nTchau\n");
+            exit(1);
+            break;
+
+        case 1:
+            printf("\nEscolha dois numeros para a soma\n");
+            Soma();
+            goto Retorno;
+            break;
+
+        case 2:
+            printf("\nEscolha dois numeros para a subtracao\n");
+            Subtracao();
+            goto Retorno;
+            break;
+
+        case 3:
+            printf("\nEscolha dois numeros para a divisao\n");
+            Divisao();
+            goto Retorno;
+            break;
+
+        case 4:
+            printf("\nEscolha dois numeros para a multiplicacao\n");
+            Multiplicacao();
+            goto Retorno;
+            break;
+
+        case 5:
+            printf("\nEscolha dois numeros para calcular a area\n");
+            Area();
+            goto Retorno;
+            break;
+
+        default:
+            printf("Escolha uma opcao valida");
+            goto Retorno;
+            break;
+        }
+
+}
+
+void Menu()
+{
+    int i;
+
+    for(i=0; i<30; i++)
+    {
+       printf("=");
+    }
+
+    printf("\n\nEscolha uma das opcoes abaixo:\n\n");
+
+    printf("(1) Soma:\n");
+    printf("(2) Subtracao:\n");
+    printf("(3) Divisao:\n");
+    printf("(4) Multiplicacao:\n");
+    printf("(5) Area do Triangulo:\n\n");
+
+    for(i=0; i<30; i++)
+    {
+       printf("=");
+    }
+}
+
+void Soma()
+{
+    int x,y;
+    scanf("%i",&x);
+    scanf("%i",&y);
+
+    int Resultado = x+y;
+    printf("\nA Soma entre os dois numeros e : %i\n\n",Resultado);
+
+}
+
+void Subtracao()
+{
+    int x,y;
+    scanf("%i",&x);
+    scanf("%i",&y);
+
+    int Resultado = x-y;
+    printf("\nA Subtracao entre os dois numeros e : %i\n\n",Resultado);
+}
+
+void Divisao()
+{
+    int x,y;
+    scanf("%i",&x);
+    scanf("%i",&y);
+
+
+    if(y != 0)
+    {
+        float Resultado = (float)x/y;
+        printf("\nA Divisao entre os dois numeros e : %.4f\n\n",Resultado);
+    }else{
+
+        printf("Nao se pode dividir por 0");
+
+
+    }
+
+
+}
+
+void Multiplicacao()
+{
+    int x,y;
+    scanf("%i",&x);
+    scanf("%i",&y);
+
+
+        float Resultado = (float)x*y;
+        printf("\nA Multiplicacao entre os dois numeros e : %.4f\n\n",Resultado);
+
+
+    }
+
+void Area()
+{
+    int x,y;
+    scanf("%i",&x);
+    scanf("%i",&y);
+
+
+        float Resultado = (float)(x*y)/2;
+        printf("\nA area do triangulo e : %.4f\n\n",Resultado);
+
+
+    }
+
+Detalhes do projeto
+
+Inicie o estudo com a função responsável por exibir na tela o menu:
+
+
+void Menu()
+{
+    int i;
+
+    for(i=0; i<30; i++)
+    {
+       printf("=");
+    }
+
+    printf("\n\nEscolha uma das opcoes abaixo:\n\n");
+
+    printf("(1) Soma:\n");
+    printf("(2) Subtracao:\n");
+    printf("(3) Divisao:\n");
+    printf("(4) Multiplicacao:\n");
+    printf("(5) Area do Triangulo:\n\n");
+
+    for(i=0; i<30; i++)
+    {
+       printf("=");
+    }
+}
+
+
+Veja que a função não tem retorno e a primeira coisa feita nela foi declarar uma variável do tipo int de nome i.
+
+Essa variável foi usada logo abaixo, dentro de um laço do tipo for, onde é verificado se i é menor que 30; se for, a variável será incrementada.
+
+Dentro do laço, os ciclos que serão executados foram aproveitados para usar a função printf() para imprimir na tela uma sequência de caracteres “ = ”.
+
+Esse símbolo sera responsável por determinar a área do menu:
+
+int i;
+
+    for(i=0; i<30; i++)
+    {
+       printf("=");
+    }
+
+
+
+Terminado esse laço, devem ser criadas as mensagens referentes às opções que o programa oferece, usando a função printf():
+
+printf("\n\nEscolha uma das opcoes abaixo:\n\n");
+
+    printf("(1) Soma:\n");
+    printf("(2) Subtracao:\n");
+    printf("(3) Divisao:\n");
+    printf("(4) Multiplicacao:\n");
+    printf("(5) Area do Triangulo:\n\n");
+
+Agora a função de menu é fechada com mais um laço que, assim como o colocado no início da função, será responsável por imprimir uma sequência de caracteres “ = ” para finalizar a área do menu:
+for(i=0; i<30; i++)
+    {
+       printf("=");
+    }
+
+
+
+Agora veja a função Soma, que também não retorna nada, sendo do tipo void.
+
+Esta é a função inteira:
+
+
+void Soma()
+{
+    int x,y;
+    scanf("%i",&x);
+    scanf("%i",&y);
+
+    int Resultado = x+y;
+    printf("\nA Soma entre os dois numeros e : %i\n\n",Resultado);
+
+}
+
+
+
+A primeira coisa feita foi declarar duas variáveis do tipo int de nomes x e y.
+
+Depois, a função scanf() foi usada para capturar os números que o usuário digitar, e esses números serão adicionados às variáveis recém-declaradas.
+
+Por fim, foi declarada outra variável de nome de Resultado, a qual foi atribuído o resultado da soma entre x e y; depois esse resultado foi impresso com auxílio da função printf().
+
+Prossiga o estudo, passando para a função Subtração.
+
+Segue a função inteira:
+
+void Subtracao()
+{
+    int x,y;
+    scanf("%i",&x);
+    scanf("%i",&y);
+
+    int Resultado = x-y;
+    printf("\nA Subtracao entre os dois numeros e : %i\n\n",Resultado);
+}
+
+
+
+Observe que o início da função Subtração é muito parecido com o da função Soma, com a declaração de duas variáveis inteiras e a captura delas com a função scanf().
+
+Tudo continua igual, exceto pelo fato de agora haver uma subtração entre os valores x e y adicionados na variável Resultado.
+
+Prosseguindo, passe à função Divisão apresentada abaixo:
+
+void Divisao()
+{
+    int x,y;
+    scanf("%i",&x);
+    scanf("%i",&y);
+
+
+    if(y != 0)
+    {
+        float Resultado = (float)x/y;
+        printf("\nA Divisao entre os dois numeros e : %.4f\n\n",Resultado);
+    }else{
+        printf("Nao se pode dividir por 0");
+    }
+}
+
+
+
+Nessa função, o início é bem parecido ao que foi mostrado até o momento, porém, com uma grande diferença: uma condicional responsável por analisar se o segundo número digitado é diferente de zero; se for, será possível fazer a divisão de x por y e imprimir o resultado; caso contrário, uma mensagem negativa será exibida.
+
+Repare, também, que o valor do resultado da divisão foi adequado para poder ser apresentado como um float. Isso foi feito usando cast (float)x/y.
+
+Prossiga, conhecendo a função responsável pela multiplicação:
+
+
+void Multiplicacao()
+{
+    int x,y;
+    scanf("%i",&x);
+    scanf("%i",&y);
+
+
+        float Resultado = (float)x*y;
+        printf("\nA Multiplicacao entre os dois numeros e : %.4f\n\n",Resultado);
+    }
+
+
+
+A função de multiplicação não traz nenhuma novidade no código, que é quase idêntico ao código de Soma, com a diferença da operação usada “ * ” e do cast usado para converter o resultado da multiplicação em um float.
+
+Para calcular a Área de um Triângulo, pode ser usada a seguinte função:
+
+
+void Area()
+{
+    int x,y;
+    scanf("%i",&x);
+    scanf("%i",&y);
+
+        float Resultado = (float)(x*y)/2;
+        printf("\nA area do triangulo e : %.4f\n\n",Resultado);
+
+    }
+
+
+
+Na função Area foi mantido o início usado em todas as funções, com a diferença do cálculo que também usa um cast para passar o valor da operação em float; neste caso em especial é executado um cálculo de multiplicação de x e y e o resultado obtido é dividido por 2 para que, dessa forma, seja possível obter a área de um triângulo de base x e altura y.
+
+Agora finalmente passe à função principal do programa: a função main().
+
+Veja:
+
+void main()
+{
+    int Escolha;
+
+Retorno:
+    printf("\n\n\n\n");
+    Menu();
+
+        do{
+printf("Digite um numero inteiro valido");
+            scanf("%i",&Escolha);
+
+        }while(Escolha > 5);
+
+
+        switch(Escolha)
+        {
+
+        case 0:
+            printf("\nTchau\n");
+            exit(1);
+            break;
+
+        case 1:
+            printf("\nEscolha dois numeros para a soma\n");
+            Soma();
+            goto Retorno;
+            break;
+
+        case 2:
+            printf("\nEscolha dois numeros para a subtracao\n");
+            Subtracao();
+            goto Retorno;
+            break;
+
+        case 3:
+            printf("\nEscolha dois numeros para a divisao\n");
+            Divisao();
+            goto Retorno;
+            break;
+
+        case 4:
+            printf("\nEscolha dois numeros para a multiplicacao\n");
+            Multiplicacao();
+            goto Retorno;
+            break;
+
+        case 5:
+            printf("\nEscolha dois numeros para calcular a area\n");
+            Area();
+            goto Retorno;
+            break;
+
+        default:
+            printf("Escolha uma opcao valida");
+            goto Retorno;
+            break;
+        }
+}
+
+
+
+A função main() começa com a declaração de uma variável do tipo int de nome Escolha, e logo depois é declarado um retorno para goto.
+
+Na sequência, printf() é usada para pular 4 linhas e somente então a função Menu() é chamada.
+
+Por fim, é criado um laço do tipo do while, que captura os números pressionados pelo usuário e os armazena em Escolha; isso é feito enquanto os números digitados forem maiores que 5.
+
+Observe:
+
+
+int Escolha;
+Retorno:
+    printf("\n\n\n\n");
+    Menu();
+
+do{
+printf("Digite um numero inteiro valido");
+            scanf("%i",&Escolha);
+
+        }while(Escolha > 5);
+
+Para finalizar a função main, é criado um switch com as ações que serão chamadas em cada case:
+
+switch(Escolha)
+        {
+
+        case 0:
+            printf("\nTchau\n");
+            exit(1);
+            break;
+
+        case 1:
+            printf("\nEscolha dois numeros para a soma\n");
+            Soma();
+            goto Retorno;
+            break;
+
+        case 2:
+            printf("\nEscolha dois numeros para a subtracao\n");
+            Subtracao();
+            goto Retorno;
+            break;
+
+        case 3:
+            printf("\nEscolha dois numeros para a divisao\n");
+            Divisao();
+            goto Retorno;
+            break;
+
+        case 4:
+            printf("\nEscolha dois numeros para a multiplicacao\n");
+            Multiplicacao();
+            goto Retorno;
+            break;
+
+        case 5:
+            printf("\nEscolha dois numeros para calcular a area\n");
+            Area();
+            goto Retorno;
+            break;
+
+        default:
+            printf("Escolha uma opcao valida");
+            goto Retorno;
+            break;
+        }
+
+Cada case se refere a um número do menu. Ao escolher um número, é chamada a função correspondente à opção daquele número, acompanhado por uma mensagem característica e um goto, fazendo com que ao final do cálculo seja retornado ao menu principal.
+
+Veja a tela de execução do programa:

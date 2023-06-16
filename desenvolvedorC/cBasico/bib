@@ -31,3 +31,1227 @@ unsigned long int %lu
 float %f 
 double %lf
 long double %Lf
+
+A variável global static funciona de forma diferente. Enquanto uma variável local static só é reconhecida dentro de sua função, uma variável global definida como static pode ser acessível dentro do arquivo em que se encontra e não apenas na função.
+
+Veja um exemplo:
+
+static int num = 0;
+
+
+static
+
+Conversão de dados
+Para isso é preciso usar o CAST.
+
+Veja um exemplo:
+
+Resultado = (float) operação;
+
+Foi informado ao compilador para armazenar na variável Resultado o valor da variável operação, mas não como inteiro ou char, e sim como um float.
+
+
+Classes de armazenamento
+
+Em C existem quatro classes de armazenamento: auto, extern, static e register.
+
+Conheça cada uma delas:
+auto
+
+A classe auto é o padrão das variáveis locais. É uma declaração explícita de uma variável local e funciona seguindo a mesma regra: a variável local só pode ser acessada de dentro de uma função.
+
+Essa regra se aplica também a variáveis definidas com a classe de armazenamento auto.
+
+Veja um exemplo desse tipo de classe:
+
+void main()
+{
+  int idade;
+  auto int idade2;
+}
+
+extern
+
+A próxima classe de armazenamento é extern, que deve ser usada em variáveis globais; sua função é permitir ao programador referenciar variáveis que estejam em outros arquivos de código.
+
+Lembre-se que uma variável global é global apenas em seu arquivo de código, sendo desconhecida em outros arquivos. Então, para evitar a criação de várias variáveis, uma em cada arquivo de código, essa variável deve ser declarada em arquivos adicionais usando a classe extern.
+
+Ao fazer dessa forma, o compilador é informado que a variável já foi declarada em outro arquivo e que, no arquivo de código atual, se quer apenas referenciá-la.
+
+Veja um exemplo:
+
+//Arquivo – Externo.c
+extern int minhaIdade;
+
+Void mensagem()
+{
+  printf("Minha Idade e %i",minhaIdade);
+}
+
+//Arquivo – main.c
+
+Int minhaIdade = 31;
+
+Void main()
+{
+mensagem();
+}
+
+
+#include<stdio.h>
+int minhaIdade = 31;
+void main()
+{
+    mensagem();
+}
+//
+
+#include<stdio.h>
+extern int minhaIdade;
+void mensagem()
+{
+    printf("Minha Idade e %i",minhaIdade);
+}
+
+Acima estão dois arquivos de código: no primeiro arquivo foi declarada a variável minhaIdade; no segundo, essa variável foi referenciada com a classe extern e depois usada dentro da função printf().
+
+Observe que, ao executar o código onde se encontra a função main(), obtém-se a mensagem adicionada à função printf() acompanhada do valor da variável referenciada.
+
+Isso significa que, com o auxílio da classe extern, é possível usar o valor da variável minhaIdade sem precisar declará-la novamente.
+
+Veja a imagem da execução do código:
+
+static
+
+A classe static foi estudada anteriormente. Você já sabe que uma variável que carrega essa classe de armazenamento tem a propriedade de preservar seu valor entre chamadas de função, e que C comporta variáveis static globais e locais. Não se faz necessário repetir a explicação aqui.
+
+
+register
+
+As variáveis com a classe de armazenamento register têm a função de solicitar ao compilador que armazene seus dados em registradores da cpu e não na memória, como acontece normalmente.
+
+Isso faz com que as operações feitas com esse tipo de variável sejam bem mais rápidas do que o comum. Claro que, a princípio, esse especificador era aplicável apenas às variáveis do tipo int e char, mas hoje o padrão C ANSI permite usar esse especificador para qualquer tipo de variável.
+
+Mas, cuidado: valores pequenos podem ser armazenados em registradores à vontade, mas valores grandes como matrizes não.
+
+Acompanhe um exemplo:
+
+#include<stdio.h>
+void main()
+{
+   register int numero = 10;
+   numero = numero*5;
+   printf("O resultado esperado e: %i\n",numero);
+}
+
+Constantes
+
+Constantes ou variáveis do tipo const são aquelas que não podem ter seu valor modificado pelo programa.
+
+Uma variável const é útil principalmente em cálculos que exijam um valor imutável.
+
+Imagine que você precise desenvolver um programa que seja capaz de resolver cálculos baseado em valores constantes como, por exemplo, gravidade, velocidade da luz etc.
+
+Você deve concordar que, para o programa funcionar corretamente, não pode aceitar mudanças nos valores que no “mundo real” nunca mudam; então, a saída é definir a gravidade como um valor e a velocidade da luz como uma constante.
+
+Veja um exemplo de declaração e utilização desse tipo de variável:
+
+
+#include<stdio.h>
+const float Pi = 3.141592;
+void main()
+{
+   float raio = 5.0;
+   float resultado;
+
+   resultado = 2* Pi * raio;
+   printf("O comprimento do circulo e: %f\n",resultado);
+}
+Observe que, dentro do programa, a variável Pi foi declarada como sendo global e sendo também uma constante (const) do tipo float.
+
+O valor de Pi não será alterado pelo programa; então, é possível encontrar o comprimento de um círculo de raio igual a 5.0.
+
+Veja que, dentro da função main(), duas variáveis locais foram declaradas, onde raio armazena o valor do tipo float 5.0; o resultado, também do tipo float, irá armazenar o resultado do cálculo de comprimento de circunferências.
+
+Comprimento da circunferência
+
+Comprimento = 2 * Pi * raio.
+
+Operadores aritméticos
+
+Assim como em outras linguagens de programação, em C também é possível fazer cálculos matemáticos como soma, subtração e divisão, entre outros.
+
+Os responsáveis por efetuar tais cálculos são chamados de operadores aritméticos.
+
+Veja a lista desses operadores:
+
+
+Operadores	Função
++	Soma
+- 	Subtração
+*	Multiplicação
+/	Divisão
+%	Módulo
+++	Incremento
+--	Decremento
+
+Agora que você conhece os operadores aritméticos, faça um pequeno exemplo compilável de cada um deles:
+
+Depois de calculado esse comprimento, a função printf() foi usada para exibir na tela o resultado, que deve ser igual ao da imagem abaixo:
+
+Incremento e Decremento
+
+Você conheceu os principais operadores aritméticos. Aprenda agora os operadores que cuidam do incremento e decremento de valores.
+
+Em C, são dois os operadores responsáveis pelo incremento e decremento.
+
+O operador responsável por incrementar valores é o operador ++, que tem a função de somar uma unidade (1) a seu operando.
+
+Já o operador responsável por decrementar valores é o --, que tem a função de subtrair uma unidade (1) de seu operando.
+
+Veja abaixo um exemplo de incremento e decremento:
+
+
+
+De ambas as formas se obtém o incremento ou decremento, mas saiba que, em uma expressão, a posição do operador de incremento e decremento faz toda a diferença.
+
+Veja abaixo um exemplo não compilável:
+C / C++
+
+A variável A foi definida como sendo igual a 5, e a variável B recebeu o valor da variável A já incrementada.
+
+Ao executar essa expressão, serão obtidos os seguintes valores para A e B:
+C / C++
+
+Ambas terão o mesmo valor (6) porque A foi incrementada em 1 antes de seu valor ser atribuído a B.
+
+Agora veja a situação oposta:
+C / C++
+
+A expressão acima resultará o seguinte:
+C / C++
+
+Perceba que a variável A continua com valor 6 porque foi incrementada. Porém, B não assumiu o mesmo valor de A porque foi informado ao compilador que devia ser atribuído a B o valor de A antes do incremento, que é 5.
+
+Bem simples, não é mesmo?
+
+Agora faça estes exemplos de incremento e decremento para ser compilado na IDE.
+
+A = 5;
+B = ++A;
+
+A = 6 e B = 6
+
+A = 5;
+B = A++;
+
+A = 6 e B = 5
+
+
+Operadores relacionais e lógicos
+
+Operadores relacionais e lógicos tratam da relação entre determinados valores e a lógica existente nessa relação.
+
+Se você já estudou alguma coisa sobre lógica de programação, certamente entendeu a explicação acima. Caso nunca tenha estudado nada a respeito, fique calmo, pois será dada uma breve explicação sobre o assunto.
+
+O início deste estudo focará a lógica de programação.
+
+A lógica de programação se apoia fortemente em operações que retornam resultados verdadeiros ou falsos.
+
+Em C, o valor 0 é considerado falso e qualquer número diferente de zero (normalmente é usado o número 1) é considerado verdadeiro.
+
+Com essa regra lógica determinada, os valores só precisam ser relacionados para se obter a lógica existente entre eles.
+
+Conheça a tabela verdade dos operadores lógicos:
+
+&& ||
+>=
+<=
+>
+<
+==
+!=
+
+Condicionais
+
+A linguagem C oferece a possibilidade de determinar condições para que certa função possa ou não acontecer.
+
+Conheça a seguir os códigos responsáveis por criar tais condições.
+
+IF
+
+O código if tem a função de executar determinada ação caso uma condição pré-estabelecida seja satisfeita. Veja o exemplo, supondo a seguinte situação: “Se meu cachorro fugir irei procurá-lo”.
+
+Veja que se trata de uma condição, que em C seria estruturada assim:
+
+If(cachorro == fugiu)
+{
+  Printf("Procurar o cachorro");
+}
+
+F Aninhado
+
+Um if aninhado não tem segredo: é um if que está contido em outro if.
+
+Suponha que você precise escrever uma condição que dependa de outra condição superior, por exemplo: “Se não estiver chovendo e se fulano acordar na hora, irá jogar futebol”.
+
+Veja que existem duas condições para que fulano jogue futebol: a primeira é que não esteja chovendo, e a segunda é que ele acorde na hora.
+
+Isso pode ser chamado de if aninhado. Veja a mesma situação em linguagem C:
+
+If(!chuva)
+{
+  If(acordarNaHora)
+{
+    printf("Estou jogando futebol");
+}
+}
+
+f, else, else if
+
+Prossiga no estudo de condicionais. Retomando: o condicional if verifica se uma condição é verdadeira; se for, alguma ação é desencadeada. Também é preciso pensar em ações que aconteçam caso uma condicional não seja satisfatória. Afinal, tudo na vida é assim: se uma condição for satisfeita, uma ação X será desencadeada; e se essa mesma condição não for satisfeita, uma ação Y será desencadeada. Essa é a função dos códigos if e else.
+
+Imagine a seguinte situação: “Se as pilhas estiverem carregadas vou tirar fotos com minha máquina digital. Caso contrário, vou recarregar as pilhas”.
+
+Veja que, se a primeira condição for satisfeita, poderei tirar fotos tranquilamente; porém, se a condição principal não for satisfeita, as pilhas serão recarregadas.
+
+Essa condição, em linguagem C, seria estruturada assim:
+
+if(pilhas == carregadas)
+{
+  printf("Tirando fotos");
+}else{
+  printf("Recarregando pilhas");
+}
+
+if(beberAgua == litros2)
+{
+  printf("Estou totalmente hidratado");
+}else if(beberAgua == litros1){
+  printf("Estou parcialmente hidratado");
+}
+
+Switch Case
+
+O switch é um comando interno de seleção múltipla, cuja função é testar sucessivamente o valor de determinada expressão.
+
+Esse comando é usado para retornar valores de acordo com informações adicionadas ao programa. Veja um exemplo: Pegar meses de 1 a 12.
+
+Se pegar meses for igual a 1, o resultado será o mês de janeiro. Se pegar meses for igual a 2, será o mês de fevereiro. (continua...).
+
+Se pegar meses não estiver no intervalo de 1 a 12, será escolhido um mês válido.
+
+Veja que há apenas uma condição para que switch funcione, que é pegar o número de 1 a 12 e retornar o nome do mês equivalente ao número.
+
+Basicamente essa é a função do switch. Veja a mesma situação estruturada em C:
+
+Pegames = getchar();
+
+Switch(Pegames){
+
+  Case ‘1’ :
+  Printf("Janeiro");
+  Break;
+
+  Case ‘2’ :
+  Printf("Fevereiro");
+  Break;
+
+
+  Case ‘3’ :
+  Printf("Marco");
+  Break;
+  …
+  Default:
+  Printf("Escolha um mes valido");
+
+}
+
+#include<stdio.h>
+
+void main()
+{
+    int dia = getchar();
+
+    switch(dia){
+
+            case '1':
+                printf("Segunda feira");
+                break;
+
+            case '2':
+                printf("Terca feira");
+                break;
+
+            case '3':
+                printf("Quarta feira");
+                break;
+
+            case '4':
+                printf("Quinta feira");
+                break;
+
+            case '5':
+                printf("Sexta feira");
+                break;
+
+            case '6':
+                printf("Sabado");
+                break;
+
+            case '7':
+                printf("Domingo");
+                break;
+
+            default:
+                printf("Nenhuma opcao valida");
+                break;
+
+    }
+}
+
+Switch aninhado
+
+O switch aninhado não tem segredo. Assim como os ifs aninhados, um switch aninhado não passa de um switch dentro de outro. Veja um exemplo: “Operacao...
+
+Se multiplicação
+
+Numero1
+
+Se igual a zero
+
+Erro ”.
+
+O primeiro switch começou com Operacao e dentro do case desse switch será verificado se há multiplicação.
+
+Se houver, é verificado se o número1 é igual a 0 (zero); se for, será exibido um erro.
+
+Analise uma situação semelhante estruturada em C:
+
+Char operação = getchar();
+Char numero1 = getchar();
+
+switch(operacao){
+
+  Case ‘*’:
+  Switch(numero1){
+
+    Case ‘0’:
+    Printf("Erro");
+    Break;
+  }
+  Break;
+}
+Laços
+
+Laços são comandos de iteração que têm a função de executar trechos de código até que uma condição seja satisfeita.
+
+Em C são três os tipos de laços: for, while e do while.
+
+Veja a explicação de cada um desses laços para entender o funcionamento.
+For
+
+O laço for permite executar trechos de códigos respeitando os parâmetros definidos no começo do laço.
+
+Veja como escrever um laço do tipo for:
+for(inicio;condição;incremento)
+{
+  Comando que serão executados;
+}
+
+While
+
+O laço while permite executar trechos de código respeitando uma condição.
+
+Veja como proceder para executar um laço desse tipo:
+
+while(condição)
+{
+  Algo acontece;
+}
+
+do while
+
+O laço do while é tão simples quanto o while; ele simplesmente indica que é preciso fazer alguma coisa até que determinada condição seja satisfeita.
+
+Imagine a seguinte situação: você deixou o seu quarto uma bagunça e sua mãe, vendo aquele verdadeiro final de show de rock, fala que você deve limpá-lo até que fique impecável.
+
+Isso é um laço do tipo do while: sua mãe determina que você faça algo até que uma condição seja satisfeita.
+
+Você pode estar pensando: poxa, isso é igual ao while?
+
+Sim e não. O laço while só executará os comandos que estão contidos em seu corpo {...} se a condição for satisfeita.
+
+Já o do while executará a ação contida em seu corpo, antes de conhecer a condição imposta; então, pelo menos uma vez ocorre a execução dos comandos contidos no corpo do laço do while.
+
+Veja como escrever um laço desse tipo:
+
+Do{
+  Faça alguma coisa;
+
+}while(condição);
+
+Desvios
+
+A linguagem C proporciona quatro tipos de desvios: return, goto, break e continue.
+
+Saiba como e em quais situações usar cada um dos desvios.
+
+eturn
+
+O desvio return tem a função de retornar de uma função, esse desvio é feito para o ponto em que a chamada da função foi feita, além disso, ele pode retornar valores caso esteja em uma função que retorne um tipo de dado como uma função do tipo int.
+
+É comum também ter funções que não retornem nada, assim como será algo normal encontrar um return com o valor 0 (zero).
+
+Veja a forma desse comando:
+return expressão;
+
+Goto
+
+O desvio goto não é muito bem visto por programadores em C, pois seu uso contribui para deixar o código ilegível.
+
+Mas, como tudo na vida, se usado com moderação pode ser um grande aliado. Esse desvio é responsável por fazer com que a execução do código salte para determinado local a fim de repetir um trecho de código.
+
+Esse local é chamado de rótulo, que é um identificador seguido por dois pontos :.
+
+Agora suponha a seguinte situação para ilustrar o uso desse desvio: sua mãe fez um bolo e deixou-o sobre a mesa; você vai até o bolo, pega um pedaço e senta-se no sofá para comer vendo TV. Quando termina de comer você volta até a mesa e pega outro pedaço, retornando ao sofá para comê-lo enquanto continua a ver TV. Isso foi um desvio do tipo goto.
+
+Você fez determinada ação e, quando terminou, ou seja, como a fome persistiu, seu cérebro “ordenou” que você retornasse à cozinha para pegar mais bolo.
+
+Agora imagine essa situação em linguagem C:
+
+#include<stdio.h>
+
+void main()
+{
+    int bolo = 12;
+
+    Comer:
+        bolo--;
+        printf("Menos um pedaco : %i\n",bolo);
+        if(bolo>0) goto Comer;
+
+}
+
+Break
+
+O desvio do tipo break é usado para finalizar cases dentro de um switch, mas também pode ser usado para brecar a execução de algum laço.
+
+Imagine um programa que tem a função de contar de 0 (zero) até 100 (cem). Se não existir nenhuma condição para interromper a contagem, o programa realmente contará de 0 a 100.
+
+Agora, imagine que você decida colocar nesse laço a condição que informa ao compilador que contar até 10 (dez) já é o suficiente e não precisa chegar a 100.
+
+Para que a condição seja satisfatória e o laço quebrado, o ideal é usar o desvio break.
+
+Veja como seria esse programa em linguagem C:
+
+#include<stdio.h>
+
+void main()
+{
+    int contagem = 0;
+
+    while(contagem < 100)
+    {
+        contagem++;
+        printf("Numero : %i\n",contagem);
+        if(contagem == 10) break;
+    }
+}
+
+Continue
+
+A função do desvio continue é de fazer com que a repetição do laço pule a interação corrente e inicie a próxima.
+
+Use como exemplo o código estudado no desvio break, porém agora modifique-o para que funcione com o desvio continue:
+
+#include<stdio.h>
+
+void main()
+{
+    int contagem = 0;
+
+    while(contagem < 100)
+    {
+        contagem++;
+        printf("Numero : %i\n",contagem);
+
+        if(contagem == 10)
+        {
+            printf("Deste ponto estamos continuando : %i\n",contagem);
+            continue;
+        }else if(contagem == 20)
+        {
+            printf("Nesse ponto estamos parados : %i\n",contagem);
+            break;
+        }
+
+
+    }
+}
+
+Matrizes
+
+Matrizes é uma coleção de variáveis de determinado tipo. As matrizes podem ter uma, duas, ou várias dimensões, o que ajuda muito o desenvolvedor.
+
+
+Matriz Unidimensional
+
+Para usar matrizes é preciso declará-las, usando os mesmos princípios de declaração de variáveis comuns. É dessa forma que o compilador saberá quanto de espaço deve armazenar para a matriz.
+
+Veja a estrutura de uma matriz:
+Tipo Nome[Tamanho];
+
+
+Não tem segredo na declaração de uma matriz: primeiro é definido um tipo que pode ser int, float ou qualquer outro tipo.
+
+Depois essa matriz é identificada com um nome e, por fim, informado ao compilador quantos elementos ou colunas a matriz terá, adicionando essa informação dentro de colchetes [].
+
+Veja um exemplo:
+
+float Notas[10];
+
+Matriz Bidimensional
+
+Uma matriz bidimensional como o próprio nome indica é uma matriz que não tem apenas colunas, mas uma mescla de determinado número de linhas e colunas.
+
+Para declarar uma matriz bidimensional é muito simples: siga os mesmos parâmetros da declaração de uma matriz unidimensional com o detalhe de um par de colchetes [] a mais.
+
+Veja a estrutura:
+
+Tipo Nome [tamanho 01(Linhas)] [tamanho 02(Colunas)]
+
+#include<stdio.h>
+
+void main()
+{
+   int l,c;
+   float produto[3][3] = {
+
+   20.00,25.00,30.00,
+   40.00,45.00,50.00,
+   50.00,55.00,60.00
+
+   };
+
+   for(l=0;l<3;l++)
+   {
+      for(c=0;c<3;c++)
+      {
+          printf("Produto %i custa %.2f ",l+1,produto[l][c]);
+      }
+
+      printf("\n");
+   }
+}
+
+
+Matriz Multidimensional
+
+Matrizes multidimensionais não são muito comuns porque consomem uma quantidade excessiva de memória, mas isso não significa que não sejam usadas.
+
+Veja como é simples declarar uma matriz multidimensional:
+
+
+Tipo Nome[Tamanho01] [Tamanho02] [Tamanho03] ...[Tamanho n]
+
+
+
+Observe que não há grande mudança na declaração dessa matriz, apenas o número de pares de colchetes [] aumentou para três, podendo se estender para um número n.
+
+Reforce o conhecimento com um exemplo:
+
+#include<stdio.h>
+
+void main()
+{
+    int matriz [2][2][2] = {{{ 1, 2}, { 3, 4}},{{ 5, 6},{7, 8}}};
+
+    int a,b,c;
+
+    for(a=0;a<2;a++)
+    {
+        for(b=0;b<2;b++)
+        {
+            for(c=0;c<2;c++)
+            {
+                printf("%i",matriz[a][b][c]);
+            }
+        }printf("\n");
+    }printf("\n");
+
+}
+
+
+float Nota[3] = {5.0,4.2,10.0};
+
+
+int Numeros [5] [2] = {
+1,8,
+2,6,
+3,9,
+4,7,
+5,10
+};
+
+Int Numeros [2][2][2] = {{{1,2},{3,4}},{{5,6},{7,8}}}
+
+
+Structs
+
+Em C, structs são usados para armazenar diversas variáveis correspondentes a um mesmo elemento.
+
+Imagine que você precise desenvolver um programa para ser usado em um zoológico. Esse programa precisa armazenar informações dos animais como nome, idade, setor onde ele está no do zoológico etc.
+
+Sem um struct seria preciso declarar inúmeras variáveis para capturar as informações, o que certamente daria grandes dores de cabeça na possível manutenção do código; afinal, inúmeras variáveis seriam jogadas dentro do código. Para organizar, basta usar as structs. Observe na prática como elas funcionam:
+
+
+struct Animais{
+  char Nome[50];
+  int Idade;
+  char Setor[4];
+};
+
+
+
+Foi declarada uma struct com o nome Animais e a ela foram adicionadas três variáveis, que estão diretamente relacionadas aos animais do zoológico.
+
+Dessa forma será obtida maior organização e facilidade de manipulação das variáveis.
+
+Continuando o estudo sobre structs, aprenda a manipular as variáveis contidas nela.
+
+Depois de criar a struct é preciso declarar seus registros. Faça da seguinte forma:
+
+Palavra chave "struct"  Nome da struct  Nome do registro;
+
+struct Animais Felinos;
+
+
+
+Depois de declarar o primeiro registro, os valores devem ser atribuídos às variáveis que estão contidas na struct.
+
+Faça o seguinte:
+
+Struct Animais Felinos = {"Tigre",3,"11g"};
+
+Felinos.Nome
+Felinos.Idade
+Felinos.Setor
+
+
+#include<stdio.h>
+
+    struct Animais{
+
+    char nome[17];
+    int idade;
+    char setor[4];
+
+    };
+
+void main()
+{
+    struct Animais Felinos = {"Tigre de bengala",3,"11g"};
+
+    printf("O %s tem %i anos de idade e esta no setor %s\n",Felinos.nome,Felinos.idade,Felinos.setor);
+
+}
+
+Funções
+
+Uma função é um bloco de códigos que pode ser chamado dentro de uma função principal.
+
+Um exemplo seria a chamada de função com o nome de soma() dentro da função principal main().
+
+Em C é mais que necessário trabalhar com funções, elas deixam o código mais organizado e de fácil manutenção.
+
+Dentro das funções podem ser declaradas variáveis, condicionais, laços e etc.
+
+É muito importante o total domínio da criação e manipulação das funções, pois o sucesso de um programa feito em C está diretamente ligado a esse mágico bloco de códigos.
+
+Forma de uma função
+
+Você já sabe a importância das funções. Aprenda a criar uma.
+
+Veja a forma de uma função com um nome qualquer. Soma, por exemplo:
+
+int soma(parâmetros se houver)
+{
+...
+return;
+}
+
+#include<stdio.h>
+
+void main()
+{
+
+    soma();
+
+}
+ int soma()
+ {
+     int num1 = 5;
+     int num2 = 10;
+     int resultado = num1 + num2;
+
+     printf("O resultado da conta contida na funcao soma e: %i\n",resultado);
+
+return 0;
+ }
+
+Argumentos de uma função
+
+Agora você aprenderá sobre argumentos de uma função. Lembra-se dos parênteses adicionados do lado direito do nome das funções? Dentro deles é que são adicionados os possíveis argumentos que as funções venham a ter.
+
+Criar uma função com argumentos pode ser muito útil, pois se pode fazer com que a função execute determinada ação de acordo com os argumentos a ela atribuídos.
+
+Parece complicado? Fique tranquilo! Acompanhe um exemplo para compreender melhor.
+
+Observe:
+
+
+#include<stdio.h>
+
+void main()
+{
+    int num1 = 5;
+    int num2 = 10;
+
+    soma(num1,num2);
+
+}
+ int soma(int a,int b)
+ {
+
+     int resultado = a + b;
+     printf("O resultado e: %i",resultado);
+     return 0;
+
+ }
+
+Chamada por valor, chamada por referência
+
+Aprenda duas formas utilizadas para passar argumentos para funções: a chamada por valor e a chamada por referência.
+
+A chamada por valor copia o valor de um argumento qualquer no parâmetro formal da função. Assim, mudanças feitas nos parâmetros da função não têm efeito nas variáveis usadas como argumento da função.
+
+Acompanhe um exemplo para facilitar a compreensão desse conceito:
+
+#include<stdio.h>
+
+int multiplica(int a);
+
+void main()
+{
+
+    int num = 5;
+    printf("valor da variavel : %i valor da funcao %i",num,multiplica(num));
+
+}
+
+int multiplica(int a)
+{
+    a = a*a;
+    return a;
+}
+
+Função main
+
+Conheça um pouco mais a função main. Que é a função principal do programa, você já sabe; então, conheça mais algumas de suas peculiaridades.
+
+A primeira coisa a ter em mente é o retorno de uma função main.
+
+Uma função main pode não ter retorno, quando tem um void escrito antes do nome main. Mas é bem comum encontrar essa função definida como int e retornando o valor 0 (zero).
+
+Em livros que tratam sobre a programação C, é comum encontrar autores que preferem usar a função main sem retorno, assim como existirão aqueles que terão preferência por uma função main do tipo int, retornando 0 (zero).
+
+Veja dois exemplos que rodam perfeitamente, independente do retorno de main():
+
+#include<stdio.h>
+
+void main()
+{
+    printf("Nesse codigo a funcao main e  do tipo void\n");
+}
+E agora um exemplo do tipo int: 
+
+#include<stdio.h>
+
+int main()
+{
+    printf("Nesse codigo a funcao main e  do tipo int\n");
+
+    return 0;
+}
+
+
+
+Teste os códigos e veja que ambos funcionam perfeitamente.
+
+Já que o assunto é a função main, conheça os argumentos para essa função.
+
+A função main() pode apresentar dois argumentos muito importantes e conhecidos por programadores em C: argc e argv.
+
+O argc é um inteiro que informa quantos argumentos foram passados para a função main; esse argumento sempre assume o valor mínimo de 1 (um) argumento. Isso acontece porque em C o nome do programa já é considerado um argumento.
+
+O argv é um ponteiro para uma matriz de strings, onde cada string é um argumento.
+
+Faça um pequeno exemplo contendo os argumentos argc e argv – mais especificamente argc:
+
+#include <stdio.h>
+
+int main(int argc, char *argv[]){
+
+  printf("Nos temos %i argumento\n",argc);
+
+  return 0;
+}
+
+Pronto, está aí o código. Veja que ele é bem simples, sendo a única mudança a adição de argumentos à função main.
+
+Veja que foi usada a função printf() para exibir na tela o valor de argc, que deve ser no mínimo 1 (um).
+
+Execute o código e veja se isso é verdade:
+
+O comando return
+
+O comando return tem duas funções muito importantes: a primeira é provocar a saída de uma função retornando o programa para o código chamador; a segunda é retornar um valor que pode ser usado dentro de outra função do programa.
+Retornar valores
+
+Funções podem ou não retornar valores. Essa particularidade pode ser muito útil para o programador, afinal, podem ser criadas funções que executem cálculos complexos e que podem ser retornados no fim da função.
+
+Faça este exemplo bem simples para fortalecer o entendimento desse conceito:
+
+#include<stdio.h>
+
+void main()
+{
+    int num1 = 5;
+    int num2 = 10;
+
+    int result = soma(num1,num2);
+
+    printf("O resultado e : %i",result);
+
+}
+ int soma(int a, int b)
+ {
+     return a+b;
+ }
+
+
+Funções e matrizes
+
+Agora veja sobre funções e matrizes.
+
+Uma matriz pode ser passada como argumento em uma função. Mas, saiba que quando uma matriz é passada como argumento de função, não é passada a matriz inteira e sim o endereço dela.
+
+Analise este código para entender melhor como isso funciona:
+
+#include<stdio.h>
+
+void main()
+{
+    int numeros[10] = {1,2,3,4,5,6,7,8,9,10};
+
+    func_Matriz(numeros);
+}
+
+void func_Matriz(int num[10])
+{
+    int i;
+
+    for(i=0;i<10;i++)
+    {
+        printf("%i elemento\n",num[i]);
+    }
+}
+
+
+
+No código acima foi mantida a estrutura básica empregada nos códigos em C, mas com alguns incrementos.
+
+A primeira coisa a entender é a criação da função fuc_Matriz(), que é do tipo void sem retorno; e a função tem um argumento, que é uma matriz unidimensional com capacidade de armazenar 10 (dez) elementos.
+
+Ponteiros
+Definição de ponteiros
+
+Ponteiros são variáveis que contêm endereços de memória; normalmente, endereços são posições de outras variáveis.
+
+Então, é possível deduzir que se a variável X tem o endereço da variável Y, então X aponta para Y.
+
+Em linguagem menos técnica, pense em um ponteiro como sendo aquele colega de trabalho “sem vergonha” e que não sabe nada, a não ser apontar para você; quando seu chefe pergunta qual foi o valor das vendas do ano passado seu colega aponta para você, afinal, é você quem realmente guarda na memória o valor das vendas, e ele espera que você responda a charada.
+
+Veja um exemplo desse funcionamento na imagem:
+
+
+Variáveis de ponteiros
+
+Para declarar variáveis de ponteiros é preciso usar o asterisco (*). Observe:
+
+Tipo * Nome da variável;
+Outro exemplo:
+int *Numero;
+
+
+
+É bem simples declarar um ponteiro. A primeira coisa feita foi declarar o tipo (int, no exemplo), depois foi usado o operador (*) para definir a declaração de um ponteiro; e, por último, foi declarado um nome para esse ponteiro.
+
+A única novidade na declaração de uma variável de ponteiro é o uso do asterisco (*) e nada mais.
+
+
+Operadores e atribuição de ponteiros
+
+Ao tratar de ponteiros é imprescindível falar de dois operadores: o asterisco (*), já apresentado, e o operador E comercial (&), que será explicado mais adiante.
+
+O operador asterisco (*), além de ser usado para declarar uma variável de ponteiro, também é usado para retornar o valor que está contido em determinada posição da memória.
+
+Veja um exemplo onde foi extraído um valor contido em local específico da memória.
+
+Observe:
+
+#include<stdio.h>
+
+void main()
+{
+
+    int numero = 10;
+    int *ponteiro = &numero;
+
+    printf("Valor armazenado %i\n",*ponteiro);
+
+}
+
+No código acima foram declaradas duas variáveis dentro da função main(). A primeira é do tipo int, chamada numero, e a quem foi atribuído o valor 10 (dez); depois foi declarado o ponteiro do tipo int, de nome ponteiro, e a ele foi atribuído o endereço de memória da variável numero.
+
+Por fim, na função printf(), foi exibida uma mensagem mostrando o valor existente na variável que o ponteiro aponta, no caso “*ponteiro”.
+
+Veja o resultado obtido ao compilar o código:
+
+Bem fácil, não é mesmo? Agora faça algo diferente: ao invés de imprimir o valor contido em uma posição da memória, imprima a própria posição.
+
+Faça isso usando o operador E comercial (&).
+
+Veja o código:
+#include<stdio.h>
+
+void main()
+{
+
+    int numero = 10;
+    int *ponteiro = &numero;
+
+    printf("O endereco de memoria e %p\n",ponteiro);
+
+}
+
+No código acima só há uma modificação, que está dentro da função printf(). Nela, simplesmente foi retirado o * (asterisco) da frente da variável ponteiro, sendo o suficiente para apresentar a posição de memória; afinal, lembre-se que essa variável tem uma atribuição que aponta um local de memória usando o &. Veja:
+
+Então, se o asterisco (*) for retirado da frente do ponteiro, o que sobra é o valor &numero, que nada mais é do que a posição para onde o ponteiro aponta.
+
+Veja a execução desse código:
+
+
+A imagem acima não contém mais o valor da variável, e sim sua posição na memória.
+
+Ao contrário do que dizem, ponteiros não são tão difíceis assim, só exigem um pouco mais de atenção.
+
+Agora conheça uma propriedade muito importante das variáveis comuns e que pode ser usada em variáveis de ponteiros.
+
+Se você já programou alguma vez na vida, certamente se deparou com uma situação onde era necessário atribuir uma variável a outra variável, dessa forma:
+
+int num = 30;
+int Numero = num;
+
+
+Fazendo isso, informa-se ao compilador que a variável Numero tem o mesmo valor da variável num.
+
+Em ponteiros, isso também pode ser feito. É comum programadores atribuírem ponteiros a outros ponteiros.
+
+Veja um exemplo:
+
+#include<stdio.h>
+
+void main()
+{
+
+    int x = 10;
+
+    int *ponteiro1 = &x;
+    int *ponteiro2 = ponteiro1;
+
+    printf("O endereco do ponteiro 1 e : %p\nO endereco do ponteiro 2 e : %p\n",ponteiro1,ponteiro2);
+
+}
+
+
+
+No código acima foi criada uma variável do tipo int com o nome x e a ela foi atribuído o valor 10 (dez).
+
+Depois foram criados dois ponteiros do tipo int com os respectivos nomes: ponteiro1 e ponteiro2.
+
+O primeiro ponteiro aponta para o local de memória da variável x e o segundo ponteiro tem como atribuição o primeiro ponteiro.
+
+Fazendo isso ambos os ponteiros irão apontar para a mesma região da memória.
+
+Isso é constatado ao usar a função printf() para exibir os valores retornados pelos dois ponteiros.
+
+
+Aritmética de ponteiros
+
+Aritmética de ponteiros refere-se às operações de incremento, decremento, soma, subtração e comparação de ponteiros.
+
+Conheça cada operação:
+Soma e Subtração de ponteiros por inteiros
+
+Para executar a soma entre ponteiros e inteiros, proceda conforme o exemplo:
+
+
+Dentro da função foi declarada uma variável do tipo int e nome i que será usada para definir os ciclos do laço for.
+
+Agora é escrito o laço, respeitando um total de 10 (dez) ciclos e, por fim, no corpo desse laço foi usada a função printf() para escrever na tela o número de cada elemento da matriz. Veja:
+
+
+
+Pronto, depois de criada a função func_Matriz(), volte sua atenção para a função main():
+
+void main()
+{
+    int numeros[10] = {1,2,3,4,5,6,7,8,9,10};
+
+    func_Matriz(numeros);
+}
+Na função main() foi declarada uma matriz unidimensional do tipo int de 10 elementos e a ela foram atribuídos valores de 1 a 10.
+
+Feito isso, foi chamada a função func_Matriz(numeros), determinando que o argumento dessa função é a matriz de nome números.
+
+O resultado será:
+
+ipos de funções
+
+Complemente o estudo de funções, aprendendo os principais tipos de funções.
+Função int
+
+As funções do tipo int são úteis para trabalhar com cálculos de números inteiros.
+
+Acompanhe um pequeno exemplo:
+
+#include<stdio.h>
+
+void main()
+{
+    int x = 10;
+    int y = 20;
+    int resultado;
+
+    resultado = subtracao(x,y);
+    printf("O resultado e : %d\n", resultado);
+}
+int subtracao(int num1,int num2)
+{
+    return num2 - num1;
+}
+
+Função float
+
+Da mesma forma que uma função é definida como sendo do tipo int, pode ser definida como tipo float.Veja o exemplo:
+
+#include <stdio.h>
+
+float circulo(float pi, float raio);
+
+void main()
+{
+    float Pi = 3.1415;
+    float Raio = 2.0;
+
+    printf("O comprimento do circulo e : %.2f\n",circulo(Pi,Raio));
+}
+
+float circulo(float pi, float raio)
+{
+    return 2*(pi*raio);
+}
+
+Função char
+
+Aprenda a usar uma função do tipo char, que possibilita escrever matrizes de caracteres.
+
+Veja o código:
+
+#include <stdio.h>
+
+char saudacao();
+
+void main()
+{
+   saudacao();
+}
+
+char saudacao()
+{
+    char ola[] = "Ola pessoal";
+
+    printf("%s\n",ola);
+}
+
+Função void
+
+A função void foi vista inúmeras vezes. Ela indica que a função não retorna nada.
+
+Faça um exemplo:
+
+#include <stdio.h>
+void main()
+{
+       multiplicacao();
+}
+
+void multiplicacao()
+{
+    int x = 5, y = 10, z = 14;
+
+    float resultado = x*y*z;
+
+    printf("Imprimindo o resultado da multiplicacao = %.2f\n", resultado);
+}
+
+
+Função recursiva
+
+Função recursiva é o nome dado a uma função que chama a si própria.
+
+Esse tipo de função é muito útil, porém, é preciso muita atenção para não entrar em um looping infinito.
+
+Veja um exemplo de recursividade:
+
+#include <stdio.h>
+int soma(int x)
+{
+    if(x > 0){
+        return ( x + soma(x-1) );
+    }else {
+
+    return x;
+    }
+
+}
+
+int main()
+{
+    int x = 5;
+
+    printf("Soma: %d\n", soma(x));
+}
+
+
+
+Na função soma() foi criada uma condicional para evitar um looping infinito e, ao mesmo tempo, definir como acontecerá a recursividade.
+
+A condição diz que, se x for maior que 0 (zero), uma chamada da função soma será retornada, respeitando a seguinte equação:
+
+x + soma(x-1)
+
+
+

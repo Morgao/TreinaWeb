@@ -1,0 +1,1263 @@
+Ponteiros
+Definição de ponteiros
+
+Ponteiros são variáveis que contêm endereços de memória; normalmente, endereços são posições de outras variáveis.
+
+Então, é possível deduzir que se a variável X tem o endereço da variável Y, então X aponta para Y.
+
+Em linguagem menos técnica, pense em um ponteiro como sendo aquele colega de trabalho “sem vergonha” e que não sabe nada, a não ser apontar para você; quando seu chefe pergunta qual foi o valor das vendas do ano passado seu colega aponta para você, afinal, é você quem realmente guarda na memória o valor das vendas, e ele espera que você responda a charada.
+
+Veja um exemplo desse funcionamento na imagem:
+
+Variáveis de ponteiros
+
+Para declarar variáveis de ponteiros é preciso usar o asterisco (*). Observe:
+Tipo * Nome da variável;
+
+Outro exemplo:
+
+int *Numero;
+
+
+
+É bem simples declarar um ponteiro. A primeira coisa feita foi declarar o tipo (int, no exemplo), depois foi usado o operador (*) para definir a declaração de um ponteiro; e, por último, foi declarado um nome para esse ponteiro.
+
+A única novidade na declaração de uma variável de ponteiro é o uso do asterisco (*) e nada mais.
+
+
+Operadores e atribuição de ponteiros
+
+Ao tratar de ponteiros é imprescindível falar de dois operadores: o asterisco (*), já apresentado, e o operador E comercial (&), que será explicado mais adiante.
+
+O operador asterisco (*), além de ser usado para declarar uma variável de ponteiro, também é usado para retornar o valor que está contido em determinada posição da memória.
+
+Veja um exemplo onde foi extraído um valor contido em local específico da memória.
+
+Observe:
+
+#include<stdio.h>
+
+void main()
+{
+
+    int numero = 10;
+    int *ponteiro = &numero;
+
+    printf("Valor armazenado %i\n",*ponteiro);
+
+}
+
+
+
+No código acima foram declaradas duas variáveis dentro da função main(). A primeira é do tipo int, chamada numero, e a quem foi atribuído o valor 10 (dez); depois foi declarado o ponteiro do tipo int, de nome ponteiro, e a ele foi atribuído o endereço de memória da variável numero.
+
+Por fim, na função printf(), foi exibida uma mensagem mostrando o valor existente na variável que o ponteiro aponta, no caso “*ponteiro”.
+
+Veja o resultado obtido ao compilar o código:
+
+Bem fácil, não é mesmo? Agora faça algo diferente: ao invés de imprimir o valor contido em uma posição da memória, imprima a própria posição.
+
+Faça isso usando o operador E comercial (&).
+
+Veja o código:
+
+#include<stdio.h>
+
+void main()
+{
+
+    int numero = 10;
+    int *ponteiro = &numero;
+
+    printf("O endereco de memoria e %p\n",ponteiro);
+
+}
+
+No código acima só há uma modificação, que está dentro da função printf(). Nela, simplesmente foi retirado o * (asterisco) da frente da variável ponteiro, sendo o suficiente para apresentar a posição de memória; afinal, lembre-se que essa variável tem uma atribuição que aponta um local de memória usando o &. Veja:
+int *ponteiro = &numero;
+
+
+
+Então, se o asterisco (*) for retirado da frente do ponteiro, o que sobra é o valor &numero, que nada mais é do que a posição para onde o ponteiro aponta.
+
+Veja a execução desse código:
+
+A imagem acima não contém mais o valor da variável, e sim sua posição na memória.
+
+Ao contrário do que dizem, ponteiros não são tão difíceis assim, só exigem um pouco mais de atenção.
+
+Agora conheça uma propriedade muito importante das variáveis comuns e que pode ser usada em variáveis de ponteiros.
+
+Se você já programou alguma vez na vida, certamente se deparou com uma situação onde era necessário atribuir uma variável a outra variável, dessa forma:
+int num = 30;
+int Numero = num;
+
+C / C++
+
+Fazendo isso, informa-se ao compilador que a variável Numero tem o mesmo valor da variável num.
+
+Em ponteiros, isso também pode ser feito. É comum programadores atribuírem ponteiros a outros ponteiros.
+
+Veja um exemplo:
+
+
+#include<stdio.h>
+
+void main()
+{
+
+    int x = 10;
+
+    int *ponteiro1 = &x;
+    int *ponteiro2 = ponteiro1;
+
+    printf("O endereco do ponteiro 1 e : %p\nO endereco do ponteiro 2 e : %p\n",ponteiro1,ponteiro2);
+
+}
+
+
+
+No código acima foi criada uma variável do tipo int com o nome x e a ela foi atribuído o valor 10 (dez).
+
+Depois foram criados dois ponteiros do tipo int com os respectivos nomes: ponteiro1 e ponteiro2.
+
+O primeiro ponteiro aponta para o local de memória da variável x e o segundo ponteiro tem como atribuição o primeiro ponteiro.
+
+Fazendo isso ambos os ponteiros irão apontar para a mesma região da memória.
+
+Isso é constatado ao usar a função printf() para exibir os valores retornados pelos dois ponteiros.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Aritmética de ponteiros
+
+Aritmética de ponteiros refere-se às operações de incremento, decremento, soma, subtração e comparação de ponteiros.
+
+Conheça cada operação:
+Soma e Subtração de ponteiros por inteiros
+
+Para executar a soma entre ponteiros e inteiros, proceda conforme o exemplo:
+
+
+#include<stdio.h>
+
+void main()
+{
+
+    int x[] = {10,20};
+
+    printf("%p\n",x);
+    printf("%p\n",x + 1);
+    printf("%i\n",*x);
+    printf("%i\n",*(x + 1));
+
+}
+
+
+
+O código começou declarando uma matriz unidimensional do tipo int com o nome x, e a ela foram atribuídos dois valores: 10 (dez) e 20 (vinte).
+
+Depois disso, nas funções printf(), foram executados os cálculos aritméticos somando uma unidade à matriz.
+
+Nos dois primeiros printf() foi apresentada a posição da matriz x normal e somada a 1. Veja:
+printf("%p\n",x);
+    printf("%p\n",x + 1);
+Depois, nos dois últimos printf(), foram apresentados os valores contidos na matriz x normal e somada a 1:
+
+printf("%i\n",*x);
+    printf("%i\n",*(x + 1));
+
+O resultado será:
+
+Veja na imagem que as operações de soma fizeram com que houvesse um deslocamento dentro da matriz.
+
+Quando a posição na memória ou o valor da matriz é apresentado sem efetuar a soma, o endereço será 0022FF18 e o valor 10, que equivale ao primeiro valor da matriz.
+
+Quando somado o valor normal da matriz a 1 (um), o endereço será 0022FF1C e o valor 20 (vinte), que equivale à posição de memória e valor do segundo item da matriz.
+
+A mesma operação pode ser feita trocando o sinal de + pelo de -. Dessa forma não é mais efetuada a soma, e sim subtraídas posições.
+
+Veja este código:
+
+
+
+Comparação de ponteiros
+
+Operadores relacionais podem ser usados para testar se ponteiros apontam para a mesma posição, qual aponta para a posição mais alta e etc.
+
+Veja um exemplo:
+
+#include<stdio.h>
+
+void main()
+{
+
+    int x[] = {0,1, 2, 3, 4, 5, 6,7,8,9,10};
+    int *ponteiro;
+
+    for (ponteiro = x; ponteiro <= &x[2]; ponteiro++)
+    {
+        printf("%i\n", *ponteiro);
+    }
+
+}
+
+
+
+No código acima foi feita uma comparação de ponteiros. Essa comparação será responsável por dizer ao laço for até qual posição da matriz x deve ser apresentada na tela.
+
+Veja que, dentro da função main(), foi criada uma matriz unidimensional do tipo int e com o nome x, onde foram atribuídos os valores de 1 até 10.
+
+Depois disso foi declarado um ponteiro do tipo inteiro com o nome ponteiro. Dentro do laço for foi usado esse ponteiro, primeiro atribuindo a ele o valor da matriz x, e depois fazendo uma pequena comparação e verificando se o valor atual do ponteiro é menor ou igual a 2. Se a comparação for verdadeira, o ponteiro será incrementado e logo depois será usada a função printf() para imprimir os valores menores e iguais a 2 na tela.
+
+Veja na imagem o resultado da compilação desse código:
+
+Agora ficou mais fácil compreender, não é mesmo?
+
+
+ncremento e decremento de ponteiros
+
+Quando se trabalha com ponteiros, sabe-se que é possível incrementar ou decrementar o ponteiro.
+
+Para incrementar ou decrementar um ponteiro é muito simples, basta usar o seguinte código:
+p++ ou p--
+Veja um exemplo funcional:
+
+#include<stdio.h>
+
+void main()
+{
+
+    int x[] = {0,1, 2, 3, 4, 5, 6,7,8,9,10};
+    int *ponteiro = &x;
+    int i;
+
+    for (i = 0; i < 11; i++)
+    {
+        printf("%i\n", *(ponteiro++));
+    }
+
+}
+
+
+
+No código acima foi declarada uma variável do tipo int com o nome x.
+
+Essa variável não teve uma definição de tamanho, simplesmente foi declarada e alguns valores foram atribuídos a ela para que se adapte ao número de elementos impostos.
+
+int x[] = {0,1, 2, 3, 4, 5, 6,7,8,9,10};
+Depois foi declarada uma variável de ponteiro do tipo int com o nome ponteiro e a ela foi atribuída a posição de x:
+int *ponteiro = &x;
+Depois do ponteiro foi declarada outra variável do tipo int de nome i, que será usada para definir os ciclos do laço do tipo for:
+int i;
+Por fim, foi criado um laço for de 11 ciclos e dentro dele foi usada a função printf() para exibir o valor do ponteiro incrementado:
+for (i = 0; i < 11; i++)
+    {
+        printf("%i\n", *(ponteiro++));
+    }
+for (i = 0; i < 11; i++)
+    {
+        printf("%i\n", *(ponteiro++));
+    }
+
+#include<stdio.h>
+
+void main()
+{
+
+    int x[] = {0,1, 2, 3, 4, 5, 6,7,8,9,10};
+    int *ponteiro = &x[10];
+    int i;
+
+    for (i = 0; i < 11; i++)
+    {
+        printf("%i\n", *(ponteiro--));
+    }
+
+}
+
+
+
+No código acima foi mantida a ideia do código de incremento com algumas modificações.
+
+A primeira é a atribuição da variável de ponteiro; veja que ela aponta para a última posição da matriz:
+
+
+int *ponteiro = &x[10];
+
+
+
+Isso é importante para que seja possível realizar um decremento.
+
+Por fim, a última mudança está dentro do laço for onde, ao invés de apresentar um incremento do ponteiro, é apresentado um decremento:
+
+for (i = 0; i < 11; i++)
+    {
+        printf("%i\n", *(ponteiro--));
+    }
+
+Veja na imagem o resultado da compilação desse código:
+
+Ponteiros e matrizes
+
+Os ponteiros podem ser organizados em matrizes sem nenhum problema, bastando declarar uma matriz de ponteiro dessa forma:
+
+int *ponteiro[5];
+Depois de declarada, valores podem ser atribuídos para essa matriz de ponteiro:
+int numero = 10;
+ponteiro[2] = &numero;
+Ainda é possível acessar o valor usando esse código:
+*ponteiro[2];
+Veja um código que mostra tudo isso:
+#include<stdio.h>
+void main()
+{
+    int *ponteiro[5];
+    int numero = 10;
+
+    ponteiro[2] = &numero;
+
+    printf("%i",*ponteiro[2]);
+
+}
+No código acima foi declarada uma variável de ponteiro do tipo int. Repare também que essa variável é uma matriz unidimensional com capacidade para 5 elementos:
+int *ponteiro[5];
+int *ponteiro[5];
+Depois foi declarada outra variável do tipo int com o nome numero. A essa variável foi atribuído o valor 10:
+int numero = 10;
+Depois, a segunda posição da matriz de ponteiros foi atribuída à posição da variável numero:
+
+ponteiro[2] = &numero;
+
+Feito isso, a função printf() foi usada para exibir o conteúdo da segunda posição da matriz de ponteiros e, como pode ser visto na imagem, o valor atribuído à variável numero esta lá:
+
+
+
+
+/////
+
+
+
+
+
+Entrada e saída
+
+Até o momento a grande maioria dos códigos não apresentou a interação humano-computador.
+
+Isso não é uma coisa boa. Afinal, o interessante é que um programa possa executar determinadas ações, de acordo com o estímulo que vem da pessoa que opera o programa.
+
+Neste tópico será abusado do cabeçalho/ biblioteca stdio.h, verificando as principais formas de entrada e saída de dados.
+
+As mais simples das funções de Entrada e Saída (Input e Output) pelo console são putchar() e getchar().
+
+putchar()
+
+A função putchar() é bem simples. Ela é responsável por escrever um caractere na tela a partir da posição atual do cursor.
+
+Essa função usa como argumento um valor do tipo int. Esse valor inteiro corresponde à tecla que será apresentada na tela.
+
+Veja a forma da função:
+
+int putchar(int c);
+
+
+
+getchar()
+
+Já a função getchar() espera que uma tecla qualquer seja pressionada para devolver seu valor, que representa o código daquela tecla. Vale ressaltar que esse valor é do tipo int.
+
+Veja um exemplo:
+
+int caracter;
+caracter = getchar();
+
+
+
+
+Apesar de retornar um valor inteiro, é comum a utilização dessa função com variáveis do tipo char. Veja:
+
+char caracter;
+caracter = getchar();
+
+
+
+Agora analise um exemplo que usa essas duas funções:
+
+#include<stdio.h>
+
+  void main()
+{
+        char c;
+
+printf("Escreva um texto e depois digite ; para sair.\n");
+
+        while(c != ';')
+        {
+              c = getchar();
+
+              putchar(c);
+
+        }
+
+}
+
+
+
+O código teve início com a declaração de uma variável do tipo char com o nome C. Essa variável será responsável por armazenar o texto que será escrito e exibido na tela do computador.
+
+Depois de declarar a variável, foi usada a função printf() para exibir na tela a mensagem que informará ao usuário o que ele deve fazer.
+
+Por fim, foi criado um laço do tipo while que executa um trecho de códigos enquanto a condição determinada dentro dos parênteses for atendida. Observe:
+
+A condição é para que a tecla ponto e vírgula (;) não seja pressionada; enquanto ela não for pressionada, o laço continuará ativo.
+
+Repara também que dentro do laço estão as novas “amigas”: a função getchar() e putchar().
+
+A getchar() informa que a variável C teve a função getchar() atribuída a ela; dessa forma, as teclas capturadas por getchar()podem ser armazenadas em C.
+
+Logo abaixo foi usada a função putchar() tendo como argumento a variável C, que terá seu conteúdo exibido na tela.
+
+Veja o resultado obtido da compilação desse código:
+
+roblemas com getchar()
+
+Como nada é perfeito, a função getchar() deixa um pouco a desejar em suas tarefas porque, originalmente, ela foi definida como sendo compatível com a versão de C para Unix. Seria até normal que um problema ou outro pudesse surgir e, infelizmente, um problema desagradável realmente surgiu porque a função getchar() armazena em um buffer as entradas até que seja pressionada a tecla enter (algo comum em sistemas Unix originais devido a terem um buffer de linha para terminais de entrada). A princípio isso pode parecer pouco relevante, mas o incômodo de ter caracteres esperando na fila depois do retorno de getchar() pode ser bem chato para quem usa o programa.
+Solucionando os problemas de getchar()
+
+Bem, a função getchar() não agrada aos programadores mais exigentes, mas, não se preocupe, há duas boas opções para resolver o problema gerado por getchar().
+
+As opções são as funções getch() e getche(), onde getch espera até que uma tecla seja pressionada e então a retorna; mas, atenção, essa função não mostra o caractere na tela.
+
+Já a função getche(), que tem a mesma função de getch(),apresenta a tecla, ou seja, o caractere é mostrado na tela.
+
+Veja um exemplo que usa as duas funções no lugar da antiga getchar():
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+        char c;
+
+        printf("Escreva um texto e depois digite ; para sair.\n");
+
+        while(c != ';')
+        {
+              c = getche();
+
+        }
+}
+
+
+
+O código acima traz uma novidade: a inclusão da biblioteca conio.h, que permite usar as funções getch() e getche().
+
+Note que o código não mudou quase nada do código de exemplo de getchar() e putchar(), sendo a única diferença a retirada da função putchar() e a substituição de getchar() por getche().
+
+Assim é possível ver que a função getche() apresenta na tela as teclas pressionadas; já getch() não. Faça o teste, brinque com as funções e veja os resultados.
+
+Obs.: Dependendo do compilador utilizado, getchar() pode ou não ser implementada de forma a ser útil em programas complexos e interativos. Isso torna opcional o uso de getchar(), getch() ou getche().
+
+
+Strings
+
+Considerando que você já aprendeu a trabalhar com matrizes, será fácil entender o conceito de strings em C.
+
+Uma string nada mais é que uma matriz unidimensional de caracteres que tem como último valor um nulo ou “\0”.
+
+Então, é possível deduzir que para criar uma string que guarde, por exemplo, 15 (quinze) caracteres, deve-se fazer o seguinte:
+
+char nossaStr[16];
+
+
+
+Note que o tamanho da matriz unidimensional foi definido em 16 e não em 15 caracteres, porque o último caractere já está comprometido, ou seja, ele é o nulo.
+
+Não pense que o uso de strings em C acaba aqui. Existe uma gama de funções destinadas à manipulação de strings.
+
+É claro que, para usá-las, é preciso incluir o cabeçalho da biblioteca string.h.
+
+É possível efetuar algumas funções como:
+
+Nome
+	
+
+Função
+
+strcpy(str1,str2)
+	
+
+Copia str2 em str1
+
+strcat(str1,str2)
+	
+
+Concatena str2 ao final de srt1
+
+strlen(str1)
+	
+
+Retorna o tamanho de str1
+
+strcmp(str1,str2)
+	
+
+Retorna 0 se str1 e str2 são iguais, menor que 0 se str1 < str2,maior que zero se str1>str2
+
+strchr(str1,c)
+	
+
+Retorna um ponteiro para a primeira ocorrência de c em str1
+
+strstr(str1,str2)
+	
+
+Retorna um ponteiro para a primeira ocorrência de str2 em str1
+
+Agora fixe seu conhecimento, reproduzindo um exemplo que mostra como criar uma string. Será exibido o funcionamento de duas das funções apresentadas na tabela acima. Saiba que a implementação é bem parecida em todos os casos. Veja:
+
+
+#include<stdio.h>
+#include<string.h>
+
+void main()
+{
+
+    char str1[10] = "TreinaWeb";
+    char str2[10] = "Ola";
+
+
+    printf("A string str1 e : %s\n\nA string str2 e : %s\n\n",str1,str2);
+
+    printf("Agora vamos usar as funcoes\n\n");
+
+
+    strcpy(str1,str2);
+
+    printf("str1 : %s\n\n",str1);
+
+    strcat(str1,str2);
+
+    printf("str1 : %s\n\n",str1);
+}
+
+
+
+No código acima, além da biblioteca stdio.h, foi incluída a biblioteca string.h para ser possível a execução de algumas funções sobre strings.
+
+O código foi iniciado com a declaração de duas variáveis do tipo char de nomes str1 e str2.
+
+Veja que ambas variáveis são matrizes unidimensionais com capacidade de armazenar 10 elementos.
+
+A essas variáveis foram atribuídos valores que são duas strings: a primeira é TreinaWeb e a segunda Ola.
+
+Observe:
+
+char str1[10] = "TreinaWeb";
+char str2[10] = "Ola";
+Feito isso foram usadas duas funções printf() para exibir os valores das variáveis na tela e para comunicar que, daquele ponto em diante, seriam usadas algumas funções especiais de strings:
+printf("A string str1 e : %s\n\nA string str2 e : %s\n\n",str1,str2);
+printf("Agora vamos usar as funcoes\n\n");
+
+
+Foi usada a primeira função de string, responsável por substituir o valor da primeira string pelo valor da segunda.
+
+Depois de executada essa função, foi usado o printf() para exibir o resultado obtido na variável str1, após a função de substituição.
+
+Veja como ficou:
+
+strcpy(str1,str2);
+printf("str1 : %s\n\n",str1);
+
+
+Agora será apresentada mais uma função, a função de concatenar strings. Depois de executada essa função, também foi usada a função printf() para exibir o resultado na tela.
+
+Lembrando de como substituir o valor da variável str1, o resultado será obtido depois de concatenado a “OlaOla”.
+
+strcat(str1,str2);
+printf("str1 : %s\n\n",str1);
+
+
+Veja a imagem da compilação desse código:
+
+Lendo e escrevendo strings
+
+Agora o foco será o uso de strings, enfatizando sua leitura e escrita.
+
+Conheça a função gets(), que se apresenta da seguinte forma:
+
+char * gets(char *str);
+
+
+A função gets() pede ao usuário que digite uma string que será armazenada em str, que é o ponteiro de caracteres.
+
+Vale salientar que str é uma matriz de caracteres que está recebendo as informações digitadas pelo usuário.
+
+Veja um exemplo do uso dessa função:
+
+#include<stdio.h>
+#include<string.h>
+
+void main()
+{
+
+    char str1[50];
+
+    gets(str1);
+
+    printf("O comprimento da string e %d\n",strlen(str1));
+
+}
+
+
+
+Na função acima foi usada a biblioteca string.h para poder manipular as strings, e dentro da função main() foi declarada uma variável do tipo char com o nome str1.
+
+Essa variável é uma matriz unidimensional com capacidade para 50 elementos:
+
+
+char str1[50];
+
+Depois foi usada a função gets() para capturar o valor digitado, que é armazenado na variável str1:
+
+gets(str1);
+
+
+
+Por fim, a função printf() foi usada para exibir na tela o comprimento da variável str1:
+
+printf("O comprimento da string e %d\n",strlen(str1));
+
+
+
+Veja na imagem abaixo o resultado da compilação desse código:
+
+Aprenda agora um método para exibir uma string na tela de forma rápida e eficiente com a função puts(). Essa função é mais rápida que a famosa printf(), pois ao contrário dela, puts() só imprime na tela string de caracteres, números não podem ser escritos nela e muito menos fazer conversões de formato.
+
+Essas tarefas a menos fazem com que puts() seja bem mais rápida que printf().
+
+Veja a estrutura dessa função:
+
+int puts(const char * str);
+
+Para fixar o conhecimento, analise um código em que a função foi usada:
+
+#include<stdio.h>
+#include<string.h>
+
+void main()
+{
+
+    char str1[50];
+
+    gets(str1);
+
+    puts(str1);
+
+}
+
+
+
+O código acima ainda usou as bibliotecas stdio.h e string.h; dentro da função main() foi declarada uma variável do tipo char com o nome str1, sendo uma matriz unidimensional.
+
+Depois, a função gets()foi usada para capturar os caracteres digitados e armazená-los em str1.
+
+Por fim, a função puts() foi usada para exibir o conteúdo da variável str1 como pode ser visto na imagem:
+
+Repare que tem duas strings TreinaWeb na tela: a primeira foi a digitada e a segunda retornou da função puts().
+
+
+Printf()
+
+Analise a função printf(). Ela não tem segredo e é, sem dúvida, uma das primeiras funções aprendidas; é também uma das mais usadas nos programas e seu protótipo está em stdio.h.
+
+Veja a estrutura dessa função:
+
+Int printf(const *string de controle,...);
+
+
+A função printf() aceita dois tipos de itens: o primeiro item é o grupo de caracteres que será escrito na tela (uma mensagem qualquer); já o segundo item são os caracteres especiais de acesso a variáveis.
+
+Veja um exemplo:
+
+printf("CARACTERES QUE SERAO EXIBIDOS %i",variável_tipo_int);
+
+
+
+Dentro das aspas (“”) são adicionados os caracteres que serão exibidos na tela e os códigos de acesso a variáveis.
+
+Você já viu alguns desses códigos anteriormente; agora aprenda outros:
+
+Codigo
+	
+
+Formato
+
+%c
+	
+
+Caractere
+
+%d
+	
+
+Inteiros decimais com sinal
+
+%i
+	
+
+Inteiros decimais com sinal
+
+%e
+	
+
+Notação cientifica (e minúsculo)
+
+%E
+	
+
+Notação cientifica (E maiúsculo)
+
+%f
+	
+
+Ponto flutuante decimal
+
+%g
+	
+
+Usa %e ou %f, o que for mais curto
+
+%G
+	
+
+Usa %E ou %F, o que for mais curto
+
+%o
+	
+
+Octal sem sinal
+
+%s
+	
+
+String de caracteres
+
+%u
+	
+
+Inteiros decimais sem sinal
+
+%x
+	
+
+Hexadecimal sem sinal (letras minúsculas)
+
+%X
+	
+
+Hexadecimal sem sinal (letras maiúsculas)
+
+%p
+	
+
+Apresenta um ponteiro
+
+%n
+	
+
+Argumento associado é um ponteiro para inteiro
+
+%%
+	
+
+Escreve o símbolo %
+
+Guarde com atenção esses códigos de acesso a variáveis. Em programas que trabalham com Entrada e Saída de dados, eles são muito úteis.
+
+
+////
+
+
+
+
+fopen()
+
+A função fopen() é responsável pela abertura de arquivos. Seu protótipo é o seguinte:
+FILE *fopen(const char* nomedoarquivo, const char* modo);
+
+
+
+Nessa função o nome do arquivo determina qual arquivo será aberto, e o modo indica à função o tipo de uso que será feito do arquivo aberto.
+
+Conheça a lista de modos possíveis:
+
+Modo
+	
+
+Significado
+
+r
+	
+
+Abre arquivo de texto para leitura
+
+w
+	
+
+Cria um arquivo de texto para escrita
+
+a
+	
+
+Anexa a um arquivo de texto
+
+rb
+	
+
+Abri um arquivo binário para leitura
+
+wb
+	
+
+Cria um arquivo binário para escrita
+
+ab
+	
+
+Anexa a um arquivo binário
+
+r+
+	
+
+Abri um arquivo de texto para leitura e escrita
+
+w+
+	
+
+Cria um arquivo de texto para leitura e escrita
+
+a+
+	
+
+Anexa ou cria um arquivo de texto para leitura e escrita
+
+r+b
+	
+
+Abre um arquivo binário para leitura e escrita
+
+w+b
+	
+
+Cria um arquivo binário para leitura e escrita
+
+a+b
+	
+
+Anexa a um arquivo binário para leitura e escrita
+
+Fixe o funcionamento dessa função, reproduzindo este exemplo:
+
+#include<stdio.h>
+void main()
+{
+    FILE *fp;
+    fp = fopen("Arquivo.txt","r");
+    if(!fp)
+    {
+        printf("O arquivo nao existe");
+
+    }else{
+
+        printf("Arquivo aberto com sucesso");
+    }
+
+}
+
+
+O código acima contém apenas a biblioteca stdio.h; dentro da função main() foi declarada uma variável do tipo FILE com o nome fp.
+
+Depois, com o uso da função fopen(), foi aberto um arquivo para leitura conforme mostrado anteriormente “ r ” (caso não se lembre, reveja a tabela de modos).
+
+Por fim, foi criada uma condicional que verifica se o arquivo foi aberto. Se foi, uma mensagem de sucesso será exibida usando o printf(); caso contrário, será comunicada a não abertura do arquivo em outro printf().
+
+Veja na imagem o resultado da compilação desse código:
+
+Aí está! Observe que o arquivo foi aberto com sucesso. Vale salientar que, caso você não tenha êxito nesse código, precisará usá-lo de modo “w+” – ele criará o arquivo para você.
+
+
+fclose()
+
+A função fclose() é muito simples. Ela fecha os arquivos abertos antes.
+
+Conheça a estrutura dessa função:
+
+int fclose(FILE *fp);
+O ponteiro fp retorna para a função fopen() se o arquivo foi 0 ou não fechado (outro valor) com sucesso.
+
+putc()
+
+Você aprendeu a abrir arquivos com o auxílio da função fopen(); agora aprenda a escrever caracteres no arquivo aberto.
+
+Use a função putc() que tem a seguinte estrutura:
+
+Int putc(int ch, FILE *fp);
+
+
+Essa função tem o ch, caractere que será escrito, e o ponteiro fp que é devolvido pela função fopen().
+
+Esse ponteiro informa em qual arquivo se deve escrever.
+
+Entenda melhor como a função funciona, fazendo este exemplo:
+
+#include<stdio.h>
+
+void main()
+{
+    FILE *fp;
+    char escrever[50];
+    int x;
+
+    fp = fopen("Arquivo.txt","w");
+    printf("Escreva algo no arquivo\n");
+    gets(escrever);
+
+    for(x = 0; x < 50; x++)
+    {
+        putc(escrever[x],fp);
+    }
+
+   fclose(fp);
+}
+No código apresentado acima foi mantido o código de abertura de arquivo, porém com algumas modificações. Foram criadas três variáveis: uma do tipo FILE para o arquivo com nome fp; outra do tipo char de nome escrever, que é uma matriz unidimensional com capacidade para 50 itens; e uma variável do tipo int de nome x, que será usada no laço do tipo for:
+FILE *fp;
+char escrever[50];
+int x;
+Depois foi aberto o arquivo de nome Arquivo.txt no modo w, que é o modo de escrita. A função printf() foi usada para pedir que o usuário escreva alguma mensagem, e depois foi usada a função gets() para capturar a mensagem digitada e adicioná-la à variável escrever:
+fp = fopen("Arquivo.txt","w");
+printf("Escreva algo no arquivo\n");
+gets(escrever);
+C / C++
+
+Feito isso, foi criado um laço do tipo for usando a variável escrever aliada à variável inteira x, para controlar os ciclos do laço.
+
+Dentro do laço foi usada a função putc() para escrever o conteúdo da variável escrever no arquivo fp:
+
+for(x = 0; x < 50; x++)
+{
+     putc(escrever[x],fp);
+}
+Por fim, o arquivo foi fechado usando a função fclose():
+fclose(fp);
+
+
+Veja na imagem o resultado da compilação do código:
+
+Está aí o código funcionando! Observe a mensagem gravada no arquivo.txt.
+
+Para comprovar, veja o próprio arquivo aberto:
+
+Bem legal, não é mesmo? Você já consegue escrever mensagens em arquivos externos.
+
+
+getc
+
+Você deve ter deduzido que, como foi tratado sobre escrita de caracteres em um arquivo, também será abordado sobre leitura dos caracteres.
+
+A leitura é feita pela função getc().
+
+Veja a estrutura dessa função:
+
+int getc(FILE *fp);
+
+
+A função acima contém o ponteiro fp, que é do tipo FILE. Esse ponteiro é devolvido pela função fopen().
+
+Veja um exemplo que usa essa função para ler os caracteres escritos anteriormente:
+
+#include<stdio.h>
+
+void main()
+{
+    FILE *fp;
+    char ler;
+    int x;
+    fp = fopen("Arquivo.txt","r");
+
+        while((ler = getc(fp)) != EOF)
+        {
+            printf("%c",ler);
+        }
+
+
+   fclose(fp);
+}
+
+
+Poucas coisas foram mudadas no código acima: a variável escrever foi alterada para a variável ler. Essa variável não é mais uma matriz, é apenas um char.
+
+Na abertura do arquivo foi usado o modo r de leitura. Ao invés do laço for foi usado um laço do tipo while, onde uma ação é executada enquanto não chega ao fim do arquivo.
+
+A função executada no laço while deve escrever a mensagem que existe no arquivo fp, usando para isso a função printf() .
+
+E por fim o arquivo é fechado.
+
+
+fputs() e fgets()
+
+Você aprendeu a escrever e ler caracteres em um arquivo. Avançando nesse raciocínio, aprenda agora a ler e escrever strings.
+
+A função fputs escreve uma string em um arquivo e fgets lê a string de um arquivo.
+
+Veja a estrutura dessas duas funções:
+
+int fputs(const char *str, FILE *fp);
+char *fgets(char *str, int length, FILE *fp);
+Agora reproduza um exemplo delas:
+#include<stdio.h>
+
+void main()
+{
+    FILE *fp;
+    char string[50];
+
+    fp = fopen("Arquivo.txt","w");
+
+    printf("Escreva uma mensagem\n\n");
+    gets(string);
+    fputs(string,fp);
+
+    fclose(fp);
+}
+
+
+No código acima foi declarada a variável do tipo FILE fp e, logo depois, foi declarada uma variável do tipo char com o nome string. Essa variável é uma matriz unidimensional de caracteres e seu tamanho foi ajustado para receber 50 itens:
+
+FILE *fp;
+char string[50];
+Depois foram atribuídas a variável fp e a função fopen() no modo w, para que seja possível criar um arquivo de texto para escrita:
+fp = fopen("Arquivo.txt","w");
+C / C++
+
+Por fim, com a função printf() foi exibida uma mensagem na tela pedindo para o usuário escrever uma mensagem; depois, os caracteres dessa mensagem foram capturados com a função gets() e a função puts() foi usada para escrever a mensagem no arquivo fp.
+
+No final, o arquivo foi fechado com a função fclose():
+
+printf("Escreva uma mensagem\n\n");
+    gets(string);
+    fputs(string,fp);
+
+    fclose(fp);
+Agora veja um exemplo da função fgets():
+#include<stdio.h>
+
+void main()
+{
+    FILE *fp;
+    char string[50];
+
+    fp = fopen("Arquivo.txt","r");
+
+    fgets(string,50,fp);
+
+    printf("%s",string);
+
+    fclose(fp);
+}
+
+
+O código acima não é mais para escrever, mas sim para ler o conteúdo escrito no arquivo.
+
+Foi mantido o código usado para a escrita de dados, apenas com algumas modificações.
+
+A primeira é que, quando o arquivo com a função fpen() é aberto, o modo w não é mais usado e sim o modo r, que é o modo de leitura. Veja:
+
+fp = fopen("Arquivo.txt","r");
+
+
+A segunda modificação é que a função fgets() foi usada com os devidos argumentos para captura da mensagem escrita no arquivo fp.
+
+Os argumentos são a própria mensagem “string”, depois o tamanho dessa variável “[50]” e, por fim, o arquivo em que ela se encontra “fp”:
+
+
+
+fgets(string,50,fp);
+C / C++
+
+Feito isso, printf() foi usada para exibir o conteúdo da mensagem contida no arquivo na tela e depois o arquivo é fechado:
+
+printf("%s",string);
+
+    fclose(fp);
+
+
+rewind()
+
+A função rewind() faz um reposicionamento do indicador de posição do arquivo retornando o ao seu início.
+
+Conheça a estrutura e logo depois faça um exemplo de seu uso:
+
+Void rewind(FILE *fp);
+
+
+Entenda o funcionamento dessa função com auxílio de um código:
+
+#include<stdio.h>
+void main()
+{
+    FILE *fp;
+    char str[50];
+
+    fp = fopen("Arquivo.txt","w+");
+
+    do{
+         printf("Digite uma mensagem\n");
+         gets(str);
+         fputs(str,fp);
+    }while(*str != '.');
+
+    rewind(fp);
+
+while(!feof(fp))
+        {
+            fgets(str,50,fp);
+            printf(str);
+        }
+
+    fclose(fp);
+}
+
+
+
+No código acima uma variável de ponteiro foi declarada para o arquivo fp que será aberto.
+
+Depois, foi declarada uma variável do tipo char de nome str; a matriz str será responsável por auxiliar o desenvolvedor na escrita e leitura de dados no arquivo fp.
+
+Por fim, o arquivo fp é aberto usando a função fopen() no modo w+ para leitura e escrita:
+
+FILE *fp;
+char str[50];
+
+fp = fopen("Arquivo.txt","w+");
+
+
+Foi criado um laço dowhile para apresentar na tela uma mensagem que pede para digitar uma mensagem, que, por sua vez, será capturada pela função gets() e depois escrita no arquivo fp pela função fputs().
+
+Esse laço só terminará quando a tecla ponto-final for pressionada (.):
+
+
+do{
+         printf("Digite uma mensagem\n");
+         gets(str);
+         fputs(str,fp);
+    }while(*str != '.');
+
+
+
+Depois do laço foi escrita a função rewind():
+
+rewind(fp);
+
+
+Por último, foi criado um laço while para verificar quando se chega ao final do arquivo fp. Enquanto não chegar, é apresentada a string que foi escrita no arquivo, capturada pela função fgets() e exibida com printf().
+
+Terminado o laço, o arquivo é fechado com fclose():
+
+while(!feof(fp))
+        {
+            fgets(str,50,fp);
+            printf(str);
+        }
+
+    fclose(fp);
+
+
+
+Se você tem dúvidas quanto à função feof(), não tem problema, acompanhe a explicação.
+
+A função feof() é responsável por verificar se se está no fim de um arquivo. Ela tem a seguinte estrutura:
+
+int feof(FILE *fp);
+Para saber quando se chega ao fim de um arquivo, basta usá-la, adicionando em seu argumento o nome do arquivo-alvo.
+
+ferror() e perror()
+
+A função ferror() é muito útil para trabalhar com abertura e fechamento de arquivos. Por meio dessa função podem-se detectar possíveis erros nessas manipulações.
+
+Ferror funciona da seguinte maneira: se ela retornar 0 (zero), tudo está bem; caso o contrário, algo sinistro ocorreu com o arquivo em que se está trabalhando:
+
+Int ferror(FILE *fp);
+Agora fortaleça o aprendizado com um código:
+#include <stdio.h>
+int main()
+{
+    FILE *pf;
+    char string[50];
+    pf = fopen("Arquivo.txt","w");
+
+    do
+    {
+        printf("\nDigite uma mensagem.");
+        gets(string);
+        fputs(string, pf);
+        putc('\n', pf);
+
+
+        if(ferror(pf))
+        {
+            perror("Erro ao gravar o arquivo");
+            fclose(pf);
+                    }
+    } while (strlen(string) > 1);
+
+    fclose(pf);
+}
+
+
+No código acima foram usadas as já conhecidas declarações de variável para arquivo pf e matriz de caracteres string.
+
+A função fopen() foi usada para abrir o arquivo para escrita:
+
+FILE *pf;
+char string[50];
+pf = fopen("Arquivo.txt","w");
+Depois foi criado um laço do while para capturar os caracteres digitados no teclado e escrita dos mesmos no arquivo fp:
+do
+    {
+        printf("\nDigite uma mensagem.");
+        gets(string);
+        fputs(string, pf);
+        putc('\n', pf);
+
+
+        if(ferror(pf))
+        {
+            perror("Erro ao gravar o arquivo");
+            fclose(pf);
+                    }
+    } while (strlen(string) > 1);
+
+    fclose(pf);
+}
+A grande novidade desse código está na condição onde foram usadas as funções ferror() e perror(). Nessa condição, é verificado se existe algum erro na gravação do arquivo; se existir, a função perror() é usada para exibir uma string de erro:
+if(ferror(pf))
+     {
+          perror("Erro ao gravar o arquivo");
+          fclose(pf);
+      }
+Veja que, com o auxílio dessas funções, fica-se a par de qualquer possível erro de gravação que se possa ter.

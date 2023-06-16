@@ -1,0 +1,72 @@
+	int *p01[5];
+	int numero = 50;
+	p01[2] = &numero;
+	pintf("%p e %i", p01[2], *p01[2]);
+
+void main()
+{
+
+	char texto[50];
+		gets(texto);
+		printf("o conteudo eh %s\n", texto);
+	
+}
+conio.h
+
+ getch() e getche().
+
+
+string.h.
+char nossaStr[16]; // uma com 15 de espaco
+Uma string nada mais é que uma matriz unidimensional de caracteres que tem como último valor um nulo ou “\0”.
+
+strcpy(str1,str2)
+	
+
+Copia str2 em str1
+strcat(str1,str2)
+	
+
+Concatena str2 ao final de srt1
+strlen(str1)
+	
+
+Retorna o tamanho de str1
+strcmp(str1,str2)  // str compare ele compara duas strings 
+se forem iguais retorna 0, 
+se str 1 < str2 retorna menor 0
+se str 1 > str 2 retorna maior que 0
+	
+
+Retorna 0 se str1 e str2 são iguais, menor que 0 se str1 < str2,maior que zero se str1>str2
+
+strchr(str1,c)
+	
+
+Retorna um ponteiro para a primeira ocorrência de c em str1
+
+strstr(str1,str2)
+	
+
+Retorna um ponteiro para a primeira ocorrência de str2 em str1
+
+
+stdio.h e string.h
+
+Lendo e escrevendo strings
+
+Agora o foco será o uso de strings, enfatizando sua leitura e escrita.
+
+Conheça a função gets(), que se apresenta da seguinte forma:
+
+char * gets(char *str);
+
+%n Argumento associado é um ponteiro para inteiro
+%p // ponteiro
+%c // caracter
+%d // inteiro
+%i // inteiro
+%e // notacao cienticica
+%f // float
+%lf // double
+%LF // long double
