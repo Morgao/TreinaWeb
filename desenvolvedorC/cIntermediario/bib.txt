@@ -1,0 +1,120 @@
+Ponteiros para Funções
+
+Agora vamos continuar o nosso estudo de programação na linguagem C falando sobre um tema um tanto quanto complexo, porém muito usado.
+
+É claro que estamos falando do uso de ponteiros nas nossas funções, a linguagem C nos permite a declaração de ponteiros para tipos de dados e também para funções.
+
+Agora você deve estar pensando, poxa já foi complicado falar sobre ponteiros para tipos de dados agora vamos falar deles em funções, mas para que isso?
+
+Simples ponteiros em funções são normalmente usados quando queremos passar uma função como parâmetro para outra função, entendeu? Não.
+
+Ok, então vamos fazer um pequeno exemplo para deixar esse conceito claro em nossas mentes.
+
+Para esse exemplo vamos criar um projeto com o nome de TWcod, para isso vamos até File->New->Project
+Depois na janela que vai aparecer selecione a opção console application e clique no botão Go que se encontra no canto superior direito da tela.
+Feito isso teremos a seguinte janela como resultado:
+Veja que essa janela de boas vindas ao console application wizard tem uma checkBox que permite o desenvolvedor pular essa janela em um próximo projeto, fique à vontade para marca-la ou não e depois clique em Next.
+
+Na janela que vai surgir depois disso, escolha a linguagem que vamos trabalhar que no caso é a linguagem C, depois clique em Next.
+
+Como resultado teremos a apresentação da seguinte janela:
+
+Nela adicionamos o nome do nosso projeto assim como o local onde o mesmo vai estar. Depois de feitos esses ajustes clique em Next.
+
+Feito isso teremos mais uma janela para escolha do compilador
+
+Certifique-se que suas configurações estejam idênticas as que são apresentadas acima, estando clique em Finish.
+
+Feito isso já teremos nosso projeto criado e com ele um arquivo main.c com um código de teste padrão.
+
+Agora não execute esse código, apague-o e cole no lugar o seguinte código:
+
+#include <stdio.h>
+#include <stdlib.h>
+
+float maior(float x, float y)
+{
+    return ((x>y)?x:y);
+}
+
+float menor(float x, float y)
+{
+    return((x<y)?x:y);
+}
+float resultado(float x, float y, float (*funcao)(float, float))
+{
+    return (funcao(x,y));
+}
+int main()
+{
+    float r;
+    r = resultado(5,6,&maior);
+    printf("O maior numero e %.2f\n",r);
+    return 0;
+}
+
+Veja que no código apresentado acima criamos três funções distintas, onde a primeira é responsável por retornar o maior valor entre dois valores floats passados como parâmetro da função.
+float maior(float x, float y)
+{
+    return ((x>y)?x:y);
+}
+Depois temos outra função que verifica o menor valor entre dois valores informados.
+float menor(float x, float y)
+{
+    return((x<y)?x:y);
+}
+E por último, temos a função de resultado que tem como um de seus parâmetros um ponteiro de função.
+
+float resultado(float x, float y, float (*funcao)(float, float))
+{
+    return (funcao(x,y));
+}
+
+
+Repare que nessa função temos ao todo três parâmetros do tipo float os dois primeiros são referente aos valores que serão adicionados a função e o último a função que iremos usar em conjunto com os valores x e y adicionados.
+
+Ficou difícil de entender?
+
+Calma, vou explicar novamente, lembre-se que criamos duas funções que precisam de dois parâmetros para funcionar que são as funções “maior() e menor()”, lembrou?
+
+Então, se essas funções precisam de dois parâmetros para funcionar é lógico que precisamos de uma função resultado com possibilidade de entrada de dois parâmetros também.
+
+Afinal esses dois parâmetros serão passados para o ponteiro da função que é o terceiro parâmetro da função resultado e também é umas das duas funções iniciais.
+
+Agora ficou mais fácil de entender não é mesmo?
+
+Então vamos continuar, para fechar essa função de resultado veja que temos como retorno a própria função acompanhada de seus parâmetros x e y.
+
+float resultado(float x, float y, float (*funcao)(float, float))
+{
+    return (funcao(x,y));
+}
+
+
+Isso é necessário para que possamos informar ao compilador os dados que queremos calcular e qual cálculo queremos fazer.
+
+Então, para fechar essa explicação e entendermos de fato como funcionam os ponteiros para funções, vamos até a função principal do nosso programa a main() e nela vamos fazer o seguinte:
+
+
+int main()
+{
+    float r;
+
+    r = resultado(5,6,&maior);
+    printf("O maior numero e %.2f\n",r);
+    return 0;
+}
+
+Veja que a primeira coisa que fiz dentro da função main() foi criar uma variável do tipo float com o nome de “r” essa variável será onde estarei armazenando o resultado que vou obter da chamada da função resultado().
+
+Agora abaixo dessa variável perceba que já atribuo à variável “r” o valor da função resultado, a qual passo dois valores iniciais que são 5 e 6, por último coloco o terceiro parâmetro da função resultado que é o ponteiro da função, que no caso é a função de nome maior.
+
+Ao fazer isso estou chamando a função de nome maior e a ela estou adicionando dois parâmetros que são justamente os valores 5 e 6.
+
+Repare que quando trabalhamos com ponteiros de função na chamada da mesma, não se faz necessário adicionar parênteses com os respectivos parâmetros, basta chamar pelo nome, como foi feito acima.
+
+Feito isso apenas usamos o printf() para exibir na tela o resultado obtido, que no caso deve ser esse:
+
+Bem simples não é mesmo?
+
+Então vamos continuar nosso estudo passando para o próximo tema que é alocação de memória.
