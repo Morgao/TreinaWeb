@@ -1,0 +1,50 @@
+Typedef
+
+Você já viu um pouco sobre typedef, porém foi realmente muito pouco, claro que não existe segredo nenhum aqui, mas não custa nada analisar um pouco melhor esse comando.
+
+O comando typedef nos permite definir um novo nome aos tipos de dados, uma coisa importante que precisamos ter em mente aqui é que não estamos criando uma nova classe de dados, somente definindo um novo nome para um tipo que já existe.
+
+Vamos ver um exemplo que deixará esse conceito mais claro.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef int inteiro;
+
+int main()
+{
+    inteiro num = 5;
+    inteiro num2 = 10;
+    inteiro result = num + num2;
+
+    printf("%d\n",result);
+
+    return 0;
+}
+Prontinho, veja que nesse código começamos com as velhas e boas inclusões.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+Depois disso, usamos o comando typedef para nomear o tipo de valor int, veja que agora esse tipo de dado pode ser definido como inteiro ao invés de int.
+typedef int inteiro;
+
+
+
+Por último dentro da função main() criamos algumas variáveis usando o novo nome que criamos para o tipo int e depois executamos uma soma para ver se realmente deu certo, se o tipo inteiro está se comportando como um tipo int.
+
+
+int main()
+{
+    inteiro num = 5;
+    inteiro num2 = 10;
+    inteiro result = num + num2;
+
+    printf("%d\n",result);
+
+    return 0;
+}
+
+
+
+Ao executar esse código temos como resposta um resultado positivo que comprova que o comando typedef realmente funcionou.

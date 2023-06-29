@@ -1,0 +1,24 @@
+atributo lang
+
+de language 
+
+<html lang="pt-BR">
+<html lang="en">
+
+atributo abbr abreviacao
+
+<p><abbr title="Linguagem de Marcação de texto">HTML</abbr></p>
+
+
+
+metas tag
+
+precisa de um atributo
+tag de configuracao >> head 
+meta de caracteres especiais
+<meta charset="utf-8">
+
+! documento pronto
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+escala do monitor, escala 1.0

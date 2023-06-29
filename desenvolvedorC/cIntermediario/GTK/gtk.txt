@@ -1,0 +1,15 @@
+Interface gráfica com GTK
+
+Desde o início do nosso estudo sobre a linguagem de programação C escrevemos muitos códigos que tiveram seus resultados em uma janela pequena e com a tela preta.
+
+Isso para um programador é lindo, porém para um usuário comum é um verdadeiro filme de terror.
+
+Sendo assim é mais que obrigatório pensar em interfaces gráficas que melhorem a vida de usuários comuns de computador, afinal imagine um artista que precisa usar diariamente o programa de edição de imagens Photoshop.
+
+Se esse programa não possuísse uma interface gráfica, certamente pouquíssimas pessoas o usariam.
+
+Com seus aplicativos é a mesma coisa, se você criar um aplicativo que não tenha uma bela interface gráfica, dificilmente alguém vai usar o aplicativo.
+
+Sendo assim vamos subir mais um degrau na nossa evolução dentro da linguagem C e vamos aprender a trabalhar com essas interfaces da melhor maneira possível.
+
+Vale a pena lembrar que vamos continuar usando o CodeBlocks, então para usar uma interface gráfica será necessário executar algumas ações simples, porém de extrema importância para o funcionamento dos próximos exemplos.

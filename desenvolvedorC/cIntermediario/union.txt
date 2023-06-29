@@ -1,0 +1,95 @@
+Union
+
+Agora que falamos bastante sobre estruturas vamos ver de forma breve como trabalhar com unions, que em certos pontos se assemelha as estruturas que vimos anteriormente.
+
+Uma union pode ser definida como uma única posição de memória que é compartilhada por várias variáveis de tipos diferentes em momentos diferentes.
+
+Declarar uma union é extremamente simples veja como:
+
+Union identificador
+{
+  Tipo nome variável;
+  Tipo nome variável;
+  ...
+}variáveis união
+
+
+Pronto, veja que a forma de declarar uma union é muito parecida com a forma de se declarar uma estrutura, mas essa não é a única semelhança, para acessar as variáveis usamos um (.) igual fazemos nas estruturas.
+
+Nome da estrutura.Nome da variável = Valor;
+Para que isso fique mais claro vamos fazer um pequeno exemplo dentro do nosso projeto TWcod.
+#include <stdio.h>
+#include <stdlib.h>
+
+union Numeros
+{
+  float num1;
+  int num2;
+};
+
+int main()
+{
+    union Numeros p1;
+    int op;
+
+    scanf("%d",&op);
+
+    if(op == 1)
+    {
+        p1.num1 = 4.5;
+        printf("Num1: %f\n",p1.num1);
+    }else{
+        p1.num2 = 2;
+        printf("Num2: %d\n",p1.num2);
+    }
+
+  return 0;
+}
+
+
+
+Nesse código iniciamos adicionando nossas duas inclusões.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+C / C++
+
+Depois declaramos nossa union com o nome de Números.
+
+union Numeros
+{
+  float num1;
+  int num2;
+};
+
+
+Veja que dentro dessa union criamos duas variáveis sendo que uma é do tipo float e outra do tipo int.
+
+Por fim, dentro da função main() criamos uma variável union com o nome de p1 seguida pela variável inteira op.
+
+Essas variáveis vão nos auxiliar na inserção e exibição dos valores das variáveis que estão dentro da union.
+
+Veja que dentro da estrutura condicional que criamos existem duas opções, uma dessas opções nos retorna um número inteiro e a outra um número flutuante.
+
+Esses números são os números atribuídos as variáveis da union num1 e num2.
+
+int main()
+{
+    union Numeros p1;
+    int op;
+
+    scanf("%d",&op);
+
+    if(op == 1)
+    {
+        p1.num1 = 4.5;
+        printf("Num1: %f\n",p1.num1);
+    }else{
+        p1.num2 = 2;
+        printf("Num2: %d\n",p1.num2);
+    }
+
+  return 0;
+}
+Veja que não foi nada difícil trabalhar com uma union, agora veja abaixo o resultado da execução desse código.

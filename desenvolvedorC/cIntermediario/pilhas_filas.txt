@@ -1,0 +1,1083 @@
+Filas, Pilhas, Listas encadeadas e árvores binárias
+
+Agora que já aprendemos como trabalhar com alocações dinâmicas de memória, já estamos aptos a falar sobre assuntos um pouco mais avançados da linguagem C como filas, pilhas, listas encadeadas e árvores binárias.
+
+Então vamos abrir o CodeBlocks e colocar a mão na massa.
+
+Filas
+
+Vamos começar falando sobre filas, que são listas lineares de informações que são acessadas respeitando uma determinada ordem que no caso é a ordem FIFO ou (First In, First Out) traduzindo, o primeiro que entra é o primeiro que sai.
+
+Se você parar para analisar é isso mesmo que acontece na vida real, uma fila perfeita sem pessoas que furem a fila respeitam essa ordem onde o primeiro que entra na fila é o primeiro que sai dela.
+
+Veja na imagem abaixo como isso funciona:
+
+Bem simples não é mesmo?
+Dica
+
+Detalhe, no curso posso me referir aos elementos das estruturas como elementos ou como nós.
+
+Então agora vamos ver como seria executar essa ordem FIFO em um código C.
+
+Para isso vamos usar nosso projeto TWcod, porém com o seguinte código:
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct NO{
+  int numero;
+  struct NO *proximo;
+};
+typedef struct NO no;
+
+no *RETIRADA(no *FILA)
+{
+  if(FILA->proximo == NULL){
+    printf("Fila ja esta vazia\n");
+  }else{
+    no *temp = FILA->proximo;
+    FILA->proximo = temp->proximo;
+  }
+
+}
+
+
+void OPCOES(no *FILA, int op)
+{
+  no *temp;
+  switch(op){
+    case 0:
+      LIBERACAO(FILA);
+      break;
+
+    case 1:
+        INSERIR(FILA);
+      break;
+
+    case 2:
+        temp= RETIRADA(FILA);
+      break;
+
+    case 3:
+        EXIBIR(FILA);
+      break;
+
+    default:
+      printf("Comando invalido\n\n");
+  }
+}
+
+
+int vazia(no *FILA)
+{
+  if(FILA->proximo == NULL)
+    return 1;
+  else
+    return 0;
+}
+
+no *ALOCACAO()
+{
+  no *novo= malloc(sizeof(no));
+  if(!novo){
+    printf("Sem memoria disponivel!\n");
+    exit(1);
+  }else{
+    printf("Novo elemento na Fila: "); scanf("%d", &novo->numero);
+    return novo;
+  }
+}
+
+void INSERIR(no *FILA)
+{
+  no *novo=ALOCACAO();
+  novo->proximo = NULL;
+
+  if(vazia(FILA))
+    FILA->proximo=novo;
+  else{
+    no *temp = FILA->proximo;
+
+    while(temp->proximo != NULL)
+      temp = temp->proximo;
+
+    temp->proximo = novo;
+  }
+
+}
+
+void EXIBIR(no *FILA)
+{
+  if(vazia(FILA)){
+    printf("Fila vazia!\n\n");
+    return ;
+  }
+
+  no *temp;
+  temp = FILA->proximo;
+  printf("\nFila :");
+  while( temp != NULL){
+    printf("%5d", temp->numero);
+    temp = temp->proximo;
+  }
+
+  printf("\n\n");
+}
+
+void LIBERACAO(no *FILA)
+{
+  if(!vazia(FILA)){
+    no *proxNode,
+        *atual;
+
+    atual = FILA->proximo;
+    while(atual != NULL){
+      proxNode = atual->proximo;
+      free(atual);
+      atual = proxNode;
+    }
+  }
+}
+
+
+int main(void)
+{
+    int opt;
+
+  no *FILA = malloc(sizeof(no));
+  if(!FILA){
+    printf("Sem memoria!\n");
+    exit(1);
+  }else{
+    FILA->proximo = NULL;
+
+  do{
+
+        printf("Opcoes\n");
+        printf("0 - Sair\n");
+        printf("1 - Inserir\n");
+        printf("2 - Retirar\n");
+        printf("3 - Exibir\n");
+        printf("Opcao: ");
+        scanf("%d", &opt);
+
+    OPCOES(FILA,opt);
+  }while(opt);
+
+  free(FILA);
+  return 0;
+  }
+}
+
+
+
+Veja que nesse código temos uma fila capaz de inserir, apagar e listar dados, então vamos analisar cada trecho de código e assim entender como essa estrutura de dados funciona.
+
+A primeira coisa que fizemos foi adicionar nossas duas inclusões.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+
+
+Depois disso criamos uma struct com o nome de NO essa struct tem dois elementos um é uma variável do tipo int com o nome de número e um ponteiro do seu próprio tipo com o nome de próximo.
+
+A variável número é usada para armazenar valores inseridos pelo usuário e o ponteiro próximo vai servir para apontar para o próximo nó da estrutura.
+
+Por fim, criamos um typedef para definir um novo nome para o tipo de dado representado pela struct que acabamos de criar.
+
+struct NO{
+  int numero;
+  struct NO *proximo;
+};
+typedef struct NO no;
+
+
+
+Depois de criada nossa struct, chegou a hora de desenvolver as funções que serão responsáveis por fazer com que a aplicação funcione.
+
+Vamos iniciar com a função retirada, essa função é responsável por retirar elementos de dentro da nossa fila.
+
+Veja que dentro dessa função a primeira coisa que fizemos foi verificar se a fila está vazia, caso esteja não existem dados para ser retirados daí, então simplesmente enviamos uma mensagem dizendo que a fila já está vazia.
+
+Agora se a fila não estiver vazia, ai precisamos retirar o primeiro elemento da fila, para que isso seja possível é preciso criar um ponteiro com o nome de temp para apontar para o primeiro elemento da fila.
+
+
+no *temp = FILA->proximo;
+
+
+
+Feito isso podemos deduzir que se temp está apontando para o primeiro elemento então temp->próximo aponta para o segundo elemento da fila ou para null caso não exista mais elementos.
+
+Sendo assim basta fazer a ligação entre o ponteiro FILA e o segundo elemento.
+
+FILA->proximo = temp->proximo;
+Prontinho, retiramos o primeiro elemento conforme determina a estrutura de filas.
+no *RETIRADA(no *FILA)
+{
+  if(FILA->proximo == NULL){
+    printf("Fila ja esta vazia\n");
+    return NULL;
+  }else{
+    no *temp = FILA->proximo;
+    FILA->proximo = temp->proximo;
+  }
+
+}
+
+
+
+Agora vamos falar da função que é responsável pelas opções oferecidas pelo aplicativo, essas opções como já foi dito anteriormente são de sair da aplicação, inserir elementos na fila, retirar elementos da fila e exibir elementos da fila.
+
+Veja que essa função tem dois argumentos sendo o primeiro um ponteiro FILA e um inteiro com o nome de op.
+
+Dentro dessa função iniciamos com a criação de um ponteiro com o nome de temp, esse ponteiro será usado na opção de retirar elementos da fila.
+
+Depois da criação desse ponteiro, criamos um switch para determinar as ações que serão desencadeadas de acordo com as escolhas que o usuário fizer.
+
+Repare que para cada opção escolhida pelo usuário temos a chamada de uma função específica.
+
+Nesse momento não se preocupe em entender cada uma destas funções até por que elas serão estudadas logo na sequência.
+
+Neste momento apenas entenda que para cada opção escolhida temos uma ação a ser desencadeada.
+
+
+void OPCOES(no *FILA, int op)
+{
+  no *temp;
+  switch(op){
+    case 0:
+      LIBERACAO(FILA);
+      break;
+
+    case 1:
+        INSERIR(FILA);
+      break;
+
+    case 2:
+        temp= RETIRADA(FILA);
+      break;
+
+    case 3:
+        EXIBIR(FILA);
+      break;
+
+    default:
+      printf("Comando invalido\n\n");
+  }
+}
+
+Agora continuando, vamos analisar o funcionamento de mais uma função desta vez é a função vazia().
+
+int vazia(no *FILA)
+{
+  if(FILA->proximo == NULL)
+    return 1;
+  else
+    return 0;
+}
+
+
+
+Essa função não tem segredo nenhum ela simplesmente verifica se a fila esta vazia e se estiver ela retorna o valor 1, caso contrário ela retorna o valor 0.
+
+A utilidade dessa função ficará clara mais adiante, já que a usamos dentro de outras funções.
+
+Agora vamos voltar nossa atenção para a função de alocação, veja que essa função também não tem nada de muito assustador, ela simplesmente aloca memória para cada nó da nossa fila usando para isso uma função já bem conhecida por nós que é a função malloc().
+
+Veja que nessa função também tomamos o cuidado de verificar se existe memória disponível para alocação, não existindo exibimos uma mensagem que informa sobre a carência de memória e paramos por aí, caso o contrário pegamos o novo elemento que será usado em outra função.
+
+no *ALOCACAO()
+{
+  no *novo= malloc(sizeof(no));
+  if(!novo){
+    printf("Sem memoria disponivel!\n");
+    exit(1);
+  }else{
+    printf("Novo elemento na Fila: "); scanf("%d", &novo->numero);
+    return novo;
+  }
+}
+
+
+
+Agora vamos analisar a função inserir, veja que nessa função temos um ponteiro como argumento, é o ponteiro FILA.
+
+Veja que dentro dessa função a primeira coisa feita é usar a função de alocação para reservar espaço em memória para o novo nó que chamamos de novo.
+
+Depois garantimos que o ponteiro próximo desse novo nó aponte para null afinal esse novo nó deve ser o íltimo da fila.
+
+Agora precisamos adicionar esse novo nó ao final da fila e para isso se faz necessário encontrar o último nó dessa fila.
+
+Então primeiro verificamos se a fila está vazia se estiver não tem segredo basta colocar o novo nó em FILA->próximo e está tudo terminado, agora se a fila não estiver vazia a coisa complica só um pouquinho.
+
+Afinal para encontrar o último nó será necessário criar um ponteiro temp para fazer a busca, esse ponteiro vai apontar para todos os elementos da nossa fila a fim de encontrar o último.
+
+Ele começa no primeiro elemento que é o FILA->próximo, se temp->próximo apontar para null o ponteiro está apontando para o último nó, caso contrário será necessário dentro do laço while continuar a busca pelo último nó usando temp = temp->próximo.
+
+Quando encontrar basta atribuir o novo nó com temp->proximo = novo.
+
+
+void INSERIR(no *FILA)
+{
+  no *novo=ALOCACAO();
+  novo->proximo = NULL;
+
+  if(vazia(FILA))
+    FILA->proximo=novo;
+  else{
+    no *temp = FILA->proximo;
+
+    while(temp->proximo != NULL)
+      temp = temp->proximo;
+
+    temp->proximo = novo;
+  }
+
+}
+
+
+
+Muito bem, agora vamos continuar nosso estudo com a próxima função que é a função exibir.
+
+Veja que essa função tem um ponteiro como argumento e dentro dela a primeira coisa que precisamos fazer é verificar se a fila está vazia se estiver precisamos exibir uma mensagem que informe a falta de elementos dentro da fila.
+
+Agora caso a fila não esteja vazia vamos exibir todos os elementos existentes ali com auxílio do ponteiro temp que irá apontar para todos os nós até chegar ao último existente.
+
+
+void EXIBIR(no *FILA)
+{
+  if(vazia(FILA)){
+    printf("Fila vazia!\n\n");
+    return ;
+  }
+
+  no *temp;
+  temp = FILA->proximo;
+  printf("\nFila :");
+  while( temp != NULL){
+    printf("%5d", temp->numero);
+    temp = temp->proximo;
+  }
+
+  printf("\n\n");
+}
+
+
+
+Agora que conhecemos a função responsável por exibir os valores da nossa fila, vamos ver a função responsável por liberar a memória alocada para cada nó criado.
+
+Veja que nessa função a primeira coisa que fizemos foi verificar se a fila está vazia, se não estiver criamos dois ponteiros, um para o próximo e atual nó.
+
+Isso é feito para que ao liberar o primeiro nó as posições se desloquem tanto atual quanto proxNo percorrendo dessa forma todos os nós da nossa fila.
+
+void LIBERACAO(no *FILA)
+{
+  if(!vazia(FILA)){
+    no *proxNo,
+        *atual;
+
+    atual = FILA->proximo;
+    while(atual != NULL){
+      proxNo = atual->proximo;
+      free(atual);
+      atual = proxNo;
+    }
+  }
+}
+
+
+
+Agora finalmente vamos para a função main.
+
+Dentro da função principal vamos iniciar criando uma variável do tipo int com o nome de opt que será usada para armazenar as escolhas do usuário.
+
+Depois criamos a alocação de memória do ponteiro da FILA e logo depois disso já verificamos se existe memória para isso, não existindo exibimos uma mensagem informando essa fatalidade e paramos com o processo, caso contrário temos nossa fila vazia.
+
+Com nossa fila vazia pronta para receber nós, criamos um laço do tipo do while para exibir as opções existentes de manipulação da fila e logo depois disso capturamos a opção selecionada pelo usuário em opt.
+
+Com essa opção selecionada e o ponteiro da fila criado precisamos agora chamar a função OPCOES() passando como argumentos o ponteiro FILA e a opção opt.
+
+Fazendo isso teremos a chamada da função necessária para cada tipo de ação escolhida.
+
+E por fim usamos a função free() para liberar a memória alocada.
+
+int main(void)
+{
+    int opt;
+
+  no *FILA = malloc(sizeof(no));
+  if(!FILA){
+    printf("Sem memoria!\n");
+    exit(1);
+  }else{
+    FILA->proximo = NULL;
+
+  do{
+
+        printf("Opcoes\n");
+        printf("0 - Sair\n");
+        printf("1 - Inserir\n");
+        printf("2 - Retirar\n");
+        printf("3 - Exibir\n");
+        printf("Opcao: ");
+        scanf("%d", &opt);
+
+    OPCOES(FILA,opt);
+  }while(opt);
+
+  free(FILA);
+  return 0;
+  }
+}
+
+
+
+Muito bem, agora que criamos nossa aplicação vamos ver o resultado disso tudo.
+
+Bem legal não é mesmo?
+
+Veja que nessa imagem podemos ver que a primeira ação foi inserir um valor dentro da nossa fila que é o valor 50.
+
+Depois exibimos esse valor com a opção 3 e em seguida retiramos o valor 50 da fila com a opção 2.
+
+Com isso ao chamar a opção 3 novamente temos a mensagem de que a fila está vazia.
+
+É isso aí, estude bem esse código e depois de entender de forma satisfatória seu funcionamento continue no assunto pilhas.
+
+Pilhas
+
+Muito bem, agora que já aprendemos como trabalhar com filas, então vamos voltar nossa atenção para uma estrutura de dados muito interessante chamada pilha.
+
+As pilhas se comportam conforme o significado do seu próprio nome seguindo a regra chamada de LIFO (Last In First Out) traduzindo, o último que entra deve ser o primeiro que sai.
+
+É isso mesmo, imagine uma pilha de pratos nessa pilha deve ter uns 10 ou 20 pratos empilhados, se você precisasse tirar um prato da pilha qual seria o mais fácil de se subtrair?
+
+Logicamente o primeiro prato da parte de cima da pilha, que por sua vez foi o último a ser empilhado, então retirar o primeiro prato que entrou na pilha seria muito difícil e até mesmo catastrófico, sendo assim levando em consideração essa lógica vamos ver como ficaria um programa em C respeitando a estrutura de pilha.
+
+
+
+Veja que o código apresentado acima não tem quase nenhuma diferença do código de filas que vimos anteriormente.
+
+A grande diferença aqui é realmente na hora de retirar um elemento de dentro da pilha, sendo assim vamos analisar o código que faz isso já que o resto permanece igual ao exemplo de filas.
+
+
+
+Veja que nessa função a primeira coisa que fizemos foi verificar se a pilha está vazia, se estiver, exibimos uma mensagem para comunicar a inexistência de elementos dentro da pilha.
+
+Caso contrário, criamos dois ponteiros chamados de último e penúltimo, esses ponteiros vão nos auxiliar na retirada de elementos de dentro da pilha.
+
+Basicamente precisamos ter em mente que o ponteiro com o nome de último deve apontar para o último elemento da pilha, enquanto o ponteiro com o nome de penúltimo deve apontar para o último nó.
+
+Dessa forma seremos capazes de retirar o último nó da nossa pilha fazendo com que o penúltimo se transforme no novo último.
+
+Bem simples não é mesmo, mas agora você deve estar se perguntando, afinal qual é a lógica usada para fazer com que o ultimo nó seja liberado e que o penúltimo nó assuma a posição de ultimo.
+
+Isso é relativamente bem simples, tenha em mente que o ponteiro que tem como “próximo” o valor NULL é certamente o último nó da estrutura, sendo assim em uma pilha que tem muitos elementos se faz necessário uma verificação dentro de um laço.
+
+
+
+Nessa verificação analisamos se chegamos ou não no último nó, se não chegamos continuamos a busca movendo os ponteiros último e penúltimo simultaneamente até seja possível apontar para o último nó e por consequência lógica para seu penúltimo.
+
+Ao encontrar o último nó da pilha, estaremos aptos a retirá-lo da pilha fazendo com que o penúltimo seja o novo último.
+
+É muito simples não é mesmo, acredito que você nem imaginava que trabalhar com pilhas pudesse ser tão simples.
+
+Agora vejamos o resultado desse código:
+
+
+É muito simples não é mesmo, acredito que você nem imaginava que trabalhar com pilhas pudesse ser tão simples.
+
+Agora vejamos o resultado desse código:
+
+Ai está! Tudo funcionando perfeitamente, primeiro inserimos o valor 50 na pilha, depois exibimos o mesmo, retiramos com a opção 2 e usamos a opção 3 para apresentar os valores da pilha que por sinal está vazia e por isso foi exibida a mensagem: “PILHA vazia”.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct NO{
+  int numero;
+  struct NO *proximo;
+};
+typedef struct NO no;
+
+no *RETIRADA(no *PILHA)
+{
+  if(PILHA->proximo == NULL){
+    printf("PILHA ja esta vazia\n");
+  }else{
+    no *ultimo = PILHA->proximo;
+    no *penultimo = PILHA;
+
+    while(ultimo->proximo != NULL)
+        {
+            penultimo = ultimo;
+            ultimo = ultimo->proximo;
+        }
+        penultimo->proximo = NULL;
+  }
+
+}
+
+
+void OPCOES(no *PILHA, int op)
+{
+  no *temp;
+  switch(op){
+    case 0:
+      LIBERACAO(PILHA);
+      break;
+
+    case 1:
+        INSERIR(PILHA);
+      break;
+
+    case 2:
+        temp= RETIRADA(PILHA);
+      break;
+
+    case 3:
+        EXIBIR(PILHA);
+      break;
+
+    default:
+      printf("Comando invalido\n\n");
+  }
+}
+
+
+int vazia(no *PILHA)
+{
+  if(PILHA->proximo == NULL)
+    return 1;
+  else
+    return 0;
+}
+
+no *ALOCACAO()
+{
+  no *novo= malloc(sizeof(no));
+  if(!novo){
+    printf("Sem memoria disponivel!\n");
+    exit(1);
+  }else{
+    printf("Novo elemento na PILHA: "); scanf("%d", &novo->numero);
+    return novo;
+  }
+}
+
+void INSERIR(no *PILHA)
+{
+  no *novo=ALOCACAO();
+  novo->proximo = NULL;
+
+  if(vazia(PILHA))
+    PILHA->proximo=novo;
+  else{
+    no *temp = PILHA->proximo;
+
+    while(temp->proximo != NULL)
+      temp = temp->proximo;
+
+    temp->proximo = novo;
+  }
+
+}
+
+void EXIBIR(no *PILHA)
+{
+  if(vazia(PILHA)){
+    printf("PILHA vazia!\n\n");
+    return ;
+  }
+
+  no *temp;
+  temp = PILHA->proximo;
+  printf("\nPILHA :");
+  while( temp != NULL){
+    printf("%5d", temp->numero);
+    temp = temp->proximo;
+  }
+
+  printf("\n\n");
+}
+
+void LIBERACAO(no *PILHA)
+{
+  if(!vazia(PILHA)){
+    no *proxNode,
+        *atual;
+
+    atual = PILHA->proximo;
+    while(atual != NULL){
+      proxNode = atual->proximo;
+      free(atual);
+      atual = proxNode;
+    }
+  }
+}
+
+
+int main(void)
+{
+    int opt;
+
+  no *PILHA = malloc(sizeof(no));
+  if(!PILHA){
+    printf("Sem memoria!\n");
+    exit(1);
+  }else{
+    PILHA->proximo = NULL;
+
+  do{
+
+        printf("Opcoes\n");
+        printf("0 - Sair\n");
+        printf("1 - Inserir\n");
+        printf("2 - Retirar\n");
+        printf("3 - Exibir\n");
+        printf("Opcao: ");
+        scanf("%d", &opt);
+
+    OPCOES(PILHA,opt);
+  }while(opt);
+
+  free(PILHA);
+  return 0;
+  }
+}
+
+Listas encadeadas
+
+Agora vamos falar um pouco sobre listas simplesmente encadeadas, você já aprendeu como trabalhar com filas e pilhas que são estruturas especiais onde precisamos respeitar algumas condições para retirar e colocar dados dentro delas.
+
+Já no exemplo que veremos sobre listas simplesmente encadeadas veremos como adicionar e retirar elementos de dentro da lista sem respeitar regras.
+
+Podemos adicionar elementos tanto no início como no fim da lista, assim como podemos retirá-los também.
+
+Veremos isso ao executar o código apresentado abaixo:
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct NO{
+  int numero;
+  struct NO *proximo;
+};
+typedef struct NO no;
+
+no *RETIRADA_INICIO(no *LISTA)
+{
+  if(LISTA->proximo == NULL){
+    printf("LISTA ja esta vazia\n");
+
+  }else{
+    no *temp = LISTA->proximo;
+    LISTA ->proximo = temp->proximo;
+
+  }
+
+}
+
+no *RETIRADA_FIM(no *LISTA)
+{
+  if(LISTA->proximo == NULL){
+    printf("LISTA ja esta vazia\n");
+
+  }else{
+    no *ultimo = LISTA->proximo;
+    no *penultimo = LISTA;
+
+    while(ultimo->proximo !=NULL)
+        {
+            penultimo = ultimo;
+            ultimo = ultimo->proximo;
+        }
+        penultimo->proximo = NULL;
+
+  }
+
+}
+
+
+void OPCOES(no *LISTA, int op)
+{
+  no *temp;
+  switch(op){
+    case 0:
+      LIBERACAO(LISTA);
+      break;
+
+    case 1:
+        INSERIR_INICIO(LISTA);
+      break;
+
+    case 2:
+        INSERIR_FIM(LISTA);
+        break;
+
+    case 3:
+        RETIRADA_INICIO(LISTA);
+      break;
+
+    case 4:
+        RETIRADA_FIM(LISTA);
+      break;
+
+    case 5:
+        EXIBIR(LISTA);
+      break;
+
+    default:
+      printf("Comando invalido\n\n");
+  }
+}
+
+
+int vazia(no *LISTA)
+{
+  if(LISTA->proximo == NULL)
+    return 1;
+  else
+    return 0;
+}
+
+no *ALOCACAO()
+{
+  no *novo= malloc(sizeof(no));
+  if(!novo){
+    printf("Sem memoria disponivel!\n");
+    exit(1);
+  }else{
+    printf("Novo elemento na LISTA: "); scanf("%d", &novo->numero);
+    return novo;
+  }
+}
+
+void INSERIR_INICIO(no *LISTA)
+{
+  no *novo=ALOCACAO();
+  no *temp = LISTA->proximo;
+
+  LISTA->proximo = novo;
+  novo->proximo = temp;
+}
+
+void INSERIR_FIM(no *LISTA)
+{
+  no *novo=ALOCACAO();
+  novo->proximo = NULL;
+
+  if(vazia(LISTA))
+    LISTA->proximo=novo;
+  else{
+    no *temp = LISTA->proximo;
+
+    while(temp->proximo != NULL)
+      temp = temp->proximo;
+
+    temp->proximo = novo;
+  }
+
+}
+
+void EXIBIR(no *LISTA)
+{
+  if(vazia(LISTA)){
+    printf("LISTA vazia!\n\n");
+    return ;
+  }
+
+  no *temp;
+  temp = LISTA->proximo;
+  printf("\nPILHA :");
+  while( temp != NULL){
+    printf("%5d", temp->numero);
+    temp = temp->proximo;
+  }
+
+  printf("\n\n");
+}
+
+void LIBERACAO(no *LISTA)
+{
+  if(!vazia(LISTA)){
+    no *proxNode,
+        *atual;
+
+    atual = LISTA->proximo;
+    while(atual != NULL){
+      proxNode = atual->proximo;
+      free(atual);
+      atual = proxNode;
+    }
+  }
+}
+
+
+int main(void)
+{
+    int opt;
+
+  no *LISTA = malloc(sizeof(no));
+  if(!LISTA){
+    printf("Sem memoria!\n");
+    exit(1);
+  }else{
+    LISTA->proximo = NULL;
+
+  do{
+
+        printf("Opcoes\n");
+        printf("0 - Sair\n");
+        printf("1 - Inserir I\n");
+        printf("2 - Inserir F\n");
+        printf("3 - Retirar I\n");
+        printf("4 - Retirar F\n");
+        printf("5 - Exibir\n");
+        printf("Opcao: ");
+        scanf("%d", &opt);
+
+    OPCOES(LISTA,opt);
+  }while(opt);
+
+  free(LISTA);
+  return 0;
+  }
+}
+
+
+Veja que no código acima temos sim algumas novidades, porém a grande maioria dos códigos já são conhecidos por nós.
+
+Sendo assim vamos focar apenas nos códigos novos.
+
+
+
+Bem vamos começar com a função para retirada de elementos do início da lista, veja que nessa função a primeira coisa que fiz foi verificar se a lista está vazia, caso não esteja criamos um ponteiro para me auxiliar na retirada do primeiro nó.
+
+Veja que a ele foi atribuído o valor LISTA->próximo que seria o segundo valor, porém logo depois eu digo que LISTA->próximo é igual a temp->próximo desconsiderando completamente o primeiro nó da lista, então com isso temos o primeiro nó retirado.
+
+Agora que já vimos como retirar o primeiro elemento da lista veremos a função responsável por retirar o último elemento.
+
+
+
+Veja que nessa função antes de retirar qualquer elemento, a primeira coisa que é feita é a verificação da lista, se ele tem ou não elementos.
+
+Caso tenha, criamos dois ponteiros para nos auxiliar na descoberta do último elemento, esses ponteiros com o nome de último e penúltimo vão andar simultaneamente pela lista até encontrar o último elemento, ou melhor, dizendo até que último->próximo seja igual a NULL.
+
+Quando isso acontecer o penúltimo ponteiro como sendo o ultimo atribuindo NULL a penúltimo->próximo.
+
+Maravilha, já vimos como retirar elementos tanto do início quanto do final da lista, então agora veremos como inserir elementos tanto no início quanto no fim dessa mesma lista encadeada.
+
+Primeiro vamos ver como inserir elementos no início da lista.
+
+
+
+Veja que nesse código logo depois do trecho onde chamamos a função de alocação, temos a criação de um ponteiro com o nome de temp, esse ponteiro vai nos auxiliar a colocar um novo elemento exatamente no início da minha lista.
+
+Veja que para que isso seja possível é necessário atribuir a temp LISTA->próximo, depois em LISTA->proximo adicionamos o “novo” valor alocado e para garantir que esse novo valor será adicionado no início da lista atribuímos temp a novo->próximo.
+
+Tudo isso parece meio confuso, mas se você parar para pensar temp está ocupando a segunda posição da nossa lista já que é a “LISTA->proximo”,certo?
+
+Sendo assim se novo->próximo é temp então novo é o primeiro elemento da lista já que temp é o segundo.
+
+Deu um nozinho na mente, mas é isso mesmo, fique tranquilo que essa parte nunca é muito fácil de compreender no início, mas vendo o exemplo funcionar e fazendo alguns testes fica fácil de entender essa lógica.
+
+Bom, agora que vimos como adicionar elementos no início da lista, vamos ver como adicionar elementos no final de uma lista.
+
+Para isso usamos o seguinte código:
+
+
+
+Essa função é muito simples nela criamos um ponteiro com o nome de temp para nos auxiliar na inserção de um elemento no final da lista.
+
+Veja que antes de inserir um novo valor na lista é preciso achar o último elemento da mesma, isso é feito dentro de um laço que verifica se temp->próximo é igual a NULL se for achamos o último nó da lista e já podemos adicionar um novo valor usando temp->próximo = novo.
+
+Muito bem essas são sem dúvida as principais funções desse programa, porém como foi preciso ajustar algumas outras funções para que esse novo programa funcionasse, então veremos agora quais funções receberam ajustes.
+
+A função OPCOES() recebeu algumas pequenas ressalvas para que fosse possível escolher mais opções de inserção e de remoção de elementos, veja que aqui temos escolhas que vão de 0 a 5, algo que não acontecia antes quando tínhamos apenas opções de 0 a 3.
+
+Veja que a função main() também recebeu algumas mudanças para que seja possível informar ao usuário que existem mais opções de inserção e remoção de elementos.
+
+
+Veja que com poucas linhas de código conseguimos criar uma bela estrutura de dados.
+
+Veja a imagem do exemplo executando:
+
+E é isso está ai o nosso aplicativo.
+
+Árvores binárias
+
+Árvores binárias são certamente um dos tipos de estrutura de dados mais complexos e importantes que existe.
+
+Uma árvore é composta de um elemento que chamamos de raiz que por sua vez possui ligações para vários outros elementos que seriam os ramos, filhos ou subárvores.
+
+Esses ramos por sua vez são dotados de sub-ramos até que cheguemos a um determinado elemento que esteja sozinho ou quer dizer sem ramos.
+
+Esse elemento podemos chamar de folha, afinal em uma árvore a folha é realmente o último elemento da árvore.
+
+Algo importante de dizer também é que as árvores têm elementos tanto à direita quanto à esquerda, sendo possível desta forma estabelecer mecanismos que determinem que valor vai para cada lado.
+
+Agora vamos analisar um exemplo muito utilizado na EFES para explicar o funcionamento das árvores.
+
+Veja que nesse exemplo a primeira coisa que fizemos foi adicionar nossas inclusões.
+
+
+Depois disso criamos a estrutura da nossa árvore e na sequência já definimos o typedef que vamos usar no resto do código.
+
+
+
+Veja que ao contrário do que estamos acostumados, nessa estrutura temos dois ponteiros da estrutura da árvore.
+
+Isso acontece pelo fato de uma árvore poder ter valores tanto do lado direito quanto do lado esquerdo, como uma árvore de verdade que tem um tronco principal e vários galhos do lado direito e esquerdo.
+
+Por fim definimos o valor que será adicionado a nossa árvore, repare que nesse caso resolvemos adicionar a entrada de valores alfanuméricos para que tenhamos algo diferente do que vemos normalmente na rede.
+
+Agora vamos criar uma função que poderemos usar para criar uma árvore vazia, veja que a única coisa que essa função faz é retornar um valor NULL que como sabemos indica a ausência de valores.
+
+C / C++
+
+Depois da função que cria uma árvore vazia é necessário criar uma função que adiciona elementos a nossa árvore e isso é feito na função Criar().
+
+
+
+Veja que essa função é responsável por criar a alocação de memória necessária para a criação da nossa árvore com valores inclusos.
+
+Nela temos como parâmetros o valor a ser adicionado na árvore assim como os parâmetros que definem quem está à direita e à esquerda do valor que adicionamos.
+
+Agora temos a função Libera() que é responsável por liberar um determinado elemento caso a árvore não esteja vazia.
+
+
+
+Continuando temos agora a função responsável por imprimir na tela os valores que existem dentro da nossa árvore.
+
+Veja que nessa impressão conseguimos apresentar o nó principal e os sub nós à direita e esquerda.
+
+Por fim temos a função main que usamos para criar a árvore em si.
+
+
+Nela veja que criamos uma árvore vazia, mas vamos mostrar como adicionar elementos a essa árvore.
+Adicionando elementos dentro da árvore
+
+Agora que aprendemos como criar uma árvore vazia, vamos aprender criar uma árvore mais interessante.
+
+Para isso vamos continuar usando o código apresentado anteriormente, porém fazendo a seguinte alteração:
+
+ 
+C / C++
+
+Veja que nesse código a primeira mudança feita é dentro da função responsável por imprimir os valores da árvore.
+
+
+
+Veja que no trecho do código acima comentamos a função que imprime o nó esquerdo da árvore.
+
+Dessa forma seremos capazes de ver apenas os valores à direita.
+
+Já na função main temos algumas mudanças mais aparentes, veja:
+
+
+
+Repare que criamos dois nós o “ b ” e o “ a ”, veja também que o nó “ b ” é o nó folha, pois não existe nada ligado a ele, veja que tanto à direita quanto à esquerda não existe nenhum nó.
+
+Já no nó “ a ” a coisa muda a direita dele temos o nó “ b ” e a esquerda não temos nada, sendo assim ao imprimir os valores de v2 seremos capazes de ver o valor “ a ”, “ b ” e uma mensagem de árvore vazia.
+
+Veja a imagem que ilustra isso:
+
+Veja que conseguimos mostrar os elementos A, B e como não existem mais à direita, uma mensagem de árvore vazia foi exibida.
+
+Mas é claro que existe mais uma forma de adicionar elementos nessa árvore, veja:
+
+
+
+Na função main() do código acima precisamos fazer uma pequena adição onde a direita de v1 adicionaremos um elemento que será o “ c ”, por sua vez esse elemento terá NULL a sua direita e esquerda.
+
+Fazendo isso ao executar o código teremos a seguinte resposta:
+
+Olha lá, agora temos o elemento c adicionado a árvore.
+
+Agora vamos continuar nosso estudo aprendendo como liberar um elemento da nossa árvore, mas claro para isso vou retornar a árvore a seu estado original com apenas 2 elementos, o A e o B para que dessa forma fique mais simples a sua compreensão.
+Retirando elementos da árvore
+
+Agora que aprendemos a criar nossas árvores e como adicionar elementos a ela, chegou a hora de ver como retirar elementos dela.
+
+Para isso basta executar o seguinte código:
+
+
+
+Veja que nesse código temos uma linha que é a responsável por retirar o elemento que está à direita de v2 que no caso é v1.
+
+Sendo assim teremos algo parecido com isso:
+
+Se eu retirar o elemento que está à direita de A que no caso é B, vou ter apenas A e NULL tanto do lado direito quanto do lado esquerdo.
+
+Por essa razão quando retirarmos esse elemento com o seguinte código:
+
+
+
+Temos a seguinte imagem de resposta:
+
+Veja que agora só temos o elemento A e a mensagem que nos comunica a falta de elementos, afinal lembre-se que agora à direita de A não temos nada.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct NO
+{
+    struct NO *direita;
+    struct NO *esquerda;
+    char letra;
+};
+
+typedef struct NO no;
+
+no* CriarVazia(void)
+{
+    return NULL;
+}
+
+no* Criar(char c, no* direito, no* esquerdo)
+{
+    no* aux = malloc(sizeof(no));
+    aux->letra = c;
+    aux->direita = direito;
+    aux->esquerda = esquerdo;
+    return aux;
+}
+
+int Vazia(no* p)
+{
+    return p==NULL;
+}
+
+no* Libera(no* val)
+{
+    if(!Vazia(val))
+    {
+        Libera(val->esquerda);
+        Libera(val->direita);
+        free(val);
+    }
+    return NULL;
+}
+
+void Imprimir(no* val)
+{
+    if(!Vazia(val))
+    {
+        printf("%c",val->letra);
+        Imprimir(val->direita);
+        Imprimir(val->esquerda);
+    }else{
+        printf("Arvore vazia\n");s
+    }
+}
+
+int main()
+{
+    no* v1= CriarVazia();
+
+    Imprimir(v1);
+
+    return 0;
+}

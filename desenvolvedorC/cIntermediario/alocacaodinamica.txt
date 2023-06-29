@@ -1,0 +1,389 @@
+Alocação estática
+
+A alocação estática de memória é muito simples, talvez você não saiba o que é, mas tenha certeza que já usou muito.
+
+Mas você deve estar pensando, poxa o cara está falando de alocação estática, vai falar sobre alocação dinâmica e eu nem sei que raios é alocação.
+
+Então vamos esclarecer o que é alocação de memória.
+
+Alocação de memória nada mais é do que uma solicitação de memória no processo de execução dos nossos programas.
+
+Para entender melhor veja um exemplo de alocação estática:
+
+Int numero;
+Int outronumero[10];
+Viu só, você já usava alocação estática antes mesmo de entender o conceito, na alocação estática você reserva o espaço para as variáveis antes de executar o programa.
+
+locação dinâmica
+
+Agora na alocação dinâmica a coisa muda, aqui o espaço para as variáveis é alocado dinamicamente durante a execução do programa.
+
+Vamos analisar um exemplo de programa que usa alocação dinâmica e depois vamos usar esse exemplo para especificar ainda mais o assunto.
+
+O código usado para essa explicação está sendo adicionado dentro do projeto TWcod que criamos anteriormente, você pode fazer o mesmo ou criar um projeto novo para esse exemplo, basta seguir as orientações que foram passadas no tópico anterior.
+
+Veja o código:
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int QuantidadeE,i;
+    int *vetor;
+
+    printf("Informe a quantidade de valores do vetor:\n");
+    scanf("%d",&QuantidadeE);
+
+    vetor = malloc(QuantidadeE*sizeof(int));
+
+    if(!vetor)
+    {
+        printf("Memoria esgotada!!\n");
+        exit(1);
+    }
+
+    printf("Digite os valores para o vetor:\n");
+    for(i=0;i<QuantidadeE;i++)
+    {
+        printf("Valor para o vetor %d\n",i);
+        scanf("%d",&vetor[i]);
+    }
+
+    printf("Valores do vetor:\n");
+    for(i=0;i<QuantidadeE;i++)
+    {
+        printf("Vetor[%d]-%d\n",i,vetor[i]);
+    }
+    free(vetor);
+    return 0;
+}
+
+
+
+Como resposta teremos o seguinte:
+
+Veja que no código acima estamos usando alocação dinâmica e isso é muito conveniente, pois usando alocação dinâmica estamos economizando memória e claro garantindo que não teremos desperdício já que definimos em tempo de execução o tamanho do nosso vetor.
+
+Agora imagine se tentássemos fazer o mesmo código, porém sem usar alocação dinâmica, como seria isso?
+
+Veja no exemplo abaixo:
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int QuantidadeE,i;
+    int vetor[0];
+
+    printf("Informe a quantidade de valores do vetor:\n");
+    scanf("%d",&QuantidadeE);
+
+    printf("Digite os valores para o vetor:\n");
+    for(i=0;i<QuantidadeE;i++)
+    {
+        printf("Valor para o vetor %d\n",i);
+        scanf("%d",&vetor[i]);
+    }
+
+    printf("Valores do vetor:\n");
+    for(i=0;i<QuantidadeE;i++)
+    {
+        printf("Vetor[%d]-%d\n",i,vetor[i]);
+    }
+
+    return 0;
+}
+
+
+
+Veja que no código acima o nosso vetor já tem um tamanho definido antes de executar o programa.
+
+Isso não é nada produtivo, pois preciso tentar adivinhar quantos dados serão cadastrados dentro do vetor, passando pelo risco de criar um vetor muito grande para poucos registros ou um muito pequeno para muitos registros.
+
+Veja a imagem desse exemplo executando:
+
+Veja que mesmo eu tendo definido que seria colocado dois valores no vetor, eu só consegui colocar 1 valor, pois o vetor está com um tamanho definido para aceitar apenas 1 valor e nada mais.
+
+Agora se você prestar bem a atenção nesses dois códigos, verá que ambos são muito parecidos, porém com poucas diferenças.
+
+A diferença gritante entre eles é o uso da função malloc(), que veremos a seguir.
+
+Malloc
+
+A função malloc() é responsável por alocar memória e ela tem o seguinte protótipo:
+
+Void *malloc(unsigned int num);
+
+
+
+Essa função recebe a quantidade de bytes que queremos alocar e retorna um ponteiro do tipo void para o início do bloco de memória.
+
+Ao usarmos essa função podemos não ter êxito na alocação e caso isso aconteça teremos como retorno um ponteiro nulo.
+
+Agora algo importante que precisamos lembrar é que essa função não deve ser usada da seguinte maneira:
+
+
+Vetor = malloc(4);
+
+
+
+Veja que embora o código acima não apresente nenhum erro, não é interessante escrevê-lo dessa forma.
+
+Afinal fazendo isso você está assumindo a responsabilidade de que todo inteiro tenha exatamente 4 bytes.
+
+Então não faça isso, não puxe para si uma responsabilidade tão grande, é melhor usar sizeof() para obter a quantidade de bytes.
+
+Vetor = malloc(sizeof(int));
+
+Bem simples não é mesmo, então agora vamos a um exemplo mais simples, porém mais didática do uso da função malloc().
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+  int *pointer;
+
+  pointer = malloc(sizeof(int));
+
+  if(pointer)
+  {
+     printf("Memoria alocada com sucesso.\n");
+  }
+  else
+  {
+     printf("Memoria nao alocada.\n");
+     exit(1);
+  }
+  *pointer = 100;
+  printf("Valor: %d\n\n", *pointer);
+  free(pointer);
+  return 0;
+}
+
+
+
+Veja que no código acima estamos usando a função malloc() para fazer a alocação de memória.
+
+pointer = malloc(sizeof(int));
+
+E logo depois disso estamos verificando se realmente obtivemos êxito nessa ação.
+
+if(pointer)
+  {
+     printf("Memoria alocada com sucesso.\n");
+  }
+  else
+  {
+     printf("Memoria nao alocada.\n");
+     exit(1);
+  }
+
+
+
+Perceba que teremos mensagens diferentes para cada resultado e caso a alocação não tenha sido feita teremos uma parada no programa.
+
+Agora caso a alocação tenha sido feita com sucesso teremos uma atribuição de valor para pointer e logo depois a exibição desse valor com a função printf().
+
+
+*pointer = 100;
+  printf("Valor: %d\n\n", *pointer);
+
+
+
+Muito bem agora que chegamos nessa etapa você deve estar se perguntando mas e a função free() qual é a função dela?
+
+Vamos falar sobre ela mais à frente, mas para não deixar pontas soltas, já vamos passar o que ela faz, o que é muito simples, pois ela simplesmente libera a memória que alocamos.
+
+Caso essa explicação tenha ficado um tanto quanto vaga, não se preocupe, pois como já falei anteriormente, vamos falar sobre ela mais à frente.
+
+No momento vamos continuar com o assunto de alocação de memória, porém agora falando de outra função que também aloca que é a calloc().
+
+Calloc
+
+Agora vamos falar da função calloc(), essa função também serve para alocar memória mas ela possui um protótipo um pouquinho diferente veja:
+
+Void * calloc(unsigned int num, unsigned int size)
+
+
+Essa função aloca uma quantidade de memória que é igual a multiplicação de num por size.
+
+Ela retorna um ponteiro void para o inìcio do bloco de memória, assim como a função malloc().
+
+Essa função assim como a função malloc() pode ter problemas para alocar memória, se isso acontecer teremos um retorno de um ponteiro nulo.
+
+Vamos ver um exemplo da função calloc():
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int QuantidadeE,i;
+    int *vetor;
+
+    printf("Informe a quantidade de valores do vetor:\n");
+    scanf("%d",&QuantidadeE);
+
+    vetor = calloc(QuantidadeE,sizeof(int));
+
+    if(!vetor)
+    {
+        printf("Memoria esgotada!!\n");
+        exit(1);
+    }
+
+    printf("Digite os valores para o vetor:\n");
+    for(i=0;i<QuantidadeE;i++)
+    {
+        printf("Valor para o vetor %d\n",i);
+        scanf("%d",&vetor[i]);
+    }
+
+    printf("Valores do vetor:\n");
+    for(i=0;i<QuantidadeE;i++)
+    {
+        printf("Vetor[%d]-%d\n",i,vetor[i]);
+    }
+    free(vetor);
+
+    return 0;
+}
+Veja que no código apresentado acima temos a alocação feita usando a função calloc(), repare também que esse código já é um conhecido nosso.
+
+Usamos ele para exemplificar o uso de malloc(), então veja que o código permanece o mesmo tendo como alteração apenas a função de alocação que agora é calloc() ao invés de malloc().
+
+Vejamos o resultado desse código:
+Está aí, tudo funcionando direitinho.
+
+Realloc
+
+Agora vamos falar sobre mais uma função muito importante em alocação dinâmica, essa função é a realloc().
+
+Como você já viu anteriormente é muito simples alocar memória usando as funções malloc e calloc, porém imagine que você em um determinado momento precisa aumentar ou diminuir o tamanho de alocação de memória.
+
+Caso seja necessário fazer isso você pode usar a função realloc (), essa função tem o seguinte protótipo:
+
+Void *realloc(void *ptr, unsigned int num)
+
+
+Veja que essa função é muito simples ela modifica o tamanho da memória alocada pelo ponteiro ptr para o valor especificado por num e caso não exista memória para efetuar essa operação com êxito teremos o retorno de um ponteiro nulo.
+
+Vamos ver um exemplo dessa função:
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int i;
+    int *vetor;
+
+    vetor = calloc(5,sizeof(int));
+
+    if(!vetor)
+    {
+        printf("Memoria esgotada!!\n");
+        exit(1);
+    }
+
+    printf("Digite os valores para o vetor:\n");
+
+    for(i=0;i<5;i++)
+    {
+        printf("Valor para o vetor %d\n",i);
+        scanf("%d",&vetor[i]);
+    }
+
+    printf("Valores do vetor:\n");
+
+    for(i=0;i<5;i++)
+    {
+        printf("Vetor[%d]-%d\n",i,vetor[i]);
+    }
+
+    vetor = realloc(vetor,10*sizeof(int));
+
+    printf("Digite os valores para o novo vetor:\n");
+
+    for(i=0;i<10;i++)
+    {
+        printf("Valor para o vetor %d\n",i);
+        scanf("%d",&vetor[i]);
+    }
+
+    printf("Valores do vetor:\n");
+
+    for(i=0;i<10;i++)
+    {
+        printf("Vetor[%d]-%d\n",i,vetor[i]);
+    }
+
+    free(vetor);
+
+    return 0;
+}
+
+
+
+Veja que no código acima não tem muita novidade, já vimos esse código para alocar memória a única diferença é que aqui estamos realocando memória com a função realloc().
+
+Vamos analisar as novidades desse código:
+
+vetor = calloc(5,sizeof(int));
+C / C++
+
+Veja que agora estamos definindo um valor fixo para a função calloc() e não uma variável que será incrementada pelo usuário.
+
+Isso foi feito para fins meramente didáticos, então aqui você já sabe que o tamanho de memória alocado é esse, 5 valores dentro do vetor.
+
+for(i=0;i<5;i++)
+    {
+        ...
+    }
+
+Depois ajustamos os laços do tipo for para que usem o valor 5 e não mais a variável que estava sendo usada anteriormente.
+vetor = realloc(vetor,10*sizeof(int));
+
+Agora usamos a função realloc() para ajustar o tamanho da alocação da memória que antes tinha o valor 5 e agora terá o valor 10, então teremos 10 valores dentro do nosso vetor.
+printf("Digite os valores para o novo vetor:\n");
+
+    for(i=0;i<10;i++)
+    {
+        printf("Valor para o vetor %d\n",i);
+        scanf("%d",&vetor[i]);
+    }
+
+Feito isso capturamos os valores.
+
+for(i=0;i<10;i++)
+    {
+        printf("Vetor[%d]-%d\n",i,vetor[i]);
+    }
+
+    free(vetor);
+
+    return 0;
+
+E por fim, exibimos os valores na tela e logo depois liberamos a memória finalizando a aplicação.
+
+Prontinho, veja que a princípio adicionamos apenas 5 valores no vetor, mas depois somos capazes de adicionar 10 valores.
+
+Free
+
+Finalmente vamos falar da função free(), essa função foi apresentada várias vezes, então nada mais justo que dedicarmos um espaço para falar um pouquinho dela.
+
+A função free() é simples, porém extremamente importante, afinal quando trabalhamos com alocação dinâmica é necessário fazer a liberação da memória quando a mesma já não for mais necessária, isso é justamente o que essa função faz.
+
+Seu protótipo é esse:
+
+Void free(void *p)
+
+
+
+Veja que para utilizar essa função basta passar a ela o ponteiro utilizado para apontar para o início da memória alocada, feito isso você vai conseguir liberar a memória que não necessita mais.
+
+Então veja que apesar de sua facilidade, ela é muito importante e certamente deve ser usada.
+

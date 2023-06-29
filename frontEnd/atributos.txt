@@ -1,0 +1,65 @@
+atributo lang
+
+de language 
+
+<html lang="pt-BR">
+<html lang="en">
+
+atributo abbr abreviacao
+
+<p><abbr title="Linguagem de Marcação de texto">HTML</abbr></p>
+
+
+
+metas tag
+
+precisa de um atributo
+tag de configuracao >> head 
+meta de caracteres especiais
+<meta charset="utf-8">
+
+! documento pronto
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+escala do monitor, escala 1.0
+
+nao utilziar 2 h1 em uma pagina
+br break, quebra linha
+
+<hr>
+cria uma linha
+<b> bold negrito
+<i> italico
+
+listas, 
+listas ordenadas
+listas nao ordenadas
+ol (dentro lita ordenada
+li ( list item
+
+    <ol>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ol>
+lista nao ordenada ul
+
+
+tabelta dentro da tag table
+tr // table rool
+td /// table date ;/; dados da tabela
+
+th // indice da tabela ou primeiro nome
+
+<strong> importancia maior do elemento
+ancoras
+a href de referencia
+a tab target 
+self abre na propria aba
+parent
+blank // abre em outra aba
+
+atributop rel = "" rel="noopener noreferrer" nao deixa a pagina destino abrir sua pagina
+atributo largura e altura da imagem
+width="" largura
+height="200" altura

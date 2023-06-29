@@ -1,0 +1,300 @@
+struct
+Um pouco mais de estruturas
+
+Você deve se lembrar de que falamos de forma bem resumida sobre esse assunto no módulo básico desse curso, caso você não esteja ligando o nome à pessoa, essas estruturas são as famosas “structs”, lembrou?
+
+Legal, então podemos continuar. Nesse módulo vamos falar um pouco mais sobre esse tema, pois para o assunto de filas, pilhas, listas e árvores o uso dessas estruturas será mais que importante.
+
+Para os exemplos que virão, vou continuar usando o projeto TWcod que criamos anteriormente, mas fique à vontade para criar um novo projeto caso queira, se você não lembra como se cria um projeto, retorne ao capítulo “Ponteiros para Funções” para refrescar a memória.
+
+Você deve se lembrar de que structs são usadas para armazenar diversas variáveis correspondentes a um mesmo elemento.
+
+Um exemplo de struct pode ser visto logo abaixo:
+
+struct Animais
+    {
+        char Nome[50];
+        int Idade;
+    };
+
+
+
+Veja que nessa estrutura temos duas variáveis que se referem ao nome de um determinado animal e a sua idade, até aqui nenhuma novidade já deu pra lembrar como se constrói uma struct.
+
+Mas vamos avançar um pouco mais nesse assunto aprendendo como fazer atribuição de estrutura.
+
+Atribuição de estrutura
+
+Agora vamos ver como uma estrutura pode ser atribuída à outra estrutura que seja do mesmo tipo.
+
+Veja no exemplo abaixo como é simples e útil fazer esse tipo de atribuição:
+
+#include <stdio.h>
+#include <stdlib.h>
+
+    struct
+    {
+        int Numero;
+    }Loja1,Loja2;
+
+int main()
+{
+    Loja1.Numero = 20;
+
+    Loja2 = Loja1;
+
+    printf("%d",Loja1.Numero);
+    printf("\n");
+    printf("%d",Loja2.Numero);
+    printf("\n");
+
+    return 0;
+}
+
+
+
+Veja que no exemplo apresentado acima temos uma struct que definimos como sendo a estrutura básica de Loja1 e Loja2.
+
+Adicionamos valor apenas a Loja1 sendo assim teoricamente, só a Loja1 pode apresentar algum valor, a Loja2 não tem valor para apresentar, sendo assim temos apenas a exibição do valor “ 0 ”.
+
+Mas ao atribuir o valor da estrutura 1 para a estrutura 2, teremos ambas apresentando o mesmo valor de 20 unidades, veja:
+
+Muito mais fácil do que igualar os valores variável por variável, algo muito legal é que você pode igualar as estruturas, mas também podemos atribuir valores distintos para suas variáveis.
+
+Veja no exemplo abaixo o mesmo código, porém com valores distintos para cada variável.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+    struct
+    {
+        int Numero;
+    }Loja1,Loja2;
+
+int main()
+{
+    Loja1.Numero = 20;
+
+    Loja2.Numero = 30;
+
+    printf("%d",Loja1.Numero);
+    printf("\n");
+    printf("%d",Loja2.Numero);
+    printf("\n");
+
+    return 0;
+}
+
+Bem legal não é mesmo? Agora temos duas estruturas distintas, semelhantes e com valores que podem ou não ser iguais.
+
+Matrizes com estruturas
+
+Muito bem, agora continuando nesse assunto vamos ver como é simples e útil trabalhar com matrizes de structs.
+
+O uso de estruturas facilita muito a vida dos programadores, porém quando é necessário executar um volume muito grande de informações contidas em structs se faz necessário o uso de matrizes.
+
+Para criar uma matriz de struct não tem segredo, veja no exemplo abaixo como isso deve ser feito:
+
+#include <stdio.h>
+struct Cao {
+  char *nome;
+  int idade;
+  char *raca;
+};
+
+int main()
+{
+  struct Cao dog[3][3];
+  int x, y;
+
+  dog[0][0].nome = "brutus";
+  dog[0][0].idade = 2;
+  dog[0][0].raca = "doberman";
+
+  dog[0][1].nome = "k9";
+  dog[0][1].idade = 3;
+  dog[0][1].raca = "doberman";
+
+  dog[0][2].nome = "kin";
+  dog[0][2].idade = 4;
+  dog[0][2].raca = "doberman";
+
+  dog[1][0].nome = "toto";
+  dog[1][0].idade = 2;
+  dog[1][0].raca = "vira lata";
+
+  dog[1][1].nome = "brutus";
+  dog[1][1].idade = 4;
+  dog[1][1].raca = "vira lata";
+
+  dog[1][2].nome = "zeus";
+  dog[1][2].idade = 2;
+  dog[1][2].raca = "vira lata";
+
+  dog[2][0].nome = "fifi";
+  dog[2][0].idade = 2;
+  dog[2][0].raca = "poodle";
+
+  dog[2][1].nome = "bidu";
+  dog[2][1].idade = 4;
+  dog[2][1].raca = "poodle";
+
+  dog[2][2].nome = "deco";
+  dog[2][2].idade = 3;
+  dog[2][2].raca = "poodle";
+
+  for(x = 0; x < 3; x++) {
+    printf("Cao %d\n\n", x+1);
+    for(y = 0; y < 3; y++) {
+      printf("%s %d %s \n\n", dog[x][y].nome, dog[x][y].idade,dog[x][y].raca);
+    }
+  }
+
+  return 0;
+}
+
+Veja que no código acima começamos criando uma struct com o nome de Cao, dentro dela temos três variáveis que são o nome do cachorro, sua idade e sua raça.
+
+struct Cao {
+  char *nome;
+  int idade;
+  char *raca;
+};
+
+Depois disso dentro da função main() temos a criação da matriz 3x3 usando a estrutura que criamos.
+
+struct Cao dog[3][3];
+
+
+Depois disso criaremos duas variáveis que irão nos auxiliar nos laços que serão responsáveis por exibir os valores da matriz.
+
+int x, y;
+
+
+Depois de criadas essas variáveis, vamos popular nossa matriz.
+
+Veja:
+
+dog[0][0].nome = "brutus";
+  dog[0][0].idade = 2;
+  dog[0][0].raca = "doberman";
+
+  dog[0][1].nome = "k9";
+  dog[0][1].idade = 3;
+  dog[0][1].raca = "doberman";
+
+  dog[0][2].nome = "kin";
+  dog[0][2].idade = 4;
+  dog[0][2].raca = "doberman";
+
+
+Veja que no trecho de código apresentado acima temos os dados que correspondem apenas a linha “ 0 ”, fizemos isso, pois com a linha 1 e 2 o processo é o mesmo então não vale a pena adicionar todos os dados e confundir sua cabeça.
+
+Repare que no código acima estamos adicionando informações na primeira linha e coluna da matriz que é representada pelo número “ [0][0] ”, depois adicionamos dados na mesma linha porém na próxima coluna “[0][1]” e por fim na mesma linha e na coluna linha “[0][2]”.
+
+Feito isso foi possível popular a primeira linha inteira, afinal lembre-se que temos uma matriz 3x3, significa que temos 3 linhas e três colunas.
+
+Como você viu preenchemos todas as três colunas da primeira linha:
+
+Agora para continuar é preciso preencher todas as três colunas das últimas duas linhas que são representadas como:
+[1][...]
+
+
+E
+
+[
+
+
+C / C++
+
+Bem simples não é mesmo?
+
+Então, agora vamos continuar a explicação apresentando os laços responsáveis por exibir os dados adicionados a matriz.
+
+for(x = 0;x < 3; x++) {
+    printf("Cao %d\n\n", x+1);
+    for(y = 0; y < 3; y++) {
+      printf("%s %d %s \n\n", dog[x][y].nome, dog[x][y].idade,dog[x][y].raca);
+    }
+  }
+Veja que com o auxílio dos dois laços do tipo for conseguimos percorrer toda a matriz apresentando assim todos os valores armazenados.
+
+Funções com estruturas
+
+Agora para fechar o assunto de estruturas vamos ver como trabalhar com estruturas e funções.
+
+Utilizar estruturas em nossas funções é realmente muito simples e essa prática deixa seu código mais limpo e organizado.
+
+Veja no código abaixo como é simples criar uma função e nela usar uma estrutura qualquer.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct Cao {
+  char *nome;
+  int idade;
+  char *raca;
+}dog;
+
+void Exibir(dog c)
+{
+    printf("Nome : %s\n",c.nome);
+    printf("Idade : %d\n",c.idade);
+    printf("Raca : %s\n",c.raca);
+}
+
+int main()
+{
+    dog d1 = {"fifi",2,"poodle"};
+    Exibir(d1);
+
+  return 0;
+}
+
+
+Prontinho, agora vamos analisar cada parte desse código para que seja possível entendermos como ele funciona em sua totalidade.
+
+Antes de tudo temos as nossas inclusões.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+
+Até ai nada demais, afinal já estamos vendo essas inclusões desde o primeiro módulo desse curso.
+
+Depois criamos nossa estrutura tomando o cuidado de usar um typedef para a mesma.
+
+typedef struct Cao {
+  char *nome;
+  int idade;
+  char *raca;
+}dog;
+
+
+
+Veja que a estrutura não apresenta nenhuma novidade exceto pelo fato do typedef, mas fique tranquilo o typedef é realmente muito simples ele tem a função de permitir ao programador definir um novo nome para um determinado tipo, é o que fizemos no código acima.
+
+Depois disso criamos uma função que tem como parâmetro a nossa estrutura que tem o nome de c e tipo dog.
+
+Veja que dentro da função estamos acessando cada variável da estrutura a fim de exibir os dados ali existentes.
+
+void Exibir(dog c)
+{
+    printf("Nome : %s\n",c.nome);
+    printf("Idade : %d\n",c.idade);
+    printf("Raca : %s\n",c.raca);
+}
+
+Por fim, dentro da função main() temos a atribuição de valores para nossa estrutura e logo depois disso temos a chamada da função Exibir() que apresenta na tela os dados passados para d1.
+
+int main()
+{
+    dog d1 = {"fifi",2,"poodle"};
+    Exibir(d1);
+
+  return 0;
+}
+
+Bem simples não é mesmo?
+
+Agora é só executar o código e ver o resultado:
