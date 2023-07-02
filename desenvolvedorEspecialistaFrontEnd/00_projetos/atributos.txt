@@ -22,3 +22,79 @@ meta de caracteres especiais
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 escala do monitor, escala 1.0
+
+csss in line
+<h1 style="color: blue;">Treinaweb</h1>
+
+<h1 style="color: blue; text-align: center;">Treinaweb</h1>
+
+p><b style="font-size: 2rem">Escola</b> <i>online</i> para <br>
+            desenvolvedores</p>
+
+tag style dentrdo da head
+
+  <style>
+        ol 
+        {
+            background-color:rgb(99, 92, 92);
+            color: white;
+        }
+
+        ul
+        {
+            background-color: black;
+            color: white;
+        }
+
+
+
+    </style>
+
+folha estilizada
+
+th, td
+{
+    border: 1px solid black;
+}
+
+body
+{
+    background-color: darkslategray;
+}
+
+th
+{
+    border: 1px solid black;
+}
+
+td
+{
+    border: 1px solid black;
+}
+
+body
+{
+    background-color: darkslategray;
+}
+
+th, td, table
+{
+    border: 1px solid black;
+}
+
+table
+{
+    border-collapse: collapse;
+}
+
+<div></div>
+
+div
+{
+    background-color: brown;
+    width: 300px;
+    height: 300px;
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 20px;
+}

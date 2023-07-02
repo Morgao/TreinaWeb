@@ -1,0 +1,14 @@
+body
+{
+    background-color: darkslategray;
+}
+
+th, td, table
+{
+    border: 1px solid black;
+}
+
+table
+{
+    border-collapse: collapse;
+}
