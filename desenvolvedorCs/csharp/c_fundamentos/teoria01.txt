@@ -1,0 +1,377 @@
+Introdução ao .NET Framework
+
+Enquanto programadores, principalmente no início de nossas carreiras, precisamos fazer escolhas que podem impactar grandemente no nosso futuro profissional. Entre essas escolhas está a opção por um conjunto de tecnologias que decidimos estudar e adotar como ferramentas de trabalho, como linguagens de programação, frameworks e sistemas gerenciadores de bancos de dados.
+
+Nesse contexto, tem sido cada vez mais difícil escolher uma "stack" (conjunto de linguagens, frameworks e SGBDs), pois com frequência surgem novas linguagens, novos frameworks e SGBDs, ou novas versões dos que já existem. Portanto, é fundamental analisar com cautela e definir quais tecnologias nos permitirão ingressar com mais facilidade no mercado de trabalho, receber melhores salários e até mesmo facilitar o desenvolvimento de projetos pessoais.
+
+Entre as várias opções que temos atualmente à nossa disposição, vamos aqui destacar uma que consideramos ser uma ótima escolha tanto para programadores que estão iniciando suas carreiras, quanto para aqueles que já têm experiência em outras stacks e estão buscando uma alternativa mais moderna: o .NET.
+O que é .NET?
+
+O .NET pode ser definido como plataforma de desenvolvimento de software, uma vez que é composto por linguagens de programação (e seus compiladores) e bibliotecas com funções variadas.
+
+Com ele é possível desenvolver diferentes tipos de aplicação para diferentes plataformas. Logo, é a solução ideal para quem precisa desenvolver software para diferentes públicos, em diferentes cenários de uso (mobile, web, desktop, inteligência artificial, IoT).
+
+O .NET foi desenvolvido pela Microsoft e mais recentemente teve parte do seu código fonte aberto no GitHub, passando a receber colaborações de milhares de programadores e empresas em todo o mundo. Agora, além da Microsoft como mantenedora principal, o projeto recebe contribuições de outras como Google e Red Hat.
+Linguagens de programação
+
+O .NET suporta oficial três linguagens de programação, cada uma com suas características:
+
+    C#: essa é a linguagem principal, criada para ser a opção primária de quem adota o .NET. Trata-se de uma linguagem orientada a objetos, moderna e frequentemente atualizada;
+    Visual Basic .NET: pode ser entendida como uma evolução da tradicional linguagem Visual Basic para entrar no ecossistema .NET, porém ela foi repensada para se aproximar de linguagens mais atuais à época, passando a ser orientada a objetos e ganhando novos elementos de sintaxe. Ela ocupa, então, o segundo lugar entre as linguagens do .NET;
+    F#: diferente das anteriores, que tem como principal paradigma a Orientação a Objetos, essa é uma linguagem primariamente funcional. É a mais recente das três e devido à sua natureza funcional, acaba sendo a menos utilizada.
+
+Houve algumas iniciativas para permitir o uso de outras linguagens dentro do .NET, como Delphi e PHP, mas não tiveram tanto sucesso no mercado.
+
+Então, diante dessa breve descrição das linguagens, é fácil perceber que se você está ingressando no ecossistema .NET, deve optar por C#, a menos que haja algum motivo específico para utilizar outra linguagem.
+Versões do .NET
+
+Existem atualmente algumas implementações do .NET que caminham em paralelo, atendendo a diferentes cenários:
+
+    .NET Framework (também chamado de .NET "Full" Framework): é a versão original, com suporte apenas a utilização no Windows. Com ele é possível desenvolver aplicações web e desktop (incluindo web services e windows services), porém sempre no sistema operacional Windows;
+    .NET Core: implementação multiplataforma do .NET Framework, reescrito de forma a ser mais modular, mais performático e com suporte a Windows, Linux e MacOS. Além disso, ele é open source e está disponível no GitHub;
+    Xamarin: esta é uma implementação focada no desenvolvimento mobile. Com ele é possível criar aplicações nativas para Android e iOS (diferentes versões e devices);
+    Mono: este é um projeto quase tão antigo quanto o .NET Framework e foi a primeira iniciativa de implementação multiplataforma e open source da versão original. Ele deu origem ao Xamarin e sua existência foi fundamental para a criação do .NET Core. Porém, cada vez mais ele tende a cair em desuso, uma vez que o ecossistema oficial já conta com a possibilidade do desenvolvimento mobile e multiplataforma.
+
+.NET Standard
+
+Com a existência de várias implementações do .NET, tornava-se complexo compartilhar código entre projetos que tinham "alvos" distintos, pois ao construir uma biblioteca de classes usando o .NET Framework, não havia garantia de que todos os recursos utilizados estavam disponíveis no .NET Core, por exemplo.
+
+A fim de resolver essa incompatibilidade, foi criado o .NET Standard. Trata-se de uma especificação que define quais classes e interfaces do .NET estão disponíveis em cada versão de cada implementação. Assim, ao criar uma biblioteca de classes tendo como "alvo" o .NET Standard, garantimos que ela será compatível com todas as implementações que suportam aquela versão da especificação.
+
+A tabela abaixo ilustra a relação entre a versão do .NET Standard e de cada implementação:
+
+.NET Standard
+	
+
+1.0
+	
+
+1.1
+	
+
+1.2
+	
+
+1.3
+	
+
+1.4
+	
+
+1.5
+	
+
+1.6
+	
+
+2.0
+	
+
+2.1
+
+.NET Core
+	
+
+1.0
+	
+
+1.0
+	
+
+1.0
+	
+
+1.0
+	
+
+1.0
+	
+
+1.0
+	
+
+1.0
+	
+
+2.0
+	
+
+3.0
+
+.NET Framework
+	
+
+4.5
+	
+
+4.5
+	
+
+4.5.1
+	
+
+4.6
+	
+
+4.6.1
+	
+
+4.6.1
+	
+
+4.6.1
+	
+
+4.6.1
+	
+
+N/A
+
+Mono
+	
+
+4.6
+	
+
+4.6
+	
+
+4.6
+	
+
+4.6
+	
+
+4.6
+	
+
+4.6
+	
+
+4.6
+	
+
+5.4
+	
+
+6.4
+
+Xamarin.iOS
+	
+
+10.0
+	
+
+10.0
+	
+
+10.0
+	
+
+10.0
+	
+
+10.0
+	
+
+10.0
+	
+
+10.0
+	
+
+10.14
+	
+
+12.16
+
+Xamarin.Mac
+	
+
+3.0
+	
+
+3.0
+	
+
+3.0
+	
+
+3.0
+	
+
+3.0
+	
+
+3.0
+	
+
+3.0
+	
+
+3.8
+	
+
+5.16
+
+Xamarin.Android
+	
+
+7.0
+	
+
+7.0
+	
+
+7.0
+	
+
+7.0
+	
+
+7.0
+	
+
+7.0
+	
+
+7.0
+	
+
+8.0
+	
+
+10.0
+
+Por exemplo, se criarmos uma biblioteca de classes com base no .NET Standard 2.0, teremos compatibilidade com .NET Core 2.0 e .NET Framework 4.6.1. Isso não significa que todos os recursos de um estão disponíveis no outro, mas sim que há um amplo conjunto de APIs que eles compartilham. Mesmo assim, cada um pode ter partes que não estão presentes no outro, como é o caso de recursos direcionados ao Windows no .NET Framework.
+
+Em resumo, devemos ter em mente que ao criar uma biblioteca de classes atualmente, devemos baseá-la no .NET Standard em sua versão mais alta que seja compatível com os projetos "alvo" que queremos alcançar (para projetos novos, idealmente será a versão mais recente).
+.NET 5
+
+Como vimos acima, há atualmente várias implementações do .NET evoluindo em paralelo. Porém, é esperado e buscado que haja uma convergência cada vez maior entre eles, de forma a termos um dia uma única plataforma para todos os objetivos.
+
+Essa é a proposta do .NET 5. Programado para ser lançado oficialmente em novembro de 2020, a ideia é que a partir daí não haja apenas uma plataforma chamada .NET (nem Core, nem Framework), compatível com diferentes sistemas operacionais e que pode ser usada para construir variados tipos de aplicação, como mostra a imagem abaixo.
+
+Fonte: https://devblogs.microsoft.com/dotnet/introducing-net-5/
+
+Agora que você já conhece o ecossistema .NET, sabe que pode usá-lo para desenvolver diferentes tipos de aplicação, trabalhando no Windows, Linux ou MacOS. Portanto, se você está iniciando seus estudos, ou se está em busca de uma plataforma de desenvolvimento mais moderna para desenvolver seus projetos, vale a pena considerar utilizá-lo.
+
+Introdução à linguagem C#
+
+C# é uma linguagem de programação orientada a objetos, com sintaxe bastante expressiva, o que a torna simples de escrever e ler. Sua estrutura é semelhante à das linguagens C, C++ e Java, logo, qualquer pessoa que já tenha alguma experiência prévia com alguma dessas linguagens, terá facilidade em aprender C#.
+
+Essa linguagem conta com recursos que tornam o desenvolvimento mais rápido e o código mais legível e robusto, como enumerações, genéricos e uma "sublinguagem" de consulta, chamada LINQ, que será melhor detalhada mais adiante.
+
+A seguir conheceremos algumas das principais características dessa linguagem, algumas das quais serão abordadas em maiores detalhes ao longo do curso.
+Case Sensitive
+
+C# é case sensitiva, ou seja, há diferenciação entre letras maiúsculas e minúsculas no código. Isso faz com que uma variável de nome "idade", por exemplo, seja diferente de uma chamada "Idade" (com I maiúsculo), como vemos abaixo:
+
+
+
+Para algumas pessoas essa característica é considerada um fator de dificuldade no aprendizado. Porém, ela nos dá a possibilidade de aplicar convenções de escrita que dão significados diferentes ao uso de letras maiúsculas e minúsculas, tornando o código mais legível.
+Comentários
+
+Os comentários são muito importantes para documentar nosso código, quando necessário. Na linguagem C# eles podem ser adicionados de duas formas. Usando duas barras para gerar um comentário em uma única linha (//) ou usando um par de barras e asterisco para escrever comentários de várias linhas. Veja abaixo:
+
+Ponto e vírgula
+
+Em C# as ações a serem processadas pelo compilador, chamadas de statements, são separadas por ponto e vírgula, assim como nas linguagens C, C++, Java:
+
+
+Ao tentar executar um programa em que esteja faltando o ponto e vírgula no final de algum statement, o próprio compilador avisará do problema a linha será apontada com o erro CS1002: Missing semicolon.
+Blocos de instruções
+
+Quando um conjunto de instruções precisa ser agrupada em um determinado escopo, como em uma condição, podemos delimitar esse bloco usando chaves, da seguinte forma:
+
+
+
+Neste caso, as linhas no interior das chaves são executadas apenas se a condição entre parênteses for verdadeira (idade menor que 18). Além disso, as variáveis declaradas nesse bloco são restritas ao seu escopo, ou seja, a variável "mensagem" não existe fora das chaves.
+O que posso fazer com C#?
+
+C# é uma das linguagens com maior abrangência em termos de plataformas-alvo da atualidade. Com ela podemos desenvolver aplicações web, desktop, mobile, IoT, jogos, serverless na nuvem, aprendizado de máquina e inteligência artificial.
+
+O fato de ter como desenvolvedora e principal mantenedora a Microsoft faz com que essa seja uma das linguagens mais modernas e atualizadas, recebendo novos recursos e aprimoramentos com frequência. Isso torna C# uma excelente escolha para quem está começando sua carreira como programador, bem como para quem deseja migrar projetos legados de uma linguagem mais antiga. Sem falar no mercado de trabalho aquecido, que conta com muitas vagas em diferentes cidades do Brasil e países do mundo.
+
+Convenções de escrita de código em C#
+
+Quando escrevemos um código, é necessário fazê-lo de forma que ele tenha boa legibilidade, ou seja, que possa ser compreendido de forma simples e rápida por outras pessoas que o leiam. Para isso, além de seguir boas práticas de programação que são aplicáveis a qualquer linguagem, como a utilização de nomes claros para variáveis e métodos, é importante seguir as convenções de codificação de cada linguagem.
+
+Convenções não são regras, mas sim sugestões de como escrever um código de forma a manter ao máximo um padrão entre diferentes programadores, ainda que a sintaxe da linguagem não obrigue a isso.
+
+A seguir você conhecerá algumas dessas convenções e é importante se acostumar com elas à medida que lê e escreve novos códigos.
+Convenções de nomenclatura
+
+Utilize PascalCasing (primeira letra de cada palavra maiúscula) para nomear classes e métodos:
+
+public class Pessoa
+{
+    public string ImprimirDados()
+    {
+    }
+}
+Utilize camelCasing (primeira letra minúscula e a primeira letra de cada próxima palavra maiúscula) na declaração de variáveis locais e parâmetros de métodos:
+
+public class Calculadora
+{
+    public double Somar(double primeiroNumero, double segundoNumero)
+    {
+        double soma = primeiroNumero + segundoNumero;
+        return soma;
+    }
+}
+Não utilize notações de tipos nos nomes das variáveis, como "i" para inteiro e "str" para string. Um nome expressivo, somado aos recursos do IDE permitem identificar com facilidade o tipo de uma variável.
+
+// Não use:
+int iContador;
+string strCodigo;
+bool bAtivo;
+
+// Use:
+int contador;
+string codigo;
+bool ativo;
+Convenções de layout
+
+Escreva apenas uma instrução por linha, finalizando-a com ponto e vírgula.
+
+// Não use:
+string nome = "Joel"; string mensagem = "Olá, " + nome; Console.WriteLine(nome);
+
+// Use:
+string nome = "Joel";
+string mensagem = "Olá, " + nome;
+Console.WriteLine(nome);
+Declare uma variável por linha.
+// Não use:
+string nome = "Joel", email = "joel@email.com";
+
+// Use:
+string nome = "Joel";
+string email = "joel@email.com";
+
+Utilize indentação com TAB (4 espaços) para avançar o nível das linhas de código de acordo com seu escopo.
+
+if (condicao1)
+{
+    // Linha avançada com 1 TAB
+    if (condicao2)
+    {
+        // Linha avançada com 2 TABs
+    }
+}
+
+Em blocos, mantenhas as duas chaves alinhadas verticalmente e ambas alinhadas à esquerda.
+
+// Não use:
+if (condicao1) {
+
+}
+
+// Use:
+if (condicao1)
+{
+
+}
+
+Essas são algumas das convenções mais comuns de codificação em C#. Ao segui-las, você estará escrevendo seu código de forma semelhante a milhares de programadores, facilitando a leitura e compartilhamento.

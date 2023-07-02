@@ -1,0 +1,99 @@
+Variáveis e operadores
+
+Ao declarar uma variável no C#, é preciso determinar o tipo de dado que será armazenado nela. O tipo de dado vai dizer quais valores são possíveis de se armazenar nessa variável.
+
+Quem define as regras para os tipos de dados como declaração, uso e gerenciamento dos tipos, como vimos anteriormente, é o CTS – ou Common Type System – que faz parte do CLR. O CTS, além de tornar possível desenvolver em linguagens diferentes na mesma plataforma e garantir total integração entre elas, é responsável por garantir o tipo de dado e aumentar o desempenho da execução.
+
+Variáveis são espaços na memória do computador reservados para armazenar dados. A cada vez que você cria uma variável, você está “pegando” uma pequena porção de memória do computador para guardar alguma informação. A quantidade de espaço a ser “pego” vai depender do tipo de dado que a variável vai armazenar.
+
+A referência aos dados de uma variável pode ser feita de duas maneiras:
+
+    Por valor, chamado de Value-Type.
+    Por referência, chamada de Reference-Type.
+
+A principal diferença entre os dois tipos é que a referência a uma variável Value-Type contém diretamente um dado, enquanto a variável Reference-Type contém uma referência ao dado. Analise um pouco mais esses dois tipos de variáveis:
+
+alue-Type
+
+    Contém diretamente o dado;
+    Cada cópia da variável contém uma cópia do dado independente;
+    Operações em uma variável não afetam a sua cópia, pois elas são independentes;
+    Exemplos de variáveis Value-Type são: integers, doubles, floats e structures.
+
+Reference-Type
+
+    Armazena uma referência ao dado (conhecido como objetos);
+    Duas variáveis Reference-Type podem conter a referência a um mesmo objeto, ou seja: elas funcionam como ponteiros para posições da memória. É possível haver dois ponteiros para uma mesma posição de memória;
+    Operações em uma afetam a outra, pois duas variáveis reference-type podem apontar para a mesma posição de memória e, consequentemente, para o mesmo objeto;
+    Exemplos de Reference-Type são: strings, arrays e classes.
+
+Aprenda agora a declarar variáveis, seus principais tipos e como atribuir e recuperar valores.
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Types
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int numero1 = 3;
+            int numero2 = 1;
+            numero1 = 5;
+            Console.WriteLine("numero1 = {0}, numero2 = {1}", numero1, numero2);
+            Console.ReadKey();
+        }
+    }
+}
+
+
+/// passagem de valor
+ int numero1 = 3;
+            int numero2 = numero1;
+            numero1 = 5;
+
+
+///
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Types
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            // pssagem por valor
+            // int numero1 = 3;
+            //int numero2 = numero1;
+            //numero1 = 5;
+            Teste teste1 = new Teste();
+            teste1.Quantidade = 3;
+            Teste teste2 = teste1;
+            teste1.Quantidade = 5;
+
+            Console.WriteLine("teste1 = {0}, teste2 = {1}", teste1.Quantidade, teste2.Quantidade);
+            Console.ReadKey();
+        }
+    }
+    class Teste
+    {
+        public int Quantidade;
+    }
+}
+
+/// passagem por referencia
+
+
+// stack // int bool float double e structs
+// rip // classe ponteiros

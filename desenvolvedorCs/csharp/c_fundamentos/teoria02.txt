@@ -1,0 +1,42 @@
+Estrutura de um projeto .NET
+
+Quando criamos um projeto .NET no Visual Studio ele possui uma estrutura padrão que é importante compreendermos. Essa estrutura pode conter mais ou menos arquivos, dependendo do tipo de projeto, mas de forma geral sua organização será sempre semelhante.
+Estrutura básica de um projeto
+
+Na figura abaixo podemos ver a estrutura básica de um projeto do tipo Console Application, recém criado, sendo exibida na aba Solution Explorer (aba fundamental do Visual Studio, na qual vemos as pastas e arquivos de um projeto).
+
+A estrutura de todo projeto .NET tem início em uma solution (solução), que pode ser entendida como um conjunto de projetos. Na imagem acima a solution se chama MeuSistema. Como a solution pode conter vários projetos, que em geral estão relacionados, é comum que ela tenha um nome mais abrangente, como o nome da empresa ou do sistema, enquanto cada projeto leva um nome mais específico, que explicite seu objetivo dentro do conjunto.
+
+Dentro dessa solution temos um projeto chamado Automacao (simulando um aplicativo de automação de tarefas dentro do escopo do "MeuSistema"). Por fim, temos dentro do projeto um item chamado Dependências, onde estão listadas as bibliotecas e outros projetos dos quais esse depende. E em seguida vemos a classe Program, que é o ponto de entrada do projeto, ou seja, o que é executado primeiramente.
+
+A figura abaixo mostra uma estrutura mais robusta, com uma solution chamada ERP (simulando um sistema de gestão empresarial) contendo vários projetos. Nela também vemos uma prática comum de nomear os projetos usando o nome da solution como prefixo.
+A classe Program
+
+A classe Program é o ponto de entrada do projeto. Ela contém o método Main, o qual pode ou não receber argumentos, como vemos abaixo:
+C# (C Sharp)
+
+Os parâmetros recebidos pelo método Main são aqueles passados para o aplicativo externamente, quando ele é executado. Por exemplo, no caso de uma aplicação de linha de comando, é comum a passagem de parâmetros seguinte forma:
+C# (C Sharp)
+
+No caso de uma aplicação .NET, esses parâmetros são recebidos no método Main, na forma de strings, que podem ser tratados segundo sua necessidade.
+
+Se olharmos a classe Program de uma aplicação ASP.NET Core, por exemplo, ela é mais complexa, mas ainda é a primeira a ser executada. Nesse caso, ela é responsável por iniciar o ambiente de execução da aplicação web.
+C# (C Sharp)
+Dependências
+
+Um projeto pode depender de bibliotecas (externas ou nativas) para funcionar, bem como de outros projetos (como bibliotecas de classes criadas por nós). O .NET Core foi pensado para que as aplicações dependam inicialmente do mínimo possível de bibliotecas, e que estas sejam adicionadas à medida que forem necessárias.
+
+Se olharmos as dependências de um projeto Console Application recém criado, veremos apenas a própria biblioteca padrão do .NET Core:
+
+Isso, no entanto, varia de acordo com o tipo de projeto. Em uma aplicação ASP.NET Core, além da biblioteca padrão do .NET Core, temos a dependência da biblioteca do ASP.NET Core:
+
+Nesse caso temos também a presença dos analisadores, que são ferramentas do framework responsáveis por inspecionar continuamente o código e sugerir a utilização das melhores práticas de escrita e utilização de recursos do framework, bem como de identificar erros e propor soluções. Na imagem abaixo, por exemplo, um dos analisadores detectou que o parâmetro recebido no método Main não está sendo usados e sugere removê-lo:
+Estrutura de pastas e arquivos
+
+Quando olhamos a estrutura de pastas e arquivos de uma solution fora do Visual Studio, temos algo semelhante ao que vemos na imagem a seguir:
+
+O arquivo de extensão SLN contém as informações necessárias para que o editor possa abrir e gerenciar a solution, contendo seus projetos. Já na pasta ".vs" o editor armazena dados de configurações do uso. De forma geral, não precisamos alterar essa pasta manualmente nem compartilhá-la no controle de versão. Além disso temos as pastas individuais de cada projeto.
+
+Cada projeto possui um arquivo de extensão CSPROJ (o CS vem de "C Sharp") e as pastas bin e obj são geradas quando o projeto é compilado. Elas contém os arquivos executáveis, DLLs e outros necessários à execução das aplicações fora do editor.
+
+Conhecer a estrutura de cada tipo de aplicação é importante para nos situarmos dentro do editor e sabermos identificar os componentes de um projeto fora dele.
