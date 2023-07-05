@@ -1,0 +1,11 @@
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\AreaEperimetro\bin\Debug\AreaEperimetro.exe.config
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\AreaEperimetro\bin\Debug\AreaEperimetro.exe
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\AreaEperimetro\bin\Debug\AreaEperimetro.pdb
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\AreaEperimetro\obj\Debug\AreaEperimetro.csproj.AssemblyReference.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\AreaEperimetro\obj\Debug\AreaEperimetro.csproj.SuggestedBindingRedirects.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\AreaEperimetro\obj\Debug\AreaEperimetro.frmRetangulo.resources
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\AreaEperimetro\obj\Debug\AreaEperimetro.Properties.Resources.resources
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\AreaEperimetro\obj\Debug\AreaEperimetro.csproj.GenerateResource.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\AreaEperimetro\obj\Debug\AreaEperimetro.csproj.CoreCompileInputs.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\AreaEperimetro\obj\Debug\AreaEperimetro.exe
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\AreaEperimetro\obj\Debug\AreaEperimetro.pdb

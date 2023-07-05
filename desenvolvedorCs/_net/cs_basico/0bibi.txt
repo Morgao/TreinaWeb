@@ -1,0 +1,55 @@
+// vetor
+int[] meuVetor = new int[10];
+
+// matriz
+int[,] minhaMatriz = new int[2, 4];
+
+ // quantidade de dimensoes da matriz
+            Console.WriteLine("Quantidade de   dimensoes {0}", minhaMatriz.Rank);
+// tamanho da matriz
+            Console.WriteLine("Quantidade de   tamanho {0}", minhaMatriz.Length);
+
+
+
+
+
+
+Rank: Propriedade que retorna o número de dimensões de um array multidimensional (que veremos a frente). Exemplo:
+Result = multInt.Rank;
+Length: Propriedade que retorna o número total de elementos de todas as dimensões de um array multidimensional. Exemplo: 
+Result = multInt.Lentgh;
+C# (C Sharp)
+
+GetLenght: O método retorna o número total de elementos de uma dimensão específica do array. Recebe como parâmetro um número inteiro que corresponde ao número da dimensão da qual se deseja saber o total de elementos. A numeração das dimensões começa por zero. Exemplo:
+
+Result = multInt.GetLength(0);
+Reverse: É um método estático cujo objetivo é inverter a ordem dos elementos do array. Essa inversão pode ser completa ou parcial, indicando o índice inicial e final para a inversão do array. Exemplo: 
+int [ ] arr = new int[5] {1,2,3,4,5};
+Array.Reverse(arr,1,2); // Invertendo o array parcialmente
+Array.Reverse(arr); // Invertendo o array completamente
+Sort: Ordena o array passado como parâmetro. Exemplo: 
+int [ ] arr = new int[5] {1,3,5,2,0};
+Array.Sort(arr);
+IndexOf: Retorna a posição de um elemento no array, se não for encontrado é retornado -1. Exemplo: 
+int[] m = { 2, 4, 6, 8, 10, 12};
+int i = Array.IndexOf(m, 10);
+MessageBox.Show("Posição = " + i.ToString());
+
+
+Matrizes multidimensionais
+
+Matrizes podem ter mais de uma dimensão. Por exemplo, a declaração a seguir cria uma matriz bidimensional de quatro linhas e duas colunas:
+
+int[,] x = new int[4, 2];
+
+x[0, 0] = 2;
+x[0, 1] = 4;
+x[1, 0] = 6;
+x[1, 1] = 8;
+x[2, 0] = 10;
+x[2, 1] = 12;
+x[3, 0] = 14;
+x[3, 1] = 16;
+ocê pode inicializar a matriz na declaração conforme mostrado no exemplo a seguir: 
+int[,] x2 = { { 2, 4 }, { 6, 8 } , { 10, 12 }, { 14, 16 } };
+
