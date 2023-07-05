@@ -10,7 +10,7 @@ int[,] minhaMatriz = new int[2, 4];
             Console.WriteLine("Quantidade de   tamanho {0}", minhaMatriz.Length);
 
 
-
+int.Parse(Console.ReadLine());
 
 
 
