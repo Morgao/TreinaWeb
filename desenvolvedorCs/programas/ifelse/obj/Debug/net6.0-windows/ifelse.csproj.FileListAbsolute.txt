@@ -1,0 +1,17 @@
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\ifelse\bin\Debug\net6.0-windows\ifelse.exe
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\ifelse\bin\Debug\net6.0-windows\ifelse.deps.json
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\ifelse\bin\Debug\net6.0-windows\ifelse.runtimeconfig.json
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\ifelse\bin\Debug\net6.0-windows\ifelse.dll
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\ifelse\bin\Debug\net6.0-windows\ifelse.pdb
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\ifelse\obj\Debug\net6.0-windows\ifelse.csproj.AssemblyReference.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\ifelse\obj\Debug\net6.0-windows\ifelse.frmIfElse.resources
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\ifelse\obj\Debug\net6.0-windows\ifelse.csproj.GenerateResource.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\ifelse\obj\Debug\net6.0-windows\ifelse.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\ifelse\obj\Debug\net6.0-windows\ifelse.AssemblyInfoInputs.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\ifelse\obj\Debug\net6.0-windows\ifelse.AssemblyInfo.cs
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\ifelse\obj\Debug\net6.0-windows\ifelse.csproj.CoreCompileInputs.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\ifelse\obj\Debug\net6.0-windows\ifelse.dll
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\ifelse\obj\Debug\net6.0-windows\refint\ifelse.dll
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\ifelse\obj\Debug\net6.0-windows\ifelse.pdb
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\ifelse\obj\Debug\net6.0-windows\ifelse.genruntimeconfig.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\ifelse\obj\Debug\net6.0-windows\ref\ifelse.dll

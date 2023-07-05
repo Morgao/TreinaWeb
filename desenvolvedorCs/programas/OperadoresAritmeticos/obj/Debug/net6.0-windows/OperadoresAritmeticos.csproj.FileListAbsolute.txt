@@ -1,0 +1,17 @@
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\OperadoresAritmeticos\bin\Debug\net6.0-windows\OperadoresAritmeticos.exe
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\OperadoresAritmeticos\bin\Debug\net6.0-windows\OperadoresAritmeticos.deps.json
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\OperadoresAritmeticos\bin\Debug\net6.0-windows\OperadoresAritmeticos.runtimeconfig.json
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\OperadoresAritmeticos\bin\Debug\net6.0-windows\OperadoresAritmeticos.dll
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\OperadoresAritmeticos\bin\Debug\net6.0-windows\OperadoresAritmeticos.pdb
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\OperadoresAritmeticos\obj\Debug\net6.0-windows\OperadoresAritmeticos.csproj.AssemblyReference.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\OperadoresAritmeticos\obj\Debug\net6.0-windows\OperadoresAritmeticos.frmCalculadora.resources
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\OperadoresAritmeticos\obj\Debug\net6.0-windows\OperadoresAritmeticos.csproj.GenerateResource.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\OperadoresAritmeticos\obj\Debug\net6.0-windows\OperadoresAritmeticos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\OperadoresAritmeticos\obj\Debug\net6.0-windows\OperadoresAritmeticos.AssemblyInfoInputs.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\OperadoresAritmeticos\obj\Debug\net6.0-windows\OperadoresAritmeticos.AssemblyInfo.cs
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\OperadoresAritmeticos\obj\Debug\net6.0-windows\OperadoresAritmeticos.csproj.CoreCompileInputs.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\OperadoresAritmeticos\obj\Debug\net6.0-windows\OperadoresAritmeticos.dll
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\OperadoresAritmeticos\obj\Debug\net6.0-windows\refint\OperadoresAritmeticos.dll
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\OperadoresAritmeticos\obj\Debug\net6.0-windows\OperadoresAritmeticos.pdb
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\OperadoresAritmeticos\obj\Debug\net6.0-windows\OperadoresAritmeticos.genruntimeconfig.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\OperadoresAritmeticos\obj\Debug\net6.0-windows\ref\OperadoresAritmeticos.dll
