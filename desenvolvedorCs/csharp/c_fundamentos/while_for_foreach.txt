@@ -1,0 +1,235 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace HelloWorld
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //equanto
+            int contador = 1;
+            while (contador<10) 
+            {
+                Console.WriteLine(contador);
+                contador++;
+
+                // executa equanto a condicao e verdadeira
+            }
+            Console.ReadKey();
+           
+        }
+    }
+}
+//////////////
+////////////
+indice<versoes.Length
+//////////////
+///////
+////////////////
+string[] versoes = new string[] { "1.0", "2.0", "5.0" };
+
+////////
+/////
+
+
+
+
+
+
+foreach(var item in nomes)
+{
+	Console.WriteLine(item);
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace HelloWorld
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //equanto
+            int indice = 0;
+            string[] versoes = new string[] { "1.0", "2.0", "5.0" };
+            while (indice<versoes.Length) 
+            {
+                Console.WriteLine(versoes[indice]);
+                indice++;
+
+                // executa equanto a condicao e verdadeira
+            }
+            Console.ReadKey();
+           
+        }
+    }
+}
+
+
+
+////
+do while
+
+
+
+
+            int indice = 10;
+            string[] versoes = new string[] { "1.0", "2.0", "5.0" };
+            do
+            {
+                Console.WriteLine(indice);
+                indice++;
+
+                // executa equanto a condicao e verdadeira
+            }
+            while (indice < 10);
+            
+                Console.WriteLine(indice);
+                indice++;
+            
+            Console.ReadKey();
+
+
+
+
+
+////
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace HelloWorld
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //equanto
+            int indice = 10;
+            var opcao =  "";
+            
+            do
+            {
+                Console.WriteLine("Digite uma Opcao:");
+                Console.WriteLine("1 - Saque | 2 Deposito | 3 Saldo | 0 Sair");
+                opcao = Console.ReadLine();
+                switch (opcao) 
+                {
+                    case "1":
+                        Console.WriteLine("Saque Realizado");
+                        break;
+                    case "2":
+                        Console.WriteLine("Deposito Realizado");
+                        break;
+                    case "3":
+                        Console.WriteLine("Saldo Disponivel");
+                        break;
+
+
+
+                }
+
+                // executa equanto a condicao e verdadeira
+            }
+            while (opcao != "0");
+            
+                
+            
+          
+           
+        }
+    }
+}
+
+
+var numero = new[]{1,2,3,45,678};
+
+
+Break e Continue
+
+Por padrão, as estruturas de repetição são executadas até que sua condição de parada seja atendida. No entanto, às vezes é necessário interromper sua execução devido a alguma outra condição avaliada no decorrer das iterações. Há também situações em que desejamos "avançar" uma iteração, passando para a próxima repetição antes que todo o bloco de código definido no corpo da estrutura seja executado. Para esses cenários existem dois operadores em C#, break e continue, cujo uso aprenderemos abaixo.
+break
+
+O operador break é utilizado para interromper a execução de uma estrutura de repetição (além de aparecer na condicional switch). Quando o compilador encontra essa instrução, ele automaticamente interrompe as iterações e avança para a primeira instrução após a estrutura de repetição.
+
+Para entender seu uso, considere inicialmente o bloco de código abaixo, no qual temos um vetor contendo as notas dos cinco membros de uma equipe. Na sequência um laço for é usado para percorrer esse vetor e adicionar cada nota a uma variável "soma", que é usada logo abaixo para calcular a média da equipe:
+
+var notas = new int[]{ 6, 8, 5, 7, 9 };
+var soma = 0.0;
+
+for(int i = 0; i < notas.Length; i++)
+{
+    soma += notas[i];
+}
+
+var media = soma / notas.Length;
+
+Console.WriteLine("Média: " + media);
+
+Imagine agora que houve uma mudança nas regras e nenhum integrante da equipe pode ter obtido uma nota inferior a 6. Caso contrário a média da equipe será zero. Nesse cenário, podemos interromper a execução do laço for caso alguma das notas seja menor que 6 e para isso usamos o operador break:
+
+var notas = new int[]{ 6, 8, 5, 7, 9 };
+var soma = 0.0;
+
+for(int i = 0; i < notas.Length; i++)
+{
+    if (notas[i] < 6)
+    {
+        Console.WriteLine("Nenhuma nota pode ser inferior a 6.");
+        soma = 0;
+        break;
+    }
+
+    soma += notas[i];
+}
+
+var media = soma / notas.Length;
+
+Console.WriteLine("Média: " + media);
+
+
+
+Agora, se a nota atual da iteração for menor que 6, uma mensagem será impressa no console, a soma será zerada e o laço será interrompido. Automaticamente o compilador passará para a próxima instrução após o laço, que é o cálculo da média.
+
+O operador break também pode ser usado nas estruturas foreach, while e do-while, seguindo o mesmo funcionamento de interromper o laço.
+continue
+
+Diferente do que ocorre com o beak, o operador continue mantém a execução do laço, porém avança imediatamente para a próxima repetição.
+
+Para demonstrar seu funcionamento, vamos tomar como base o cenário apresentado anteriormente, porém agora com uma mudança na regra de cálculo da média: se uma das notas da equipe for inferior a 6, ela será desconsiderada no cálculo. Teremos então a seguinte modificação no código:
+
+
+var notas = new int[]{ 6, 8, 5, 7, 9 };
+var soma = 0.0;
+
+for(int i = 0; i < notas.Length; i++)
+{
+    if (notas[i] < 6)
+    {
+        Console.WriteLine($"A nota { notas[i] } será desconsiderada.");
+        continue;
+    }
+
+    soma += notas[i];
+}
+
+var media = soma / notas.Length;
+
+Console.WriteLine("Média: " + media);
+
+Dessa vez, se a nota atual da repetição for menor que 6, uma mensagem será impressa no terminal e o laço continuará na próxima repetição, desconsiderando qualquer instrução que exista após o continue, dentro do laço. Logo, essa nota não será somada ao total.
+
+Da mesma forma que o break, o continue pode ser usado também nas estruturas foreach, while e do-while

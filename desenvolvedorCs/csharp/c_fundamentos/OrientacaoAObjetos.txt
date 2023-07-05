@@ -1,0 +1,231 @@
+class Aluno 
+    {
+        public string Nome;
+        public int Idade;
+
+    }
+
+
+    var aluno1 = new Aluno();
+            aluno1.Nome = "Joel";
+            aluno1.Idade = 26;
+
+            var aluno2 = new Aluno();
+            aluno2.Nome = "Maria";
+            aluno2.Idade = 28;
+            Console.WriteLine(aluno1.Nome);
+            Console.WriteLine(aluno1.Idade);
+            Console.WriteLine(aluno2.Nome);
+            Console.WriteLine(aluno2.Idade);
+            Console.ReadKey();
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace HelloWorld
+{
+    class ContaCorrente 
+    {
+        public string Numero;
+        public decimal Saldo;
+    }
+ 
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            var conta1 = new ContaCorrente();
+            conta1.Numero = "001-002";
+            conta1.Saldo = 0;
+            Console.WriteLine($"Numero: {conta1.Numero} | Saldo: {conta1.Saldo}");
+            Console.ReadKey();
+
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+metodo para impressao
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace HelloWorld
+{
+    class ContaCorrente 
+    {
+        public string Numero;
+        public decimal Saldo;
+
+        public void ImprimirInformacoes()
+        {
+            Console.WriteLine($"Numero: {Numero} | Saldo: {Saldo}");
+        }
+    }
+ 
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            var conta1 = new ContaCorrente();
+            conta1.Numero = "001-002";
+            conta1.Saldo = 0;
+            conta1.ImprimirInformacoes();
+            
+            Console.ReadKey();
+
+        }
+    }
+}
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace HelloWorld
+{
+    class ContaCorrente 
+    {
+        public string Numero;
+        public decimal Saldo;
+
+        public void ImprimirInformacoes()
+        {
+            Console.WriteLine($"Numero: {Numero} | Saldo: {Saldo}");
+        }
+
+        public string ListarInformacoes() 
+        {
+            return $"NUMERO: {Numero} | SALDO: {Saldo}";
+        }
+    }
+ 
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            var conta1 = new ContaCorrente();
+            conta1.Numero = "001-002";
+            conta1.Saldo = 0;
+            Console.WriteLine(conta1.ListarInformacoes());
+            
+            Console.ReadKey();
+
+        }
+    }
+}
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace HelloWorld
+{
+    class ContaCorrente 
+    {
+        public string Numero;
+        public decimal Saldo;
+
+        public void ImprimirInformacoes()
+        {
+            Console.WriteLine($"Numero: {Numero} | Saldo: {Saldo}");
+        }
+
+        public string ListarInformacoes() 
+        {
+            return $"NUMERO: {Numero} | SALDO: {Saldo}";
+        }
+    }
+ 
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            var conta1 = new ContaCorrente();
+            conta1.Numero = "001-002";
+            conta1.Saldo = 0;
+            var informacoes = conta1.ListarInformacoes();
+            Console.WriteLine(informacoes);
+            
+            Console.ReadKey();
+
+        }
+    }
+}
+
+
+
+
+////
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace HelloWorld
+{
+    class ContaCorrente 
+    {
+        public string Numero;
+        public decimal Saldo;
+
+        public void ImprimirInformacoes()
+        {
+            Console.WriteLine($Numero {Numero}  Saldo {Saldo});
+        }
+
+        public string ListarInformacoes() 
+        {
+            return $NUMERO {Numero}  SALDO {Saldo};
+        }
+        public void Depositar(decimal valor) 
+        {
+            Saldo += valor;
+        }
+    }
+ 
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            var conta1 = new ContaCorrente();
+            conta1.Numero = 001-002;
+            conta1.Saldo = 0;
+            var informacoes = conta1.ListarInformacoes();
+            Console.WriteLine(informacoes);
+            conta1.Depositar(100);
+            Console.WriteLine(conta1.ListarInformacoes());
+
+            Console.ReadKey();
+
+        }
+    }
+}
+

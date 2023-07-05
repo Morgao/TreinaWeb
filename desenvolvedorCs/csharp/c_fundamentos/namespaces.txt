@@ -1,0 +1,25 @@
+O que são namespaces e sua importância
+
+À medida que o número de classes em nossos projetos aumenta, cresce também a complexidade de manter sua organização, de forma que seja fácil localizar cada componente dentro do projeto quando precisamos.
+
+O primeiro passo para organizar as classes (e outros elementos como enums e interfaces) é criar cada uma em um arquivo separado. Porém, essa medida isolada pode não ser suficiente. Dependendo do número de arquivos, mantê-los na raiz do projeto talvez não nos ofereça o nível de organização que desejamos.
+
+A próxima medida então é organizar esses arquivos em pastas, nomeadas de forma clara para indicar o objetivo do seu conteúdo. Com isso temos uma organização física do conteúdo, ou seja, arquivos dispostos e pastas distintas.
+
+Para melhorar ainda mais a organização do projeto, podemos agrupar os elementos de forma lógica, separando-os por assunto/contexto e dessa vez contando com o auxílio do compilador e do editor para localizar cada um deles. Isso é possível utilizando namespaces.
+O que são namespaces
+
+Namespaces representam um agrupamento lógico de elementos do projeto (classes, interfaces, enums, etc) e são estruturas básicas de aplicações .NET.
+
+Quando criamos um novo projeto, automaticamente é criado o namespace padrão, que leva o mesmo nome do projeto, como vemos na figura abaixo:
+
+Também é importante saber que toda classe em um projeto .NET encontra-se dentro de um namespace, ainda que seja o namespace padrão/inicial. Por exemplo, a classe Console está localizada no namespace System, por isso a primeira linha do Program.cs faz a importação desse namespace, no qual também estão contidas outras estruturas básicas de qualquer aplicação, como o tipo DateTime.
+A importância dos namespaces
+
+Na prática, usamos os namespaces para agrupar estruturas segundo um tema/contexto, a fim de facilitar sua localização e identificar seu objetivo. Por exemplo, em um sistema do tipo ERP (Enterprise Resource Planning), que conta com vários módulos, ao vermos uma classe chamada Funcionario pode não ficar claro qual sua abrangência e função naquele local. Porém, quando identificamos que essa classe está localizada no namespace "RecursosHumanos", podemos deduzir que ela provavelmente conta com características do cadastro daquele funcionário, salário, benefícios, etc. Já uma classe Funcionario no namespace "Vendas" pode representar apenas o vendedor que atendeu o cliente, sem maiores detalhes sobre sua contratação na empresa.
+
+A utilização de namespaces também nos permite explorar quais estruturas estão disponíveis em determinado contexto sem as conhecermos previamente. Por exemplo, ao digitarmos "System.Text.RegularExpressions" e adicionar um ponto no final, o editor mostrará tudo que está contido nesse namespace:
+
+Nesse caso, são classes e interfaces referentes ao uso de expressões regulares. Porém o mesmo se aplica a qualquer namespace.
+
+Portanto, saber utilizar namespaces é fundamental para utilizar adequadamente as classes nativas do .NET e de bibliotecas de terceiros, bem como para criar projetos bem estruturados e de fácil manutenção.

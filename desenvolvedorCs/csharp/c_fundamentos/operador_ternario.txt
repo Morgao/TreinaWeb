@@ -1,0 +1,3 @@
+// operador terinario
+// CONdicao ? valor se verdadeiro : valor se falso
+// mensagem = nota > 7 ? "Aprovado" : "Reprovado;

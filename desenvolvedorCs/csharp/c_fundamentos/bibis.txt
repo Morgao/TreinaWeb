@@ -1,3 +1,34 @@
+inferencia de tipo
+var nome = "matheus";
+
+conversoes de tipo
+
+// conversao implicita
+int numero = 50;
+double y;
+y = numero;
+
+
+objetc objeto1 = numero;
+
+// cast exeplicita
+float numero1 = 5.6;
+int numero2 = (int)(numero1); // converte float em int
+
+conversao de dstring
+
+decimal taxa = 19.8;
+string taxa2 = taxa.ToString(
+
+DateTime data = DateTime.Now;
+string data2 = data.ToString();
+
+string reposta = "12";
+int idade = int.Parse(resposta); // converte string em inteiro
+int idade2 = Convert.ToInt32(resposta);
+
+/// string /// 
+
 aplicacao para console
 escrever na tela
 console.Write // nao pula linha
@@ -22,16 +53,6 @@ Isso retornaria o tipo da variável minhaVariavel, neste caso, System.Int32.
 
 tipagem por inferencia
 int inteiro1 = 4; // declaracao de forma explicita
-
-
-
-resultado = numero1 + numero2
-numero1 += numero2; imprimi numero1;
-
-
-
-
-
 var inteiro2 = 5; // keyworld variavel nao declarada explicitamente
 o compilador decide o tipo de acordo com o tipo de dado que a var recebe
 inferencia do compilador
@@ -139,13 +160,74 @@ boxing e unboxing da dot.net
 
 
 
-// operador terinario
-// CONdicao ? valor se verdadeiro : valor se falso
-// mensagem = nota > 7 ? "Aprovado" : "Reprovado;
+var nome = "joel";
+var sobrenome = " Rodrigues";
+var nomeCompleto2 = $"{ nome } { sobrenome }";
+
+Console.WriteLine(nomeCompleto.ToUpper()); // converte td pra maiusculo
+Console.WriteLine(nomeCompleto.ToLower()); // converte para minuscolo
+Console.WriteLine(nomeCompleto.Substring(4,5)); a partir do indice 4, quero 56 caracters
+Console.WriteLine(nomeCompleto.Contains('o')); se voltar veradedeiro contem
+Console.WriteLine(nomeCompleto.StartWith('J')) comeca com letra j
+Console.WriteLine(nomeCompleto.EndsWith('L')) termina com letra l
+Console.WriteLine(nomeCompleto.IndexOf('e')) primeiro indice da letra eindice onde posicao dele na string
+Console.WriteLine(nomeCompleto.LastIndexOf('L')) ultimo indice da letra e
 
 
 
-// switch case (escolha caso)
+date time 
+data e hora
+
+
+var hoje = DateTime.Today; // data atual sem as horas
+var agora = DateTime.Now; // data atual e hora atual
+var data1 = ne DateTime(2020, 03, 28);
+var data2 = ne DateTime(2020, 03, 28, 11, 25, 30); com hora
+
+var data3 = DateTime.Parse("15/08/2020 12:21:57");
+
+Console.WriteLine(data3.Day);
+
+Console.WriteLine(data3.Month);
+
+Console.WriteLine(data3.Year);
+
+Console.WriteLine(data3.Hour);
+
+Console.WriteLine(data3.Minute);
+
+Console.WriteLine(data3.Second);
+
+Console.WriteLine(data3.AddDays(5));
+Console.WriteLine(data3.AddMonths(-1));
+Console.WriteLine(data3.ToLongDataString());
+Console.WriteLine(data3.ToLongTimeString());
+Console.WriteLine(data3.ToShortDataString());
+Console.WriteLine(data3.ToShortTimeString());
+
+
+arrays, vetores em portugues
+arrays de string
+arrays de inteiros
+
+
+array possui um tamanho fixo
+
+int[] numeros = new int[3]; // array de numeros inteiros
+numeros[0] =2;
+numeros[1] =5;
+numeros[2] =7;
+Console.WriteLine(numeros[0]);
 
 
 
+int[] pares = new int[3] { 2, 4, 6};
+
+int[] impares = ne int[] { 1, 3, 5, 7};
+
+string[] nomes = new [] { "joao", "pedro", "Marcelo" };
+
+string[] paises = { "brasil", "EUA, "franca" } ;
+
+var cidades = new [] { "sao paulo", "rio de janeior", "Manaus" };
+Console.WriteLine(cidades[0]);

@@ -1,0 +1,126 @@
+O que são exceções e por que tratá-las
+
+De forma geral, quando escrevemos um código, pensamos no fluxo principal que ele deve seguir, e em fluxos alternativos que dependem normalmente de estruturas condicionais e de repetição. Porém, às vezes somos surpreendidos por alguns "eventos excepcionais" que alteram de forma não planejada o fluxo do nosso programa, causando problemas no seu funcionamento e/ou seu encerramento. Esses eventos são chamados de exceções, e apesar de indicarem geralmente problemas, elas são "tratáveis". Ou seja, podemos identificar quando elas ocorrem, definir como lidar com elas e até extrair delas informações úteis para a identificação da causa raiz do problema.
+
+O tratamento de exceções é uma tarefa que não está presente apenas na linguagem C#. Trata-se de um conhecimento fundamental em programação e saber aplicá-lo nos permite garantir o funcionamento da aplicação e uma experiência de uso adequada diante de certas situações.
+Como as exceções são lançadas
+
+Quando uma exceção ocorre no código, dizemos que ela foi "lançada". Inclusive, a palavra-chave responsável por lançar uma exceção manualmente é a "throw" (lançar em inglês).
+
+No momento em que uma exceção é lançada e não há tratamento para ela, o fluxo do código é interrompido e as instruções que se encontram após a linha problemática não são executadas.
+
+Observe o código abaixo:
+
+var notas = new[]{ 10, 9, 8 };
+var total = 0f;
+
+for(var indice = 0; indice <= notas.Length; indice++)
+{
+    total += notas[indice];
+}
+
+Console.WriteLine($"Média: { total / notas.Length }");
+
+
+O objetivo desse código é que o array "notas" seja percorrido e o valor dos seus itens seja somado à variável "total", que é usada em seguida para imprimir a média das notas. Porém, quando o programa é executado, temos o seguinte resultado no terminal:
+
+Note que a média não foi impressa, pois o fluxo do código foi interrompido na linha 22 (a linha no interior do laço for) e o programa foi encerrado. Repare ainda que a mensagem diz "unhandled exception", ou seja "exceção não tratada". E justamente por ela não ter sido tratada é que o programa foi encerrado de forma inesperada.
+
+Nesse caso a mensagem diz que tentamos acessar um índice fora dos limites do array, então é fácil perceber que nossa condição de parada do laço for está errada. Onde consta <= deveria ser apenas <. Porém nem sempre é tão fácil solucionar o problema, sendo necessário depurar o código, acompanhando-o passo a passo a fim de identificar a causa raiz e então resolvê-la.
+
+
+Tratando diferentes tipos de exceções
+
+Quando um mesmo bloco de código pode lançar diferentes tipos de exceções, podemos efetuar o tratamento delas segundo duas abordagens:
+
+    tratando todas de forma genérica, sem considerar o tipo da exceção lançada;
+    tratar cada tipo individualmente.
+
+A melhor abordagem dependerá da sua necessidade, pois haverá casos em que não é necessário obter detalhes sobre o tipo de exceção lançada, enquanto em outros momentos será útil aplicar um tratamento específico para cada tipo.
+Tratando vários tipos de exceção
+
+Considere o seguinte bloco de código:
+
+var soma = Convert.ToDecimal(Console.ReadLine());
+var quantidade = Convert.ToDecimal(Console.ReadLine());
+var media = soma / quantidade;
+Console.WriteLine("Média calculada: " + media);
+
+
+
+Esse código efetua alguns passos simples: lê dois valores digitados no console e calcula a média. Nesses passos, alguns tipos de exceção podem ocorrer:
+
+    FormatException: se for digitado um número fora da formatação aceita (contendo letras, por exemplo);
+    OverflowException: se for digitado um valor superior ou inferior aos limites suportados pelo tipo decimal;
+    DivideByZeroException: se a quantidade digitada for zero, pois ocorrerá uma tentativa de divisão por zero.
+
+Se adicionarmos um único bloco catch, todas as exceções possíveis estarão tratadas, porém não teremos a possibilidade de executar um tratamento específico para cada uma delas. Para que isso seja possível, podemos adicionar vários blocos catch em sequência, cada um capturando um tipo de exceção:
+
+try
+{
+    var soma = Convert.ToDecimal(Console.ReadLine());
+    var quantidade = Convert.ToDecimal(Console.ReadLine());
+    var media = soma / quantidade;
+    Console.WriteLine("Média calculada: " + media);
+}
+catch(FormatException)
+{
+    Console.WriteLine("O valor digitado não é um número válido.");
+}
+catch(OverflowException)
+{
+    Console.WriteLine("O valor digitado excede os limites suportados.");
+}
+catch(DivideByZeroException)
+{
+    Console.WriteLine("Não é possível dividir por zero.");
+}
+
+
+
+Fazendo isso, cada exceção que for lançada será tratada em um bloco catch específico.
+Hierarquia de exceções
+
+Ao efetuar o tratamento de vários tipos de exceção é importante organizar os blocos catch de forma que os tipos mais específicos sejam tratados primeiro, e os mais abrangentes depois. Isso é necessário porque o compilador verificará se a exceção lançada se enquadra em um dos tipos tratados e uma vez que encontre o catch com tipo correspondente, ele não avaliará os blocos seguintes. Assim, caso seja feito um tratamento mais abrangente no começo, os tratamentos mais específicos nunca serão utilizados.
+
+Para entender melhor esse conceito é preciso entender que exceções são classes e que existe herança entre elas. No .NET o tipo mais abrangente de exceção é o Exception. Todos os demais herdam dele em vários níveis.
+
+Um exemplo dessa hierarquia é apresentado na figura abaixo:
+
+Observe que os tipos DivideByZeroException e OverflowException são mais específicos que Exception, portanto, se fosse preciso tratar mais algum tipo de exceção no exemplo anterior, esses dois deveriam aparecer antes do tratamento genérico de Exception:
+
+
+catch(FormatException)
+{
+    Console.WriteLine("O valor digitado não é um número válido.");
+}
+catch(OverflowException)
+{
+    Console.WriteLine("O valor digitado excede os limites suportados.");
+}
+catch(DivideByZeroException)
+{
+    Console.WriteLine("Não é possível dividir por zero.");
+}
+catch(Exception)
+{
+    Console.WriteLine("Ocoreu um erro ao calcular a média.");
+}
+
+
+
+Ainda no exemplo anterior, FormatException não está na mesma estrutura hierarquica dos demais tipos tratados aqui. Portanto, a ordem em que ele aparece com relação ao DivideByZeroExcetion e ao OverflowException não é relevante. Porém, ele ainda é mais específico que Exception e por isso deve aparecer antes dele.
+
+Se colocarmos o tratamento de Exception no topo o compilador é capaz de perceber que os demais tratamentos nunca serão utilizados, então ele gera um erro, como mostra a figura a seguir:
+
+Entender essa estrutura hierárquica é fundamental para efetuar um tratamento eficiente de exceções, pois nos permite aplicar uma lógica específica para certos casos que antes seriam tratados de forma abrangente.
+
+
+
+///////
+
+  finally 
+            {
+                Console.WriteLine("Programa encerrado");
+            }
+aposto o catch
