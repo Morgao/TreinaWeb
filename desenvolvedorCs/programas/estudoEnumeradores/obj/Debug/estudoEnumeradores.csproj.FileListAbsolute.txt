@@ -1,0 +1,11 @@
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\estudoEnumeradores\bin\Debug\estudoEnumeradores.exe.config
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\estudoEnumeradores\bin\Debug\estudoEnumeradores.exe
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\estudoEnumeradores\bin\Debug\estudoEnumeradores.pdb
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\estudoEnumeradores\obj\Debug\estudoEnumeradores.csproj.AssemblyReference.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\estudoEnumeradores\obj\Debug\estudoEnumeradores.csproj.SuggestedBindingRedirects.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\estudoEnumeradores\obj\Debug\estudoEnumeradores.frmEstudoEnum.resources
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\estudoEnumeradores\obj\Debug\estudoEnumeradores.Properties.Resources.resources
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\estudoEnumeradores\obj\Debug\estudoEnumeradores.csproj.GenerateResource.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\estudoEnumeradores\obj\Debug\estudoEnumeradores.csproj.CoreCompileInputs.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\estudoEnumeradores\obj\Debug\estudoEnumeradores.exe
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWeb\estudoEnumeradores\obj\Debug\estudoEnumeradores.pdb
