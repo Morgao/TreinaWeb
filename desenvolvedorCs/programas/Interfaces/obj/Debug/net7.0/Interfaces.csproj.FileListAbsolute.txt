@@ -1,0 +1,15 @@
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Interfaces\bin\Debug\net7.0\Interfaces.exe
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Interfaces\bin\Debug\net7.0\Interfaces.deps.json
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Interfaces\bin\Debug\net7.0\Interfaces.runtimeconfig.json
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Interfaces\bin\Debug\net7.0\Interfaces.dll
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Interfaces\bin\Debug\net7.0\Interfaces.pdb
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Interfaces\obj\Debug\net7.0\Interfaces.csproj.AssemblyReference.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Interfaces\obj\Debug\net7.0\Interfaces.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Interfaces\obj\Debug\net7.0\Interfaces.AssemblyInfoInputs.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Interfaces\obj\Debug\net7.0\Interfaces.AssemblyInfo.cs
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Interfaces\obj\Debug\net7.0\Interfaces.csproj.CoreCompileInputs.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Interfaces\obj\Debug\net7.0\Interfaces.dll
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Interfaces\obj\Debug\net7.0\refint\Interfaces.dll
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Interfaces\obj\Debug\net7.0\Interfaces.pdb
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Interfaces\obj\Debug\net7.0\Interfaces.genruntimeconfig.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Interfaces\obj\Debug\net7.0\ref\Interfaces.dll
