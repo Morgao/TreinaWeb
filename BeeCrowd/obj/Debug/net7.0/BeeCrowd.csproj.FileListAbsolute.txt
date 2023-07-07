@@ -1,0 +1,5 @@
+C:\Users\admna\OneDrive\Área de Trabalho\CloneDiretoGit\TreinaWeb\BeeCrowd\obj\Debug\net7.0\BeeCrowd.csproj.AssemblyReference.cache
+C:\Users\admna\OneDrive\Área de Trabalho\CloneDiretoGit\TreinaWeb\BeeCrowd\obj\Debug\net7.0\BeeCrowd.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\admna\OneDrive\Área de Trabalho\CloneDiretoGit\TreinaWeb\BeeCrowd\obj\Debug\net7.0\BeeCrowd.AssemblyInfoInputs.cache
+C:\Users\admna\OneDrive\Área de Trabalho\CloneDiretoGit\TreinaWeb\BeeCrowd\obj\Debug\net7.0\BeeCrowd.AssemblyInfo.cs
+C:\Users\admna\OneDrive\Área de Trabalho\CloneDiretoGit\TreinaWeb\BeeCrowd\obj\Debug\net7.0\BeeCrowd.csproj.CoreCompileInputs.cache

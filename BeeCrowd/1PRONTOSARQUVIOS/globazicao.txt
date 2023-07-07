@@ -1,0 +1,6 @@
+                  using System.Globalization;
+            A = Convert.ToDouble(Console.ReadLine(),CultureInfo.CreateSpecificCulture("en-US"));
+            B = Convert.ToDouble(Console.ReadLine(),CultureInfo.CreateSpecificCulture("en-US"));
+            MEDIA = ((A * 3.5) + (B * 7.5)) / 11;
+
+            Console.WriteLine("MEDIA = " + MEDIA.ToString("F5", CultureInfo.CreateSpecificCulture("en-US")));

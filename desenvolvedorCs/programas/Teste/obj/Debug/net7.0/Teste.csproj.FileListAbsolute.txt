@@ -1,0 +1,15 @@
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Teste\bin\Debug\net7.0\Teste.exe
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Teste\bin\Debug\net7.0\Teste.deps.json
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Teste\bin\Debug\net7.0\Teste.runtimeconfig.json
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Teste\bin\Debug\net7.0\Teste.dll
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Teste\bin\Debug\net7.0\Teste.pdb
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Teste\obj\Debug\net7.0\Teste.csproj.AssemblyReference.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Teste\obj\Debug\net7.0\Teste.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Teste\obj\Debug\net7.0\Teste.AssemblyInfoInputs.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Teste\obj\Debug\net7.0\Teste.AssemblyInfo.cs
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Teste\obj\Debug\net7.0\Teste.csproj.CoreCompileInputs.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Teste\obj\Debug\net7.0\Teste.dll
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Teste\obj\Debug\net7.0\refint\Teste.dll
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Teste\obj\Debug\net7.0\Teste.pdb
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Teste\obj\Debug\net7.0\Teste.genruntimeconfig.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Teste\obj\Debug\net7.0\ref\Teste.dll
