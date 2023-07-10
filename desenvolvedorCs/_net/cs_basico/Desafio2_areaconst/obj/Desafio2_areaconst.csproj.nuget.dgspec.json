@@ -1,0 +1,67 @@
+{
+  "format": 1,
+  "restore": {
+    "c:\\Users\\admna\\OneDrive\\Área de Trabalho\\arquivosCsharp\\vscode\\Desafio2_areaconst\\Desafio2_areaconst.csproj": {}
+  },
+  "projects": {
+    "c:\\Users\\admna\\OneDrive\\Área de Trabalho\\arquivosCsharp\\vscode\\Desafio2_areaconst\\Desafio2_areaconst.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\Users\\admna\\OneDrive\\Área de Trabalho\\arquivosCsharp\\vscode\\Desafio2_areaconst\\Desafio2_areaconst.csproj",
+        "projectName": "Desafio2_areaconst",
+        "projectPath": "c:\\Users\\admna\\OneDrive\\Área de Trabalho\\arquivosCsharp\\vscode\\Desafio2_areaconst\\Desafio2_areaconst.csproj",
+        "packagesPath": "C:\\Users\\admna\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\admna\\OneDrive\\Área de Trabalho\\arquivosCsharp\\vscode\\Desafio2_areaconst\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\admna\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

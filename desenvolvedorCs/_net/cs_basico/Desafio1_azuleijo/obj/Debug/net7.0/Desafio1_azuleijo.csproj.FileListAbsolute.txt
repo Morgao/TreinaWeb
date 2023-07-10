@@ -1,0 +1,15 @@
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Desafio1_azuleijo\bin\Debug\net7.0\Desafio1_azuleijo.exe
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Desafio1_azuleijo\bin\Debug\net7.0\Desafio1_azuleijo.deps.json
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Desafio1_azuleijo\bin\Debug\net7.0\Desafio1_azuleijo.runtimeconfig.json
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Desafio1_azuleijo\bin\Debug\net7.0\Desafio1_azuleijo.dll
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Desafio1_azuleijo\bin\Debug\net7.0\Desafio1_azuleijo.pdb
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Desafio1_azuleijo\obj\Debug\net7.0\Desafio1_azuleijo.csproj.AssemblyReference.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Desafio1_azuleijo\obj\Debug\net7.0\Desafio1_azuleijo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Desafio1_azuleijo\obj\Debug\net7.0\Desafio1_azuleijo.AssemblyInfoInputs.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Desafio1_azuleijo\obj\Debug\net7.0\Desafio1_azuleijo.AssemblyInfo.cs
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Desafio1_azuleijo\obj\Debug\net7.0\Desafio1_azuleijo.csproj.CoreCompileInputs.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Desafio1_azuleijo\obj\Debug\net7.0\Desafio1_azuleijo.dll
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Desafio1_azuleijo\obj\Debug\net7.0\refint\Desafio1_azuleijo.dll
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Desafio1_azuleijo\obj\Debug\net7.0\Desafio1_azuleijo.pdb
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Desafio1_azuleijo\obj\Debug\net7.0\Desafio1_azuleijo.genruntimeconfig.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\vscode\Desafio1_azuleijo\obj\Debug\net7.0\ref\Desafio1_azuleijo.dll

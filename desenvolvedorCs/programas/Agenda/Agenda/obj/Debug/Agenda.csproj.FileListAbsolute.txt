@@ -1,0 +1,11 @@
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\Agenda\Agenda\obj\Debug\Agenda.csproj.AssemblyReference.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\Agenda\Agenda\obj\Debug\Agenda.csproj.SuggestedBindingRedirects.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\Agenda\Agenda\obj\Debug\Agenda.frmAgendaContatos.resources
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\Agenda\Agenda\obj\Debug\Agenda.Properties.Resources.resources
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\Agenda\Agenda\obj\Debug\Agenda.csproj.GenerateResource.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\Agenda\Agenda\obj\Debug\Agenda.csproj.CoreCompileInputs.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\Agenda\Agenda\bin\Debug\Agenda.exe.config
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\Agenda\Agenda\bin\Debug\Agenda.exe
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\Agenda\Agenda\bin\Debug\Agenda.pdb
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\Agenda\Agenda\obj\Debug\Agenda.exe
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\Agenda\Agenda\obj\Debug\Agenda.pdb

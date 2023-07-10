@@ -1,0 +1,6 @@
+C:\Curso\Testes\CSharpBasicoExercicios\Aula37_SegundoExercicio\bin\Debug\Aula37_SegundoExercicio.exe.config
+C:\Curso\Testes\CSharpBasicoExercicios\Aula37_SegundoExercicio\bin\Debug\Aula37_SegundoExercicio.exe
+C:\Curso\Testes\CSharpBasicoExercicios\Aula37_SegundoExercicio\bin\Debug\Aula37_SegundoExercicio.pdb
+C:\Curso\Testes\CSharpBasicoExercicios\Aula37_SegundoExercicio\obj\Debug\Aula37_SegundoExercicio.csprojResolveAssemblyReference.cache
+C:\Curso\Testes\CSharpBasicoExercicios\Aula37_SegundoExercicio\obj\Debug\Aula37_SegundoExercicio.exe
+C:\Curso\Testes\CSharpBasicoExercicios\Aula37_SegundoExercicio\obj\Debug\Aula37_SegundoExercicio.pdb

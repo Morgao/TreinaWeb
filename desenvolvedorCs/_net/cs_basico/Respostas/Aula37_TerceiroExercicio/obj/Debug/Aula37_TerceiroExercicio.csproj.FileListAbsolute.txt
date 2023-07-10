@@ -1,0 +1,9 @@
+C:\Curso\Testes\CSharpBasicoExercicios\Aula37_TerceiroExercicio\bin\Debug\Aula37_TerceiroExercicio.exe.config
+C:\Curso\Testes\CSharpBasicoExercicios\Aula37_TerceiroExercicio\obj\Debug\Aula37_TerceiroExercicio.csprojResolveAssemblyReference.cache
+C:\Curso\Testes\CSharpBasicoExercicios\Aula37_TerceiroExercicio\obj\Debug\Aula37_TerceiroExercicio.Form1.resources
+C:\Curso\Testes\CSharpBasicoExercicios\Aula37_TerceiroExercicio\obj\Debug\Aula37_TerceiroExercicio.Properties.Resources.resources
+C:\Curso\Testes\CSharpBasicoExercicios\Aula37_TerceiroExercicio\obj\Debug\Aula37_TerceiroExercicio.csproj.GenerateResource.Cache
+C:\Curso\Testes\CSharpBasicoExercicios\Aula37_TerceiroExercicio\bin\Debug\Aula37_TerceiroExercicio.exe
+C:\Curso\Testes\CSharpBasicoExercicios\Aula37_TerceiroExercicio\bin\Debug\Aula37_TerceiroExercicio.pdb
+C:\Curso\Testes\CSharpBasicoExercicios\Aula37_TerceiroExercicio\obj\Debug\Aula37_TerceiroExercicio.exe
+C:\Curso\Testes\CSharpBasicoExercicios\Aula37_TerceiroExercicio\obj\Debug\Aula37_TerceiroExercicio.pdb
