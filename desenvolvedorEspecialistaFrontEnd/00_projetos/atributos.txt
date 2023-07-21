@@ -98,3 +98,511 @@ div
     margin-left: 20px;
     padding: 20px;
 }
+
+
+
+h1
+{
+    color: red;
+}
+
+
+
+h2
+{
+    color: blue;
+}
+
+
+
+<h1 id="titulo">TreinaWeb</h1>
+
+#titulo
+{
+    color: brown;
+}
+
+
+
+<h1 class="titulo">TreinaWeb</h1>
+.titulo
+{
+    color: brown;
+}
+
+
+<a class="link" href="https://www.google.com.br" target="_blank">google</a>]
+
+.link {
+    color: black;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: red;
+}
+
+
+
+o que tem mais forca é o id em relacao a class e tag
+id > class > tag
+
+
+
+
+
+#titulo {
+    color: green;
+}
+
+.titulo {
+    color: brown;
+}
+
+h1 {
+    color: blue;
+}
+
+
+
+
+/*comentario no css*/ ou control ponto e virgula
+
+
+
+Tipos de seletores
+
+Força dos seletores:
+CSS
+
+Prefira sempre utilizar classes.
+Seletores Básicos
+
+sel = seletor. Troque por *, id, classe ou nome de tag.
+
+Seletor
+	
+
+Exemplo
+	
+
+Descrição
+
+*
+	
+
+*
+	
+
+Seleciona todos os elementos
+
+#id
+	
+
+#meuElemento
+	
+
+Seleciona o elemento com o atributo id="meuElemento". Note que antes do nome do ID deve ser acrescentado "#".
+
+.classe
+	
+
+.minha-classe
+	
+
+Seleciona todos os elementos com o atributo class="minha-classe". Note que antes do nome da classe deve ser acrescentado ".".
+
+tag
+	
+
+div
+	
+
+Seleciona todas as tags <div>. Note que o nome das tags não tem nenhum símbolo antes do nome, como "." ou "#".
+
+sel, sel
+	
+
+div, #minhaLista
+	
+
+Seleciona todas as divs e o elemento com id="minhaList". A vírgula serve para listarmos os elementos que queremos selecionar.
+Seletores de Relacionamento
+
+Seleciona um elemento com base em seu relacionamento com outro elemento
+
+sel sel
+	
+
+div p
+	
+
+Seleciona todos os elementos <p> que estejam dentro do elemento <div>. Não importa se <p> é filho de outro elemento que não seja <div>.
+
+sel > sel
+	
+
+div > p
+	
+
+Seleciona todos os elementos <p> que o pai seja <div>. Nesse caso é obrigatório o <p> ser filho direto da <div>.
+
+sel + sel
+	
+
+div + p
+	
+
+Seleciona todos os elementos <p> que são precedidos por uma tag <div>, como:
+
+<div></div>
+
+<p></p>
+
+Se houver algo separando as duas tags, essa seleção não funcionará.
+
+sel ~ sel
+	
+
+div ~ p
+	
+
+Seleciona todos os elementos <p> que são precedidos por uma tag <div>, como:
+
+<div></div>
+
+<input type="text" />
+
+<p></p>
+
+Essa seleção funciona mesmo se houver algo separando as tags.
+Seletores de Atributos
+
+Seleciona um elemento baseado em seu atributo
+
+[atributo]
+	
+
+[readonly]
+	
+
+Seleciona todos os elementos que contém o atributo readonly, como:
+
+<input type="text" readonly />
+
+[atributo=valor]
+	
+
+[type="text"]
+	
+
+Seleciona todos os elementos que contém o atributo igual ao valor especificado, como:
+
+<input type="text" />
+
+[atributo^=valor]
+	
+
+[href^="#"]
+	
+
+Elementos com o atributo começando com o valor passado
+
+[atributo$=valor]
+	
+
+[href$=".com"]
+	
+
+Elementos com o atributo finalizando com o valor passado
+
+[atributo*=valor i]
+	
+
+[href*="treinaweb" i]
+	
+
+Elementos com o atributo com o valor passado em qualquer parte. O "i" indica que não há diferença entre letras minúsculas ou maiúsculas
+Pseudo-Classes
+
+Seletores que indicam um elemento assim que este satisfizer um certo estado
+
+:active
+	
+
+a:active
+	
+
+Seleciona a tag <a> que esteja ativa.
+
+:checked
+	
+
+input:checked
+	
+
+Seleciona todos os elementos <input> que estejam checados.
+
+:disabled
+	
+
+input:disabled
+	
+
+Seleciona todo <input> que esteja desabilitado.
+
+:empty
+	
+
+p:empty
+	
+
+Seleciona todo <p> que não tem filhos ou texto.
+
+:first-child
+	
+
+p:first-child
+	
+
+Seleciona a tag <p> caso ela seja o primeiro filho da tag pai.
+
+:focus
+	
+
+input:focus
+	
+
+Seleciona o elemento <input> que está com foco.
+
+:hover
+	
+
+a:hover
+	
+
+Seleciona o elemento <a> em que o cursor do mouse está em cima.
+
+:last-child
+	
+
+p:last-child
+	
+
+Seleciona a tag <p> que seja a última filha de seu pai.
+
+:not(sel)
+	
+
+:not(p)
+	
+
+Seleciona todos os elementos que não sejam <p>
+
+:nth-child(n)
+	
+
+p:nth-child(2)
+	
+
+Seleciona todo <p> que seja o segundo filho de seu pai. Altere "n" por qualquer número.
+
+
+
+
+
+
+
+medidas absoluas
+20px
+20cm
+
+relativas
+50%
+vw (parte visivel da tela
+
+ height: 100vh;
+    width: 100vw;
+
+Unidades de medidas
+Medidas absolutas
+
+Unidades que são apresentadas da mesma forma em todos os lugares.
+
+    cm - centímetros ( 96px / 2.54 );
+    mm - milímetros ( 1/10cm );
+    q - ¼ de milímetro ( 1/40cm );
+    in - polegadas ( 2,54cm = 96px );
+    pc - pica ( 12pt ou 1/6in );
+    px - pixels ( 1/96in );
+    pt - pontos ( 1/71in ).
+    Medidas Relativas
+    Tem seu valor em relação ao valor de uma outra propriedade.
+    % - porcentagem (tecnicamente % não é uma unidade, e sim, um tipo de dado);
+    em - relativo ao tamanho da fonte do elemento. Se o tamanho da fonte for 16px e você colocar 0.5em, o valor será igual a 8px;
+    rem - igual ao em, mas em relação ao tamanho da fonte do elemento raiz;
+    ex - altura da letra x da fonte do elemento;
+    ch - largura mais espaçamento em volta do número 0 da fonte do elemento;
+    vw - relativo à largura da viewport;
+    vh - relativo à altura da viewport.
+    Outras Unidades
+    Ângulos:
+    deg - grau ( um círculo possui 360deg );
+    grad - grado ( um círculo possui 400grad );
+    rad - radiano ( um círculo possui 2𝛑rad );
+    turn - volta ( um círculo possui 1turn ).
+
+Duração:
+
+    s – segundos;
+    ms - milissegundos ( 1/1000s ).
+
+
+
+
+<div>TreinaWeb</div>
+    <span>TreinaWeb</span>
+   
+
+elemento de bloco ocupa todo espaco como div paragrafo
+
+
+span é um display inline
+a largura do seu conteudo tem apenas o seu tamanho
+nao altera propriedades de largura e altura
+
+
+dispaly inline bloque meio termo entre os dois
+manipula altura e largura do bloco
+div {
+    background-color: blue;
+}
+
+span {
+    background-color: green;
+    display: inline-block;
+    width: 500px;
+}
+
+
+
+ padding: 20px;
+pra tudo
+ou individual
+top bot left right
+ padding: 20px 50px; // eixo x e eixo y
+ padding: 20px 50px 30px 5px; // sentido do relogio 
+
+ border: 5px solid color black ;
+tamanho da borda, estilo da borda e cor da borda
+
+
+.caixa {
+        background-color: aqua;
+        display: inline-block;
+        padding: 20px;
+        border: 5px solid color black ;
+        margin 20px;
+}
+
+
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+h1 {
+    font-weight: 100;
+    font-size: 2rem;
+}
+
+p {
+    font-weight: 900;
+    font-size: 1rem;
+}
+
+
+
+
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+h1 {
+    font-weight: 100;
+    font-size: 2rem;
+    text-align: center;
+}
+
+p {
+    font-weight: 900;
+    font-size: 1rem;
+    line-height: 120%;
+    text-align: justify;
+}
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/style/heranca.css">
+    <title>Técnicas de Herança</title>
+</head>
+<body>
+    <section class="secao-texto">
+        <h2>Treina Web</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora dolor itaque, excepturi sequi labore dolores in tempore deleniti incidunt vel obcaecati laboriosam impedit animi architecto accusamus doloribus maiores molestiae illo!</p>
+        <ul>
+            <li>item 01</li>   
+        </ul>
+        <button>Cick</button>
+    </section>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, soluta in. Voluptas sapiente aliquam impedit vero repellat dignissimos, inventore voluptate voluptates quasi quo nesciunt deleniti doloremque quaerat accusantium commodi ipsa.</p>
+  
+   
+</body>
+</html>
+
+
+.secao-texto {
+    color: brown;
+    font-weight: bold;
+    
+    border: solid 1px black;
+}
+
+h2 {
+    border: inherit;
+
+}
+
+p {
+    border: inherit;
+
+}
+
+button {
+    color: inherit;
+    font-weight: inherit;
+}
+
+
+Resumo dos valores
+Initial
+
+A palavra-chave CSS initial se aplica ao valor inicial padrão de uma propriedade para um elemento. O valor inicial é definido pelo navegador e pode ser aplicado em qualquer propriedade CSS.
+
+Isto inclui também a propriedade CSS all, no qual o initial pode ser utilizado para restaurar todas as propriedades CSS para o seu estado inicial.
+Unset
+
+A palavra-chave CSS unset, redefine uma propriedade para seu valor herdado se a propriedade herdar naturalmente de seu pai, e para seu valor inicial se não herdar naturalmente.
+
+unset pode ser aplicado a qualquer propriedade CSS, incluindo a propriedade abreviada CSS all.
+Inherit
+
+A palavra-chave inherit do CSS faz com que o elemento obtenha o valor computado da propriedade de seu elemento pai. Ele pode ser aplicado a qualquer propriedade CSS.
+
+
+
