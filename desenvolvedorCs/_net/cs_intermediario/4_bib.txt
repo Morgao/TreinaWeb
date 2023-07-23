@@ -1,0 +1,39 @@
+Delegates
+
+Delegate é uma classe especial que age como “ponteiros para métodos”. Quando se cria uma instância dele, o nome do método que se deseja referenciar é passado ao construtor. No fim, podemos entender que delegates são "ponteiros para funções", de maneira bem similar ao que ocorre em C e Pascal.
+
+O conceito de delegate pode ser utilizado para encapsular métodos que tenham assinaturas iguais, mas comportamentos diferentes. A utilização de delegates nos oferece vários benefícios:
+
+    Código menor, mais limpo e, consequentemente, de compreensão mais facilitada;
+    Flexibilidade nos algoritmos desenvolvidos utilizando-se delegates (pois você pode mudar comportamentos durante a execução de seu algoritmo);
+
+O próprio .NET utiliza delegates por padrão em algumas implementações, como por exemplo na definição de eventos. Declaração e manipulação de eventos são exemplos clássicos de utilização de delegates.
+
+Aplicações Windows Forms são um bom exemplo de aplicação dos delegates para manipulação de eventos. Quando damos um duplo clique em, por exemplo, um botão, o Visual Studio gera um método que será disparado quando clicarmos no botão em questão. Um método com o seguinte formato:
+C# (C Sharp)
+
+Este método faz na verdade referência a um evento: o evento de clique no botão btnMeuBotao. Mas como é feita a ligação entre o evento de clique no botão e o método acima?
+
+Essa ligação entre o método a ser executado e o evento de clique é feito através de delegates! Se abrirmos o arquivo “Designer.cs” correspondente ao form onde está nosso botão de exemplo, nós veremos a ligação entre o evento e o método a ser executado da seguinte maneira:
+ 
+C# (C Sharp)
+
+Veja que é adicionado um “capturador de eventos” ao evento de clique do botão “btnMeuBotao”. Esse capturador de eventos é um EventHandler, que recebe como argumento um método. Neste caso, ele está recebendo o método gerado na hora que damos um duplo-clique, o método btnMeuBotao_Click. Esse link com o evento “Click” do botão é feito através de um delegate: repare que o EventHandler precisa de um método para o qual ele irá apontar e chamará quando o evento “Click” de nosso botão for executado. Esse link feito com o método é o nosso delegate.
+
+Repare a flexibilidade que o uso de delegates dá ao nosso código: se for necessário alterar o método a ser executado quando clicarmos no botão btnMeuBotao, basta alterar o método para o qual o EventHandler atribuído ao evento “Click” de nosso botão está apontando. Só com essa alteração, automaticamente o nosso botão irá chamar um novo método, alterando seu comportamento.
+
+Um delegate é tipicamente declarado da seguinte forma:
+ 
+C# (C Sharp)
+
+Por exemplo, um delegate que pode receber dois números e retorna um outro número poderia ser declarado da seguinte forma:
+C# (C Sharp)
+
+Nós poderíamos agora ter dois métodos com a assinatura deste delegate: os métodos Somar e Subtrair:
+C# (C Sharp)
+
+Agora podemos linkar nosso delegate com estes dois métodos criando duas instâncias distintas, já que um delegate não deixa de ser uma classe. O código ficaria da seguinte maneira:
+ 
+C# (C Sharp)
+
+Repare no código acima: declaramos duas instâncias do nosso delegate ExecutarCalculo: uma apontando para o método Somar e a outra apontando para o método Subtrair. Sendo assim, quando chamamos o delegate associado ao método Somar passando dois parâmetros do tipo int para a instância do delegate, ele automaticamente retorna o resultado da soma dos dois números. A mesma coisa ocorre para a subtração.

@@ -1,0 +1,53 @@
+// RETORNA O MESMO RESULTADO
+E UMA FUNCAO DETERMINISTICA
+
+CREATE FUNCTION fn_ola()
+RETURNS VARCHAR(10)
+	RETURN 'Olá';
+    
+SELECT fn_ola();
+
+DROP FUNCTION fn_ola;
+
+// FUNCAO NAO DETERMINISTICA
+O RESULTADO VARIA A COM O TEMPO NESSE CASO
+SELECT NOW();
+
+
+
+
+
+
+DELIMITER $$
+
+CREATE FUNCTION fn_calcular_valor_compra(p_id_compra BIGINT)
+RETURNS DECIMAL(8,2)
+BEGIN
+	DECLARE v_valor_compra DECIMAL(8,2);
+	SELECT SUM(cmp_prd_quantidade*cmp_prd_preco)
+		INTO v_valor_compra
+		FROM cmp_prd_compras_produtos
+		WHERE cmp_id = p_id_compra; 
+	RETURN v_valor_compra;
+END $$
+DELIMITER ;
+
+
+
+
+
+
+SELECT * FROM cmp_prd_compras_produtos;
+
+SELECT fn_calcular_valor_compra(1);
+
+SELECT fn_calcular_valor_compra(cmp_id)
+FROM cmp_prd_compras_produtos;
+
+
+
+
+TIRANDO VALOR DUPLICADO
+SELECT DISTINCT fn_calcular_valor_compra(cmp_id)
+FROM cmp_prd_compras_produtos;
+

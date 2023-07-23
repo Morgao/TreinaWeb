@@ -1,0 +1,41 @@
+CREATE DATABASE tw_nfe;
+USE tw_nfe;
+SELECT DATABASE();
+
+comentarios
+/*
+
+Nome | endereco | data nascimento [...] 
+tw | rua xpto | 01/01/2008
+ze | rua dois | 11/04/2012
+*/
+
+tipos de dados
+escla e precisao
+10.001
+pricesao 5 digitos
+escala 3 digitos apos a virgula
+
+
+CREATE TABLE cli_clientes
+(
+	cli_id BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    cli_nome VARCHAR(50) NOT NULL,
+    cli_data_nascimento DATE,
+    cli_logradouro VARCHAR(200)
+
+);
+
+
+DROP TABLE cli_cliente;
+
+TIPO SERIAL PARA PRIMARY KEY
+
+CREATE TABLE cli_clientes
+(
+	cli_id SERIAL PRIMARY KEY,
+    cli_nome VARCHAR(50) NOT NULL,
+    cli_data_nascimento DATE,
+    cli_logradouro VARCHAR(200)
+
+);

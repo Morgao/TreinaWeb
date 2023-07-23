@@ -1,0 +1,269 @@
+INSERT INTO cli_clientes 
+(
+cli_nome,
+cli_data_nascimento,
+cli_logradouro
+)
+VALUES
+(
+'TreinWeb Tecnologia',
+'2006-01-01',
+'Avenida Paulista N 1000'
+);
+
+
+
+INSERT INTO cli_clientes 
+(
+cli_nome
+
+)
+VALUES
+(
+'TreinWeb Tecnologia2'
+
+);
+
+
+
+
+adicionar coluna a tabela existente
+ALTER TABLE cli_clientes
+ADD COLUMN cli_cpf CHAR(14) NOT NULL;
+
+
+
+deletar coluna
+ALTER TABLE cli_clientes
+DROP COLUMN cli_cpf;
+
+
+
+adicionar coluna a tabela existente // DEFAULT QUANDO NAO TEM
+colocar depois da columa nome
+ALTER TABLE cli_clientes
+ADD COLUMN cli_cpf CHAR(14) NOT NULL DEFAULT '-' AFTER cli_nome;
+
+
+
+
+inserir outro cluente
+INSERT INTO cli_clientes
+(cli_nome, cli_cpf, cli_data_nascimento, cli_logradouro)
+VALUES
+('Joao da Silva', '123.456.789-01','2010-01-01','Rua teste');
+
+
+
+INSERT INTO cli_clientes
+(cli_nome,  cli_data_nascimento, cli_logradouro)
+VALUES
+('Maria da Silva', '2012-01-01','Avenida teste');
+
+
+
+cuidado de atualizar valor sem where
+ele altera toda a coluna com o mesmo valor de alteracao
+
+alteracao de valores da tupla na tabela
+UPDATE cli_clientes
+SET cli_cpf = '234.567.890-12'
+WHERE cli_id = 4;
+
+
+
+UPDATE cli_clientes
+SET cli_cpf = '345.567.890-12', cli_logradouro = 'Avenida Teste Modificada'
+WHERE cli_id = 4;
+
+
+
+
+UPDATE cli_clientes
+Set cli_cpf = '222.222.222-22'
+WHERE cli_id = 2;
+
+
+
+
+coluna do cpf precisa set unica
+alterar restricao da coluna
+constraints verificacao antes de inserir dados
+pelo sql
+ALTER TABLE cli_clientes
+ADD CONSTRAINT UN_CLI_CLIENTES__CLI_CPF UNIQUE(cli_cpf);
+
+
+
+
+remover constraint
+ALTER TABLE cli_clientes DROP INDEX UN_CLI_CLIENTES__CLI_CPF;
+
+
+
+
+
+obter resultado que nao tem logradouro
+OU O A DATA DE NASCIMENTO
+SELECT *
+FROM cli_clientes
+WHERE cli_data_nascimento IS NULL OR cli_logradouro IS NULL;
+
+
+
+
+obter resultado que nao tem logradouro
+OU O A DATA DE NASCIMENTO
+SELECT *
+FROM cli_clientes
+WHERE cli_data_nascimento IS NULL OR cli_logradouro IS NULL;
+
+UPDATE cli_clientes
+SET cli_logradouro = NULL
+WHERE cli_id = 4;
+
+
+OR OU AND
+
+SELECT *
+FROM cli_clientes
+WHERE cli_data_nascimento IS NULL AND cli_logradouro IS NULL;
+
+
+NOT NULL
+SELECT *
+FROM cli_clientes
+WHERE cli_data_nascimento IS NOT NULL AND cli_logradouro IS NULL;
+
+
+
+
+PESQUISA POR CLEINTES QUE COMECA
+COM A LETRA T
+CARACCTER CORINGA COMECA SO COM T
+SELECT *
+FROM cli_clientes
+WHERE cli_nome LIKE 'T%';
+
+
+
+PESQUISA POR CLEINTES QUE 
+TERMINE COM A VOGAL A
+SELECT *
+FROM cli_clientes
+WHERE cli_nome LIKE '%a';
+
+
+
+
+PESQUISA POR CLEINTES no meio
+SELECT *
+FROM cli_clientes
+WHERE cli_nome LIKE '%ia%';
+
+
+driblar a case sensitive
+funcoes que retornam valores
+COLOCAR TODO NOME EM CAIXA BAIXA 
+e depois pesquisar LOWER
+CAIXA ALTA UPPER
+
+SELECT LOWER('TREINAWEB')
+
+
+SELECT *
+FROM cli_clientes
+WHERE LOWER(cli_nome) LIKE '%m%';
+
+
+
+INSERT INTO cli_clientes
+(cli_nome, cli_cpf, cli_data_nascimento, cli_logradouro)
+VALUES
+('Marcus', '444.444.444-44', '1990-01-01','Rua teste 2'
+
+
+
+
+INSERT INTO cli_clientes
+(cli_nome, cli_cpf, cli_data_nascimento, cli_logradouro)
+VALUES
+('Marcus', '444.444.444-44', '1990-01-01','Rua teste 2');
+
+INSERT INTO cli_clientes
+(cli_nome, cli_cpf, cli_data_nascimento, cli_logradouro)
+VALUES
+('Markos', '555.555.555-55', '1980-01-01','Rua teste 3');
+
+
+
+busca fonetica
+leva em consideraecao a fonetica
+e nao a prounincia
+
+SELECT *
+FROM cli_clientes
+WHERE cli_nome = 'Marcos' OR cli_nome = 'Markos' OR cli_nome = 'Marcus';
+
+
+
+
+busca fonetica
+leva em consideraecao a fonetica
+e nao a prounincia
+
+SELECT *
+FROM cli_clientes
+WHERE SOUNDEX(cli_nome) = SOUNDEX('Marcos'); 
+
+
+
+SELECT PARA NOME DATA NASCI 
+informacoes de data e hora
+idade data nasc - data atual
+
+SELECT cli_nome, cli_data_nascimento,  TIMESTAMPDIFF(YEAR,cli_data_nascimento,CURDATE())
+FROM cli_clientes;
+
+
+
+SELECT cli_nome, cli_data_nascimento,  TIMESTAMPDIFF(YEAR,cli_data_nascimento,CURDATE()) AS cli_idade
+FROM cli_clientes;
+
+alterar nome da coluna gerada
+
+
+
+
+
+SELECT cli_id, cli_nome, cli_data_nascimento, cli_logradouro
+FROM cli_clientes;
+
+
+
+
+
+
+
+selecionar toda a tabela
+SELECT * FROM cli_clientes;
+
+selecionar so algumas colunas
+SELECT cli_id, cli_nome
+FROM cli_clientes;
+
+
+
+usando where condicao 
+aparecer apenas o id 1
+SELECT * 
+FROM cli_clientes
+WHERE cli_id = 1;
+
+
+
+
+filtrar os campos nulo
+SELECT *
+FROM cli_clientes
+WHERE cli_data_nascimento IS NULL;
