@@ -1,0 +1,716 @@
+     <ol class="lista">
+            <li>Maça</li>
+            <li>Limão</li>
+            <li>Laranja</li>
+            <li>Abacaxi</li>
+        </ol>
+
+.lista {
+    list-style: none;
+}
+
+.lista {
+    list-style: lower-roman;
+}
+.lista {
+    list-style: upper-roman;
+}
+
+
+.lista {
+    list-style: upper-latin;
+}
+
+
+ <ul class="lista-2">
+            <li>Joao</li>
+            <li>Joao</li>
+            <li>Joao</li>
+            <li>Joao</li>
+            <li>Joao</li>
+        </ul>
+
+.lista {
+    list-style: decimal;
+}
+
+.lista-2 {
+    list-style: circle;
+}
+
+.lista-2 {
+    list-style: url('img/circle.png');
+}
+
+
+   <ul class="lista-2">
+        <li>Frutas</li>
+        <li>Legumes</li>
+        <li>Carne</li>
+        <li>Tempero</li>
+        <li>Leite</li>
+    </ul>
+
+
+    <ol start="8" class="lista">
+        <li>Maça</li>
+        <li>Limão</li>
+        <li>Laranja</li>
+        <li>Abacaxi</li>
+
+
+    <ol start="8" class="lista">
+        <li>Maça</li>
+        <li>Limão</li>
+        <li value="7">Laranja</li>
+        <li>Abacaxi</li>
+    </ol>
+
+
+lista dentro de lista
+
+    <ol start="8" class="lista">
+        <li>Frutas
+            <ul class="lista-2">
+                <li>Maça</li>
+                <li>Laranja</li>
+                <li>Limão</li>
+                <li>Abacaxi</li>
+               
+            </ul>
+
+        </li>
+        <li>Legumes</li>
+        <li>Carne</li>
+        <li>Temperos</li>
+    </ol>
+
+
+<ol start="8" class="lista">
+        <li>Frutas
+            <ul class="lista-2">
+                <li>Maça
+                    <ul>
+                        <li>Maçã Vermelha</li>
+                        <li>Maçã Verde</li>
+                    </ul>
+                </li>
+                <li>Laranja</li>
+                <li>Limão</li>
+                <li>Abacaxi</li>
+               
+            </ul>
+
+        </li>
+        <li>Legumes</li>
+        <li>Carne</li>
+        <li>Temperos</li>
+    </ol>
+
+
+lista de menu
+
+   <ul>
+        <li>Home</li>
+        <li>Produtos</li>
+        <li>Contato</li>
+        <li>Sobre</li>
+    </ul>
+
+body {
+    margin: 0;
+    padding: 0;
+}
+ul {
+    list-style: none;
+    background-color: brown;
+    margin-top: 0;
+    display: 	flex;
+    padding: 10px;
+    justify-content: space-around;
+}
+
+ul {
+    list-style: none;
+    background-color: brown;
+    margin-top: 0;
+    display: 	flex;
+    padding: 10px;
+    gap: 20px;
+}
+
+
+tabelas
+linha dentro da tabela tr
+td table date cell dados dentro da celula da tabela
+th signigca cabecalho da tabela
+<thead> tag de cabecalho
+<tbody> tag do corpo da tabela
+<tfoot> rodape da tabela
+  <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Idade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Maria</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>Joao</td>
+                <td>15</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Total</td>
+                <td>35</td>
+            </tr>
+
+        </tfoot>
+    </table>
+
+
+table, td, th {
+    border: solid 1px;
+}
+td, th {    
+       width: 150px;
+       text-align: center;
+
+}
+
+
+table, td, th {
+    border: solid 1px;
+    border-collapse: collapse;
+}
+td, th {    
+       width: 150px;
+       text-align: center;
+
+}
+
+th {
+    background-color: aqua;
+}
+
+td {
+    background-color: antiquewhite;
+}
+
+table, td, th {
+    border: solid 3px rgb(255, 255, 255);
+    border-collapse: collapse;
+}
+td, th {    
+       width: 150px;
+       text-align: center;
+
+}
+
+th {
+    background-color: aqua;
+    font-size: 1.5rem;
+    
+}
+
+td {
+    background-color: antiquewhite;
+    font-size: 1.2rem;
+}
+
+
+tabela horizontal
+
+    <table>
+        <tr>
+            <th>Nome</th>
+            <td>Maria</td>
+            <td>Jogão</td>
+            <td>Pedro</td>
+        </tr>
+        <tr>
+            <th>Idade</th>
+            <td>25</td>
+            <td>23</td>
+            <td>24</td>
+        </tr>
+    </table>
+
+
+
+    <table>
+        <thead>
+            <tr>
+                <th colspan="7">Junho</th>
+            </tr>
+            <tr>
+                <th>Segunda</th>
+                <th>Terça</th>
+                <th>Quarta</th>
+                <th>Quinta</th>
+                <th>Sexta</th>
+                <th>Sábado</th>
+                <th>Domingo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+     
+    </table>
+    <table>
+        <tr>
+            <th>Escola</th>
+            <td>TreinaWeb</td>
+        </tr>
+        <tr>
+            <th rowspan="2">Telefone</th>
+            <td>64 00000-0000</td>
+        </tr>
+        <tr>
+            <td>11 99999-9999</td>
+        </tr>
+    </table>
+
+
+table {
+    width: 100%;
+    margin: 30px;
+    
+}
+table, th, td {
+    border: solid 1px;
+
+}
+
+
+   <table>
+        <thead>
+            <tr>
+                <th colspan="7">Junho</th>
+            </tr>
+            <tr>
+                <th>Segunda</th>
+                <th>Terça</th>
+                <th>Quarta</th>
+                <th>Quinta</th>
+                <th>Sexta</th>
+                <th>Sábado</th>
+                <th>Domingo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+     
+    </table>
+    <table>
+        <tr>
+            <th>Escola</th>
+            <td>TreinaWeb</td>
+            <td>AvMakers</td>
+        </tr>
+        <tr>
+            <th rowspan="2">Telefone</th>
+            <td>64 00000-0000</td>
+            <td>64 00000-0000</td>
+        </tr>
+        <tr>
+            <td>11 99999-9999</td>
+            <td>64 00000-0000</td>
+        </tr>
+    </table>
+
+
+
+///
+colspan na horizontal ocupar mais de uma cedula
+rownspan na vertical ocupar mais de uma cedula
+colgroup dar uma definicao espeficia para uma coluna
+
+    <table>
+        <colgroup>
+            <col span="1" style="background-color: aquamarine;">  
+            <col span="3" style="background-color: brown;">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Telefone</th>
+                <th>Endereco</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Jogao</td>
+                <td>25</td>
+                <td>64 99999-9999</td>
+                <td>Rua Arnaldo</td>
+            </tr>
+            <tr>
+                <td>Jogao</td>
+                <td>25</td>
+                <td>64 99999-9999</td>
+                <td>Rua Arnaldo</td>
+            </tr>
+            <tr>
+                <td>Jogao</td>
+                <td>25</td>
+                <td>64 99999-9999</td>
+                <td>Rua Arnaldo</td>
+            </tr>
+            <tr>
+                <td>Jogao</td>
+                <td>25</td>
+                <td>64 99999-9999</td>
+                <td>Rua Arnaldo</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+///
+.tabela-3 tr:nth-child(even) {
+    background-color: rgb(107, 107, 107);
+}
+
+.tabela-3 tr:nth-child(odd) {
+    background-color: rgb(107, 107, 107);
+}
+////
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Tabelas</title>
+</head>
+
+<body>
+    <table class="tabela-1">
+        <thead>
+            <tr>
+                <th colspan="7">Junho</th>
+            </tr>
+            <tr>
+                <th>Segunda</th>
+                <th>Terça</th>
+                <th>Quarta</th>
+                <th>Quinta</th>
+                <th>Sexta</th>
+                <th>Sábado</th>
+                <th>Domingo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+            </tr>
+        </tbody>
+
+    </table>
+    <table class="tabela-2">
+        <tr>
+            <th>Escola</th>
+            <td>TreinaWeb</td>
+            <td>AvMakers</td>
+        </tr>
+        <tr>
+            <th rowspan="2">Telefone</th>
+            <td>64 00000-0000</td>
+            <td>64 00000-0000</td>
+        </tr>
+        <tr>
+            <td>11 99999-9999</td>
+            <td>64 00000-0000</td>
+        </tr>
+    </table>
+    <table class="tabela-3">
+
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Telefone</th>
+                <th>Endereco</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Jogao</td>
+                <td>25</td>
+                <td>64 99999-9999</td>
+                <td>Rua Arnaldo</td>
+            </tr>
+            <tr>
+                <td>Jogao</td>
+                <td>25</td>
+                <td>64 99999-9999</td>
+                <td>Rua Arnaldo</td>
+            </tr>
+            <tr>
+                <td>Jogao</td>
+                <td>25</td>
+                <td>64 99999-9999</td>
+                <td>Rua Arnaldo</td>
+            </tr>
+            <tr>
+                <td>Jogao</td>
+                <td>25</td>
+                <td>64 99999-9999</td>
+                <td>Rua Arnaldo</td>
+            </tr>
+            <tr>
+                <td>Jogao</td>
+                <td>25</td>
+                <td>64 99999-9999</td>
+                <td>Rua Arnaldo</td>
+            </tr>
+            <tr>
+                <td>Jogao</td>
+                <td>25</td>
+                <td>64 99999-9999</td>
+                <td>Rua Arnaldo</td>
+            </tr>
+            <tr>
+                <td>Jogao</td>
+                <td>25</td>
+                <td>64 99999-9999</td>
+                <td>Rua Arnaldo</td>
+            </tr>
+            <tr>
+                <td>Jogao</td>
+                <td>25</td>
+                <td>64 99999-9999</td>
+                <td>Rua Arnaldo</td>
+            </tr>
+            <tr>
+                <td>Jogao</td>
+                <td>25</td>
+                <td>64 99999-9999</td>
+                <td>Rua Arnaldo</td>
+            </tr>
+            <tr>
+                <td>Jogao</td>
+                <td>25</td>
+                <td>64 99999-9999</td>
+                <td>Rua Arnaldo</td>
+            </tr>
+
+        </tbody>
+    </table>
+</body>
+
+</html>
+
+
+
+
+table {
+    width: 100%;
+    margin: 30px;
+    
+}
+table, th, td {
+    border: solid 1px black;
+    border-collapse: collapse;
+
+}
+
+.tabela-1 th {
+    background-color: aquamarine;
+    font-size: 1.3rem;
+    width: calc(100%/7);
+
+
+}
+
+.tabela-1 td {
+    text-align: center;
+}
+
+.tabela-1 td:hover {
+    background-color: rgb(69, 94, 86);
+    cursor: pointer;
+}
+
+.tabela-1 th:hover {
+    background-color: rgb(88, 182, 152);
+    cursor: pointer;
+}
+
+.tabela-2 tr:first-child {
+    background-color: rgb(127, 158, 127);
+}
+
+.tabela-3 {
+    text-align: left;
+}
+
+.tabela-3 tr:nth-child(even) {
+    background-color: rgb(107, 107, 107);
+}
+
+
+
+////
+
+
+table {
+    width: 100%;
+    margin: 30px;
+    
+}
+table, th, td {
+    border: solid 1px black;
+    
+
+}
+
+.tabela-1 th {
+    background-color: aquamarine;
+    font-size: 1.3rem;
+    width: calc(100%/7);
+
+
+}
+
+.tabela-1 td {
+    text-align: center;
+}
+
+.tabela-1 td:hover {
+    background-color: rgb(69, 94, 86);
+    cursor: pointer;
+}
+
+.tabela-1 th:hover {
+    background-color: rgb(88, 182, 152);
+    cursor: pointer;
+}
+
+.tabela-2 tr:first-child {
+    background-color: rgb(127, 158, 127);
+}
+
+.tabela-3 {
+    text-align: left;
+    border-spacing: 5px;
+}
+
+.tabela-3 tr:nth-child(even) {
+    background-color: rgb(107, 107, 107);
+}
+
+
+///////
+
+table {
+    width: 100%;
+    margin: 30px;
+    
+}
+.tabela-1, .tabela-1 th, .tabela1- td,
+.tabela-2, .tabela-2 th, .tabela2- td,
+.tabela-2, .tabela-2 th, .tabela2- td{
+    border: solid 1px black;
+    border-collapse: collapse;
+    
+
+}
+
+.tabela-1 th {
+    background-color: aquamarine;
+    font-size: 1.3rem;
+    width: calc(100%/7);
+
+
+}
+
+.tabela-1 td {
+    text-align: center;
+}
+
+.tabela-1 td:hover {
+    background-color: rgb(69, 94, 86);
+    cursor: pointer;
+}
+
+.tabela-1 th:hover {
+    background-color: rgb(88, 182, 152);
+    cursor: pointer;
+}
+
+.tabela-2 tr:first-child {
+    background-color: rgb(127, 158, 127);
+}
+
+.tabela-3 {
+    text-align: left;
+    border-spacing: 5px 0;
+}
+
+.tabela-3 tr:nth-child(even) {
+    background-color: rgb(107, 107, 107);
+}
+

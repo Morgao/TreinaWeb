@@ -1,0 +1,81 @@
+Generics em C#
+
+Generics é uma forma de tornar as estruturas (classes, métodos etc.) menos “presas” aos tipos de dados, dando mais flexibilidade ao código: utilizando Generics, você pode construir classes e métodos que podem trabalhar com qualquer tipo de dado.
+
+A utilização do recurso de Generics é representada da seguinte maneira:
+C# (C Sharp)
+
+Observe que para se marcar qual o tipo de dado que a estrutura, seja classe ou método, está trabalhando, precisamos dos sinais “<” e “>”.
+
+Várias classes do próprio .NET já utilizam o conceito de Generics, especialmente as Collections. Por um exemplo, quando vamos definir um objeto List, nós especificamos o tipo de dado que ela vai armazenar:
+C# (C Sharp)
+List<string> nomes = new List<string>();
+
+Repare que acima utilizamos o conceito de Generics: nós criamos uma lista e especificamos entre os sinais de “<” e “>” o tipo de dado que ela vai armazenar, neste caso, string. Eu posso utilizar a mesma classe List para armazenar um outro tipo de dado qualquer:
+C# (C Sharp)
+
+List<int> idades = new List<int>();
+Veja acima: utilizamos a mesma classe que utilizamos para armazenar os nomes, a classe List. Porém, eu posso definir que tipo de dado minha lista vai armazenar: se vai ser string, int etc. A mesma classe List é capaz de armazenar quaisquer tipos de dados, desde que esse tipo seja especificado no Generics, entre os sinais “<” e “>”.
+
+A utilização de Generics nos dá uma série de benefícios do ponto de vista técnico:
+
+    Código com maior flexibilidade: vimos que a classe List pode armazenar qualquer tipo de dados, eliminando a necessidade de se criar uma implementação para cada tipo de dado;
+    Utilização concreta do type-safe: no exemplo acima, quando especificamos que a List “idade” ia ter elementos do tipo int, nós não permitimos que nenhum outro tipo de dado seja adicionado à lista: somente int. Assim, damos mais segurança com relação aos tipos de dados manipulados dentro de nosso código, o type-safe;
+    Generics permitem criar estruturas (classes, métodos, delegates etc.) genéricos, que são capazes de manipular qualquer tipo de dado. Isso dá reusabilidade ao código: o mesmo código pode ser utilizado em várias situações sem precisar ser reescrito;
+
+A classe ArrayList e o problema de boxing e casting
+
+Mas a maior motivação para a introdução do conceito de Generics é o problema de boxing e casting.
+
+Vejamos como exemplo uma collection que o próprio .NET nos oferece: a collection ArrayList. Ela age de maneira similar ao List que vimos anteriormente, com exceção de que ele não utiliza o recurso de Generics. Se quisermos criar um ArrayList, o código é este:
+
+ArrayList meuArrayList = new ArrayList();
+
+Para se adicionar elementos ao nosso ArrayList, devemos utilizar método Add, presente em todas as collections. Porém, repare no código abaixo:
+
+meuArrayList.Add(1);
+meuArrayList.Add("string");
+
+O método Add do ArrayList recebe sempre um object. Como vimos, todos os elementos do C# herdam da classe Object. Por isso, ele permite que você adicione qualquer dado pelo método Add.
+
+O fato de o ArrayList trabalhar estritamente com a classe Object ocasiona um problema que vimos no curso básico: quando eu chamo o método Add passando um int, por exemplo, o C# irá ter que fazer a conversão do tipo int para o tipo object. Ele terá que pegar um dado que é um Value-Type (tipo int) e convertê-lo para um Reference-Type (tipo Object), para depois o adicionar à lista. Essa operação, como vimos anteriormente, é conhecida por boxing. Boxing é algo extremamente custoso e deve ser evitado.
+
+Ainda há um outro tipo de problema. Observe o código abaixo:
+
+ArrayList meuArrayList = new ArrayList();
+meuArrayList.Add(1);
+int numero = (int)meuArrayList[0];
+
+
+
+Repare que tivemos que usar um casting explícito para pegar o primeiro elemento do nosso ArrayList. Como a classe ArrayList trabalha com Object, sempre precisaremos fazer um casting explícito para recuperar as informações que estão dentro do ArrayList e convertê-las para o tipo correto. Como vimos também, operações de casting também são muito custosas e devem ser evitadas sempre que possível.
+
+Repare que, então, há a necessidade de se criar estruturas genéricas, que possam trabalhar com qualquer tipo de dado que seja definido tardiamente: a classe terá que ter a capacidade de lidar com tipos de dados que sejam definidos depois que ela já foi criada. Esse comportamento é necessário justamente para se evitar boxing e casting. E é aí que entra em cena o Generics:
+
+List<string> nomes = new List<string>();
+nomes.Add("TreinaWeb");
+string nome = nomes[0];
+
+Repare no código acima: não houve mais necessidade de boxing nem casting. Isso foi possível porque conseguimos especificar o tipo de dado a ser manipulado pela classe List tardiamente, ou seja: o tipo de dado que ela vai manipular só foi estipulado quando o objeto “nomes” foi criado. Essa é uma das principais motivações para o conceito de Generics ter sido introduzido no C#.
+
+
+Onde o conceito de Generics é utilizado? Onde posso utilizar o conceito de Generics?
+
+Várias classes do próprio .NET Framework utilizam o conceito de Generics, principalmente as collections. Veja abaixo algumas collections disponibilizadas pelo framework:
+
+    LinkedList<>: Organiza os itens na forma de uma lista encadeada;
+    List<>: Organiza os itens na forma de uma lista tradicional (como um ArrayList);
+    Queue<>: Organiza os itens na forma de uma fila;
+    SortedList<>: Organiza os itens na forma de uma lista indexada;
+    SortedDictionary<>: Organiza os itens na forma de um dicionário;
+    Stack<>: Organiza os itens na forma de uma pilha.
+
+Você também pode utilizar o conceito de Generics nas estruturas abaixo:
+
+    Classes;
+    Métodos;
+    Interfaces;
+    Delegates.
+
+
+

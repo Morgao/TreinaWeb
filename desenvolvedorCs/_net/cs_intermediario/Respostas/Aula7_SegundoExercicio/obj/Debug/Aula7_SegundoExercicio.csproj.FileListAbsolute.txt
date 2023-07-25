@@ -1,0 +1,6 @@
+C:\Curso\Testes\CSharpIntermediarioExercicios\Aula7_SegundoExercicio\bin\Debug\Aula7_SegundoExercicio.exe.config
+C:\Curso\Testes\CSharpIntermediarioExercicios\Aula7_SegundoExercicio\bin\Debug\Aula7_SegundoExercicio.exe
+C:\Curso\Testes\CSharpIntermediarioExercicios\Aula7_SegundoExercicio\bin\Debug\Aula7_SegundoExercicio.pdb
+C:\Curso\Testes\CSharpIntermediarioExercicios\Aula7_SegundoExercicio\obj\Debug\Aula7_SegundoExercicio.csprojResolveAssemblyReference.cache
+C:\Curso\Testes\CSharpIntermediarioExercicios\Aula7_SegundoExercicio\obj\Debug\Aula7_SegundoExercicio.exe
+C:\Curso\Testes\CSharpIntermediarioExercicios\Aula7_SegundoExercicio\obj\Debug\Aula7_SegundoExercicio.pdb

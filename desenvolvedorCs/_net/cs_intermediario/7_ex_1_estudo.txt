@@ -1,0 +1,35 @@
+using System.Collections;
+
+namespace Teste
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+           ArrayList meuArrayList = new ArrayList();
+            meuArrayList.Add("jOGAO");
+            meuArrayList.Add(1);
+            meuArrayList.Add("igor");
+            meuArrayList.Add(5);
+
+            int var2 = 2;
+
+            foreach (var elementos in meuArrayList)
+          //  QualMaior<String>(ref var1, ref var2);
+          {
+                Console.WriteLine(elementos);
+            }
+            Console.ReadKey();
+            
+        }
+        /*
+        static void QualMaior<T>(ref T List<Valor>, ref T var2)
+        {
+            T aux;
+            aux = var1;
+            var1 = var2;
+            var2 = aux;
+        }
+        */
+    }
+}

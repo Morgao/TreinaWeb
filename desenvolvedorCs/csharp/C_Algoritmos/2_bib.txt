@@ -1,0 +1,82 @@
+O que são algoritmos?
+
+A definição de algoritmo é bastante simples e se aplica em diversos cenários de nossa vida, não apenas ao desenvolvimento de software:
+
+“Algoritmo é uma sequência de passos para realizar uma tarefa.”
+
+No dia a dia é fácil encontrar algoritmos que utilizamos muitas vezes sem perceber:
+
+    uma receita para fazer um prato específico;
+    um tutorial para construir algo, realizar um cadastro ou configurar uma funcionalidade no seu celular;
+    a descrição da sua rotina matinal (acordar, tomar banho, se vestir, tomar café, etc).
+
+Em todos os exemplos acima podemos perceber que temos uma sequência de passos que visam realizar uma tarefa específica. Se não realizarmos todos os passos ou alterarmos sua ordem, podemos não concluir a tarefa ou concluí-la de forma diferente do esperado.
+
+Na computação os algoritmos têm significado e objetivo análogo, porém aplicados ao contexto de construção de um software. A seguir temos alguns exemplos de tarefas que podem ser resolvidas com algoritmos computacionais:
+
+    identificar em uma lista de produtos aqueles que estão próximos do vencimento;
+    calcular a melhor rota para um entregador a partir de uma lista de endereços;
+    criptografar uma mensagem de texto.
+
+
+Construindo algoritmos
+
+O primeiro passo para definir um algoritmo é identificar a tarefa que será executada e o resultado esperado. Por exemplo, vamos considerar que você deseja fazer uma omelete para o café da manhã. Então sua tarefa é “fazer uma omelete”. O resultado esperado é uma omelete com textura e sabor adequados e para chegar nesse resultado você deve seguir uma sequência de passos:
+
+    1 - Pegar os ovos na geladeira;
+    2 - Quebrar os ovos em um recipiente;
+    3 - Bater/misturar os ovos no recipiente;
+    4 - Aquecer uma frigideira;
+    5 - Despejar os ovos na frigideira aquecida;
+    6 - Aguardar a omelete ganhar a consistência esperada;
+    7 - Retirar a omelete da frigideira.
+
+Esse conjunto de passos tende a ser suficiente para que você faça sua omelete como esperado, e caso o resultado não seja o esperado, você saberá identificar isso, pois conhece a consistência e sabor que deseja.
+
+Para uma pessoa menos experiente, esses passos podem não ser necessários, então será preciso descrever mais detalhadamente as etapas. Por exemplo, antes de misturar os ovos devemos verificar se o ovo não está estragado. Se estiver, devemos descartá-lo e buscar outro. E com isso o nosso algoritmo vai se tornando mais complexo e passa a contar com estruturas que alteram seu fluxo padrão, como condições e repetições.
+
+No contexto de desenvolvimento de software seguimos a mesma ideia. Por exemplo, a simples tarefa de escrever um texto em um arquivo pode ser descrita em poucos passos, como abrir o arquivo, escrever o conteúdo e fechar o arquivo. Porém, quando começamos a considerar os fluxos de exceção, passamos a perceber que algumas verificações extras são importantes e podem mudar o resultado: se o arquivo não existir, é preciso criá-lo antes; se o arquivo existir e estiver em uso, não deve ser possível sobrescrevê-lo.
+
+Neste curso conheceremos alguns algoritmos amplamente estudados e que se destinam a realizar tarefas comuns: buscas e ordenação. Além de colocar em prática conceitos de lógica de programação, veremos como realizar certas tarefas em C#, como percorrer e modificar uma lista.
+
+
+O que são arrays?
+
+Um array (ou vetor) é uma estrutura de dados capaz de conter vários elementos, como uma lista/coleção. Esse tipo de estrutura é usado para armazenar de forma simples e centralizada um conjunto de itens que de alguma forma se relacionam.
+
+Imagine, por exemplo, que você precisa escrever um programa que receba 5 números e calcule a média deles. Bastaria declarar 5 variáveis de tipo numérico e atribuir a elas o valor digitado. Porém, como fazer se o escopo mudar e você precisar calcular a média de 20 números? Declarar 20 variáveis e ler uma a uma? E como agir se o escopo não define de forma fixa a quantidade de números digitados? Ou seja, o usuário pode digitar 5 números, como pode também digitar 50. Certamente não dá para resolver esse problema declarando tantas variáveis quantas forem necessárias e recompilar o programa em cada situação.
+
+Esse é um cenário no qual podemos empregar os arrays. Bastaria declarar um array cujo tamanho é definido pelo usuário e a partir de então poderíamos adicionar a ele a quantidade de números desejada, sem precisar declarar novas variáveis ou recompilar o programa.
+
+Além desse cenário, basicamente qualquer outra situação em que precisemos armazenar elementos semelhantes em forma de lista é uma candidata ao uso de arrays.
+
+Ao longo deste curso vamos estudar algoritmos que atuam diretamente sobre arrays, a fim de realizar tarefas comuns: ordenação e busca. Portanto, saber como funciona um array é fundamental para entender esses algoritmos.
+
+
+rrays e alocação de memória
+
+A utilização de arrays como listas de elementos é possível porque quando declaramos um array, o compilador consegue reservar um espaço na memória suficiente para conter todos os seus itens, de acordo com a quantidade que definirmos e o tamanho do tipo de dados de cada item. Por exemplo, em C# uma variável do tipo int ocupa 32 bits na memória. Se declaramos um array de elementos do tipo int com capacidade para 5 itens, o compilador reservaria na memória 5x32 bits (160 bits) de forma sequencial.
+
+A imagem a seguir ilustra essa alocação de memória:
+
+Uma vez declarado um array, o compilador armazena o endereço na memória em que se inicia o espaço que foi reservado para aquele array. A partir desse endereço é possível acessar seus elementos, sabendo o seu índice (posição dele no array) e seu tamanho (tamanho do tipo de dados).
+
+Sabendo o endereço do primeiro elemento, o compilador consegue acessar os demais utilizando a seguinte fórmula:
+ 
+Texto
+
+Nessa fórmula, “I” é o índice do elemento desejado, ou seja, a posição que ele ocupa no array. Já o tamanho do tipo é definido pela linguagem de programação.
+
+Para que essa fórmula funcione genericamente para todos os elementos, o índice do primeiro elemento deve ser considerado como ZERO e não UM. Pois assim, teremos:
+Texto
+
+Como qualquer valor multiplicado por zero é igual a zero, teremos:
+Texto
+
+Ou seja, o endereço do primeiro elemento é exatamente o endereço em que se inicia aquele bloco de memória.
+
+Partindo desse raciocínio, a imagem abaixo ilustra quais seriam os endereços de memória dos elementos de um array cujo tamanho do tipo é 16 bits e o endereço inicial do bloco de memória é 1000 (valor hipotético, pois normalmente os endereços de memória são representados como hexadecimais).
+
+Por fim, sabendo o endereço na memória daquele elemento e o tamanho do seu tipo de dados, compilador assume que aquele elemento é composto pelo conteúdo que está armazenado naquele “pedaço” da memória que se inicia em um determinado endereço e possui um determinado tamanho. Por exemplo, na imagem acima, quando acessarmos o item de índice 3 (o quarto item do array), o compilador vai até o endereço 1048 e lê os próximos 16 bits sequenciais. Uma vez que o compilador também sabe o tipo daquele dado, ele saberá como interpretar aquele conjunto de bits recuperados da memória e representá-lo como um inteiro, decimal, string, etc.
+
+De forma geral, todo esse procedimento e regras são realizados de forma transparente para o programador. Ou seja, ao utilizar um array você não precisa se preocupar com o endereço na memória em que ele se encontra ou como o bloco de memória será alocado. No entanto, entender esse funcionamento nos permite utilizar essa estrutura de dados de forma mais consciente, evitando apenas utilizar algo sem compreender bem seu funcionamento.

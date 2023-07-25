@@ -1,0 +1,21 @@
+namespace Teste
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string var1 = "mundo!";
+            string var2 = "olá";
+
+            Troca<String>(ref var1, ref var2);
+            Console.WriteLine("{0} {1}", var1, var2);
+        }
+        static void Troca<T>(ref T var1, ref T var2)
+        {
+            T aux;
+            aux = var1;
+            var1 = var2;
+            var2 = aux;
+        }
+    }
+}

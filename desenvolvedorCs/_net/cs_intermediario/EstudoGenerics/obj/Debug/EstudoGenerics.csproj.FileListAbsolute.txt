@@ -1,0 +1,8 @@
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWebCSharpIntermediario\EstudoGenerics\obj\Debug\EstudoGenerics.csproj.AssemblyReference.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWebCSharpIntermediario\EstudoGenerics\obj\Debug\EstudoGenerics.csproj.SuggestedBindingRedirects.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWebCSharpIntermediario\EstudoGenerics\obj\Debug\EstudoGenerics.csproj.CoreCompileInputs.cache
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWebCSharpIntermediario\EstudoGenerics\bin\Debug\EstudoGenerics.exe.config
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWebCSharpIntermediario\EstudoGenerics\bin\Debug\EstudoGenerics.exe
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWebCSharpIntermediario\EstudoGenerics\bin\Debug\EstudoGenerics.pdb
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWebCSharpIntermediario\EstudoGenerics\obj\Debug\EstudoGenerics.exe
+C:\Users\admna\OneDrive\Área de Trabalho\arquivosCsharp\HelloWolrd\TreinaWebCSharpIntermediario\EstudoGenerics\obj\Debug\EstudoGenerics.pdb

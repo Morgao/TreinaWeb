@@ -1,0 +1,226 @@
+Uma breve introdução à XML – eXtensbile Markup Language
+
+XML (eXtensible Markup Language) é uma linguagem de marcação, que permite a criação de tags personalizadas e a criação de uma estrutura de dados organizada em uma hierarquia bem definida e com elevada legibilidade.
+
+A finalidade principal do XML é armazenar quaisquer tipos de dados em uma estrutura definida e perfeitamente legível para seres humanos, e não somente para máquinas (como no caso de comunicações por código binário, como os EJBs do Java, por exemplo). Além de armazenar, é possível também validar as informações e o formato de um arquivo XML com um artefato conhecido como Schema. Um outro ponto a ser destacado sobre arquivos XML é que estes são independentes de hardware, plataforma e tecnologia. Essa característica é possível devido a um ponto: um arquivo XML pode ser interpretado como um simples arquivo-texto, porém, com estrutura e hierarquia muito bem definidas. Arquivos-texto podem ser lidos por qualquer linguagem e tecnologia, independente de recursos de hardware. Por isso, por muito tempo, arquivos XML foram considerados ideais para intercâmbio e armazenamento de informações entre diferentes plataformas, linguagens e tecnologias.
+
+Hoje, o formato XML perdeu um pouco de força devido a algumas desvantagens técnicas que ele causa: pelo fato de depender bastante de marcação de estrutura no próprio arquivo, o transporte de arquivos XML pode se tornar pesado frente a outros formatos, pois além da informação também são transportadas informações de marcação do arquivo, tornando o formato mais pesado. Informações mais complexas, como por exemplo, arrays dentro de arrays, também podem tirar justamente a característica de legibilidade dos arquivos XML.
+
+Hoje em dia, o formato XML enfrenta “concorrência” de outros formatos, como por exemplo properties (especialmente no Java) e JSON. Porém, é um formato amplamente difundido e largamente utilizado para armazenamento e interoperabilidade de informações, o que torna seu estudo um ponto obrigatório para desenvolvedores de software.
+
+O .NET disponibiliza classes nativas para a manipulação de XML, através do namespace System.XML.
+
+
+Características de um XML
+
+Verifique o exemplo abaixo: trata-se de um arquivo no formato XML.
+XML
+
+Acima, temos a representação de uma agenda de negócios com quatro contatos de clientes no formato XML. Olhando o documento XML acima, você pode ver os seguintes elementos:
+XML
+
+Essa primeira linha é o cabeçalho do arquivo XML. Ele traz a marcação informando qual a versão do arquivo XML através do parâmetro “version”. No caso da linha acima, é um XML de acordo com a versão 1.0. O cabeçalho também traz o encoding em que o documento XML está escrito. No caso acima, estamos usando o encoding ISO-8859-1, o que indica que os caracteres presentes no documento XML serão caracteres latinos (Latin 1). Isso faz toda a diferença: caso você não escolha o encoding utilizado corretamente, você poderá ver informações distorcidas no XML, apresentando uma interrogação (?) no lugar de caracteres que não façam parte do encoding ISSO-8859-1, como você pode ver abaixo.
+Dica
+
+Entenda como encoding uma maneira de converter representações de caracteres de um formato para outro. Dentro de cada encoding, cada caracter tem um código que o representa. Por exemplo, o código “233” no encoding ISO 8859-1 (Latin 1) representa o caracter “é”. Já no encoding ISO 8859-5, o código “233” representa caracter cirílico ?. Ou seja, dependendo do encoding que você escolher, você pode ter dois diferentes caracteres representados no seu documento.
+XML
+
+O trecho acima representa um dos nós do nosso documento XML. Cada abertura de tag no documento XML representa um nó, um elemento do documento. Todo documento XML deve ter um nó “mestre”, um nó que englobe todos os outros abaixo dele. Este nó “mestre” é chamado de raíz ou root. Todos os outros nós do documento XML, com exceção do cabeçalho, têm que estar hierarquicamente abaixo do nó raíz ou root. Um documento XML devidamente formatado podem conter somente 1 nó raíz ou root. Outro ponto importante a ser notado é: se uma tag é aberta, ela deve ser também fechada, como ocorre na linha “</agenda>”, que está fechando o nó “<agenda>”.
+Dica
+
+Caso queira colocar um comentário no documento XML, seu comentário deve estar entre os caracteres <!-- e -->.
+XML
+
+Na linha acima, temos um exemplo de um nó ou elemento de nosso documento XML, o nó “titulo”. Este nó armazena uma informação, neste caso, ele está armazenando o dado “Agenda de Negócios”. Ou seja: nós ou elementos no XML são utilizados também para armazenar as informações que queremos guardar. Essas informações ficam contidas entre as tags de início e fim do elemento, neste caso, as tags “<titulo>” e “</titulo>”, respectivamente. Outro ponto importante: mais uma vez, se uma tag ou elemento XML é aberto, ele deve ser fechado.
+XML
+
+Acima, temos um outro nó de nosso documento XML: o nó clientes. Repare, então, que um nó pode ter outros nós abaixo na hierarquia: neste caso, o nó clientes possui vários nós chamados cliente que estão hierarquicamente abaixo dele. Porém, como vimos anteriormente, todos os nós deverão estar ligados a um único nó mestre, o nó root ou raiz. Um documento XML só pode possuir um único nó root. Um elemento (nó) que possua nós filhos também deve ser fechado, como vimos no trecho acima.
+XML
+
+Neste trecho, nós temos um dos nós filhos do nó clientes que vimos anteriormente. Trata-se de um dos nós cliente. Repare que os nós cliente possuem “informações adicionais” no interior das tags. O nó acima, por exemplo, também carrega dentro da tag cliente as informações id, nome e idade. Estas informações adicionais que a tag cliente está carregando são chamadas de atributos. Utilizamos atributos em XML para descrever informações adicionais sobre um elemento (nó) de nosso XML. No exemplo acima, podemos deduzir que nossa agenda tem um cliente com id igual a 1, o nome é igual a “Antonio Carlos Silva” e a idade é 31. Repare que estamos enriquecendo as informações que temos sobre o cliente com os atributos. No exemplo acima, repare que documentos XML suportam tags “self-closed”. Tags self-closed são as tags que, ao invés de fecharmos da maneira “tradicional” (<tag></tag>), são fechadas no final de sua declaração, pois elas não apresentam conteúdo. A tag cliente exibida acima está escrita como “self-closed”, pois não está sendo representada da maneira “tradicional”. Ao mesmo tempo que a tag é aberta, ela também é fechada (<cliente />).
+
+Você pode utilizar as próprias tags para armazenar as informações que você deseja ou utilizar atributos para armazenar suas informações. Não há uma regra específica para quando utilizar um ou outro, o que acaba valendo é a intuição de quem está montando o documento. Porém, se atente a algumas características de atributos em um XML:
+
+    Atributos não descrevem estrutura, já que atuam como complemento a um elemento;
+    Atributos não podem conter múltiplos valores (elementos, ou nós, podem: basta colocar as tags dispostas hierarquicamente abaixo do nó multi-valorado);
+
+
+Fazendo consultas a um XML: xPath
+
+Devido ao fato de que documentos XML são largamente utilizados para transportar informações principalmente entre plataformas heterogêneas, muitas vezes é necessário se varrer o documento afim de recuperar determinadas informações dentro dele de acordo com alguns critérios. Por um exemplo: no documento XML que vimos anteriormente, poderemos querer recuperar a partir dele todos os clientes cuja idade seja maior que 20. Por muitas vezes, é necessário fazer uma pesquisa, uma consulta em um documento XML.
+
+Para resolver este problema, foi desenvolvida uma linguagem própria para se fazer consultas a um documento XML. Estamos falando do xPath.
+
+O xPath é baseado na navegação pelos nós de um documento XML para se realizar a consulta desejada. Uma consulta escrita com xPath geralmente representa uma navegação pela árvore hierárquica do documento XML a ser tratado. O xPath pode ser utilizado para recuperar partes inteiras de um documento XML ou recuperar, por exemplo, o valor de um determinado atributo de um nó específico.
+
+O xPath é interoperável, ou seja: a mesma expressão xPath funciona tanto quando você estiver utilizando C#, como Java ou como qualquer outra linguagem.
+
+A sintaxe de uma consulta xPath lembra bastante a navegação no sistema de arquivos de um sistema operacional. Por um exemplo, podemos ter a seguinte representação para uma pasta específica em nosso disco rígido:
+XML
+
+Sabemos que estamos selecionando a pasta TreinaWeb, que está dentro da pasta Users, que por sua vez está na partição C:. A representação do caminho é feita de maneira hierárquica e representa também a navegação que fazemos para chegar até a pasta TreinaWeb: primeiro, entramos na partição C:, depois na pasta Users e, por fim, na pasta TreinaWeb.
+
+Agora, considere o documento XML que vimos anteriormente.
+XML
+
+Podemos, por exemplo, selecionar o nó root, neste caso, o nó agenda. Para isso, a expressão xPath correspondente seria...
+XML
+
+Essa expressão xPath nos traria o nó agenda e todos os seus filhos:
+XML
+
+Agora, com o xPath, podemos também querer ir até o nó título, que é filho do nó agenda. Assim, a expressão xPath teria que ser a seguinte:
+XML
+
+Esta expressão xPath nos daria o seguinte resultado:
+XML
+
+Podemos também recuperar todos os clientes de nossa agenda com a seguinte expressão xPath:
+XML
+
+Ou poderíamos utilizar outra expressão xPath para recuperar todos os clientes:
+XML
+
+Ambas expressões xPath nos trarão exatamente o mesmo resultado:
+XML
+
+Isso acontece porque o operador “/” no xPath é um operador de navegação absoluto. Ele vai respeitar a árvore hierárquica do XML para fazer a busca de acordo com o especificado pela expressão. Então, quando utilizamos a expressão “/agenda/clientes/cliente”, ele está entrando no nó agenda, logo após, no nó clientes e depois no nó cliente. Como temos 4 nós cliente abaixo do nó clientes, ele vai trazer todos estes nós. Já o operador “//” no xPath é um operador de navegação relativo: ele não leva em conta a árvore do XML para fazer a busca. Com a expressão “//cliente”, estamos buscando quaisquer nós cliente, independente de onde estejam posicionados na árvore XML. Por isso, o resultado das expressões é o mesmo.
+
+Nós podemos com o xPath recuperar também somente o primeiro cliente de nossa agenda com as seguintes expressões:
+XML
+
+Estas expressões nos darão o seguinte resultado:
+XML
+Dica
+
+Nas expressões xPath, o primeiro elemento possui o índice 1; ao contrário do C#, onde o primeiro elemento possui o índice 0.
+
+Com expressões xPath, também podemos pegar o último cliente de nossa agenda com as expressões:
+XML
+
+Ambas expressões nos trarão o seguinte resultado:
+XML
+
+O xPath nos provê uma biblioteca de funções próprias da linguagem para auxiliar na análise de documentos XML, como vimos com essa função last() que retorna o último nó. Algumas outras funções que o xPath provê estão na tabela abaixo.
+
+Expressão
+	
+
+Descrição
+
+count()
+	
+
+Retorna o número de nós de um conjunto
+
+id()
+	
+
+Seleciona elementos por seu ID
+
+last()
+	
+
+Retorna o último elemento de uma lista de elementos
+
+name()
+	
+
+Retorna o nome de um nó
+
+position()
+	
+
+Retorna a posição de um elemento que está sendo processado
+
+concat()
+	
+
+Concatena as strings especificadas
+
+contains()
+	
+
+Retorna “true” se a segunda string informada à função existe dentro da primeira
+
+starts-with()
+	
+
+Retorna “true” se a primeira string especificada começa com a segunda string
+
+string()
+	
+
+Converte o argumento para string
+
+substring()
+	
+
+Retorna um pedaço da string especificada
+
+ceiling()
+	
+
+Retorna o menor número inteiro que não é menor que o argumento informado
+
+floor()
+	
+
+Retorna o maior número inteiro que não é maior que o argumento informado
+
+round()
+	
+
+Arredonda o argumento para o número inteiro mais próximo
+
+sum()
+	
+
+Retorna a soma de todos os valores especificados
+
+not()
+	
+
+Retorna “true” se a condição especificada seja falsa, retorna “false” caso contrário
+
+Você pode combinar quaisquer expressões de navegação xPath com quaisquer dessas funções próprias da maneira que for conveniente. Não há limite para encadeamento de expressões, porém, quanto maior a expressão, mais demorado será o resultado.
+
+Podemos também recuperar todos os clientes que possuam o atributo idade especificado. As expressões xPath para isso seriam as seguintes:
+XML
+
+Quaisquer uma destas expressões nos trariam o seguinte resultado:
+XML
+
+Podemos também com expressões xPath recuperar todos os clientes cuja idade seja maior ou igual a 35 anos. As expressões ficariam assim:
+XML
+
+Ambas expressões nos retornariam o seguinte resultado:
+XML
+
+Finalizando, podemos também recuperar a idade do último cliente de nossa agenda com as seguintes expressões xPath:
+XML
+
+Isso vai nos devolver o resultado:
+XML
+
+O C# nos oferece classes para se trabalhar com documentos XML, permitindo abri-los, alterá-los e executar consultas xPath. As classes mais utilizadas são:
+
+Classe
+	
+
+Descrição
+
+XmlTextReader
+	
+
+Classe responsável por carregar um documento XML e auxiliar a varredura do documento carregado
+
+XmlNodeType
+	
+
+Enum que representa os tipos de nó de um documento XML (elemento, atributo etc.)
+
+XmlDocument
+	
+
+Classe que representa um documento XML, similar ao XmlTextReader. Porém, com esta classe, é possível executar consultas xPath
