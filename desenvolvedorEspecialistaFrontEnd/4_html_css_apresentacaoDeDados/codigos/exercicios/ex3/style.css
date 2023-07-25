@@ -1,0 +1,45 @@
+table {
+    text-align: center;
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0 auto;
+}
+
+thead {
+    border: solid 1px rgb(66, 66, 66);
+}
+
+thead th {
+    border: solid 1px rgb(66, 66, 66);
+}
+
+tbody tr {
+    border: solid 1px rgb(66, 66, 66);
+    
+}
+
+tbody th {
+    padding-right: 20px;
+    border: solid 1px rgb(66, 66, 66);
+}
+
+tbody td {
+    padding: 10px 10px 10px 0;
+    border: solid 1px rgb(66, 66, 66);
+}
+
+tbody tr:hover {
+    background-color: aquamarine;
+
+}
+.um {
+    background-color: aqua;
+    text-align: center;
+   
+   }
+.dois {
+    background-color: blue;
+}
+.tres {
+    background-color: blueviolet;
+}

@@ -1,0 +1,29 @@
+.tabela {
+    width: 100%;
+    margin: 30px;    
+    border-spacing: 50px 0;
+    
+    
+}
+
+
+.tabela, td, th {
+    border: solid 1px white;
+    border-collapse: collapse;
+    
+    
+}
+
+.tabela td {
+    background-color: black;
+    color: white;
+    text-align: left;
+    
+}
+.tabela th {
+    background-color: rgb(107, 107, 107);
+    font-size: 1.3rem;
+    width: calc(100%/7);
+    
+    
+}

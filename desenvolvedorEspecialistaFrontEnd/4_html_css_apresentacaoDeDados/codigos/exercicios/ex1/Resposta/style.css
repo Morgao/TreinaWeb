@@ -1,0 +1,20 @@
+table {
+    width: 100%;
+    text-align: left;
+    background-color: grey;
+}
+
+th {
+    color: white;
+    padding: 15px;
+    text-transform: uppercase;
+}
+
+tbody {
+    color: white;
+    background-color: black;
+}
+
+td {
+    padding: 20px;
+}
