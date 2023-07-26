@@ -1,0 +1,5 @@
+DESKTOP-F6O48PV
+SQL Server 16.01.1050.5
+TreinaWebCSharpIntermediario
+login sa:
+password : Mfreud27@@@
