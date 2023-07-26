@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "codigos",
+			"path": "."
+		},
+		{
+			"name": "img",
+			"path": "../html-e-css-formularios-main/formulario/img"
+		}
+	],
+	"settings": {}
+}
