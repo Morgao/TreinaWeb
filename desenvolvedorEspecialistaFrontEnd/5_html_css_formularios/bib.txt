@@ -432,3 +432,15 @@ elemento
     background-color: blue;
 
 }
+
+
+
+.form-user input[type=email]{
+    margin-left: 5px;
+
+}
+
+
+///////////
+////////////
+//////////
