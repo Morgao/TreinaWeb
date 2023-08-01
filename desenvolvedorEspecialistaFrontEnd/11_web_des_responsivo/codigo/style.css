@@ -1,0 +1,103 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* navmenu */
+header {
+    background-color: black;
+}
+
+.nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 20px 0;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.nav-menu li {
+    font-size: 18px;
+}
+
+/* main */
+.flex-text {
+    display: flex;
+    gap: 40px;
+}
+/* grid */
+.cards {
+    margin: 50px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
+    gap: 40px;
+}
+/* cards desafio */
+.cards-desafio {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
+    gap: 40px;
+}
+
+/* BreakPoints */
+@media(max-width: 1200px ) {
+    .container {
+        max-width: 900px;
+       
+    }
+} 
+
+@media(max-width: 992px ) {
+    .container {
+        max-width: 700px;
+       
+    }
+    .cards {
+        grid-template-columns: repeat(auto-fit, minmax(300px,80%));
+        justify-content: center;
+    }
+  
+    
+} 
+
+@media(max-width: 768px ) {
+    .container {
+        padding:  0 10px;
+    }
+    .img {
+        width: 100%;
+    }
+
+    .nav-menu {
+        flex-wrap: wrap;
+        row-gap: 8px;
+        
+    }
+    .flex-text {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+  
+   
+} 
+
+@media(max-width: 576px ) {
+    .container {
+        padding:  0 5px;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 15px;
+    }
+
+    
+} 
+

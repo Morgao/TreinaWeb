@@ -1,0 +1,17 @@
+/* div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+} */
+
+span {
+    background-color: aquamarine;
+    border: solid 1px black;
+}
+
+.inline-flex {
+    display: block;
+}
+
+p {
+    display: none;
+}

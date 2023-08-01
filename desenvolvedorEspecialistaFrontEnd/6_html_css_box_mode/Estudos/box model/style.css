@@ -1,0 +1,14 @@
+p {
+    width: 100%px;
+    height: auto;
+    min-width: 250px;
+    padding: 30px;
+    
+    margin: 30px 20px 30px 15px;
+    border: solid 2px black;
+}
+
+.container {
+    width: 500px;
+    margin: 0 auto;
+}

@@ -1,0 +1,699 @@
+cores
+background-color: rgb(red, green, blue);
+#f00
+#ff0000
+yellow
+ background-color: rgb(0,255,0));
+
+background-color: #0000ff2c; alfa da cor ultimos 2 a transparencia
+
+body {
+    background-color: #1c1ccfb7;
+}
+
+div {
+    width: 100px;
+    height: 100px;
+    border: solid 2px black;
+    background-color: #0000002c;
+}
+
+
+/* 
+h= hue matriz - 0 -360
+s= saturarion - 0% a 100%
+l lightnes - birlho
+*/
+background-color: hsl(29, 100%, 50%);
+hsla(29, 100%, 50%, 0.185);
+
+
+body {
+    background-image: url("img/gato.jpg");
+}
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("img/gato.jpg");
+    background-size: 300px;
+}
+
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("img/gato.jpg");
+    background-size: 300px;
+    background-repeat: no-repeat;
+}
+
+
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("img/gato.jpg");
+    background-size: 300px 100px;
+    background-repeat: no-repeat;
+}
+
+
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("img/gato.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("img/gato.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("img/gato.jpg");
+    background-size: cover;
+    
+}
+
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("img/gato.jpg");
+    background-size: 400px;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+
+
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("img/gato.jpg");
+    background-size: 400px;
+    background-repeat: no-repeat;
+    background-position: center top;
+    
+}
+
+
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("img/gato.jpg");
+    background-size: 400px;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-attachment: scroll;
+}
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("img/gato.jpg");
+    background-size: 400px;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-attachment: fixed;
+}
+
+
+simplificando a adecalracao short range
+
+
+ background-color: aquamarine;
+    background-image: url("img/gato.jpg");
+    background-repeat: no-repeat;
+    background-size: 400px;
+    background-attachment: scroll;
+    background-position: left center;
+    
+    background: aquamarine url("img/gato.jpg") no-repeat scroll left center / 400px;
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+    /* background-color: aquamarine;
+    background-image: url("img/gato.jpg");
+    background-repeat: no-repeat;
+    background-size: 400px;
+    background-attachment: scroll;
+    background-position: left center;
+     */
+    background: aquamarine url("img/gato.jpg") no-repeat scroll left center / 400px;
+}
+
+
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+    /* background-color: aquamarine;
+    background-image: url("img/gato.jpg");
+    background-repeat: no-repeat;
+    background-size: 400px;
+    background-attachment: scroll;
+    background-position: left center;
+     */
+    background: aquamarine url("img/gato.jpg") no-repeat fixed center center / 400px;
+}
+
+
+
+body {
+    width: 100vw;
+    height: 100vh; 
+    /* background: aquamarine url("img/gato.jpg") no-repeat fixed center center / 400px; */
+    background-image: linear-gradient(blue,black);
+
+}
+
+
+
+body {
+    width: 100vw;
+    height: 100vh; 
+    /* background: aquamarine url("img/gato.jpg") no-repeat fixed center center / 400px; */
+    background-image: linear-gradient(to right,rgb(93, 93, 199),rgb(87, 196, 110));
+
+}
+
+
+
+body {
+    width: 100vw;
+    height: 100vh; 
+    /* background: aquamarine url("img/gato.jpg") no-repeat fixed center center / 400px; */
+    background-image: linear-gradient(to top,rgb(93, 93, 199),rgb(87, 196, 110));
+
+}
+
+
+
+body {
+    width: 100vw;
+    height: 100vh; 
+    /* background: aquamarine url("img/gato.jpg") no-repeat fixed center center / 400px; */
+    background-image: radial-gradient(rgb(93 , 93, 199),rgb(87, 196, 110));
+
+}
+
+
+body {
+    width: 100vw;
+    height: 100vh; 
+    /* background: aquamarine url("img/gato.jpg") no-repeat fixed center center / 400px; */
+    background-image: radial-gradient(rgb(93 , 93, 199),rgb(87, 196, 110));
+
+}
+
+
+body {
+    width: 100vw;
+    height: 100vh; 
+    /* background: aquamarine url("img/gato.jpg") no-repeat fixed center center / 400px; */
+    background-image: radial-gradient(rgb(93 , 93, 199),rgb(87, 196, 110));
+
+}
+
+
+body {
+    width: 100vw;
+    height: 100vh; 
+    /* background: aquamarine url("img/gato.jpg") no-repeat fixed center center / 400px; */
+    background-image: radial-gradient(rgb(93 , 93, 199),rgb(87, 196, 110));
+
+}
+
+
+body {
+    width: 100vw;
+    height: 100vh; 
+    /* background: aquamarine url("img/gato.jpg") no-repeat fixed center center / 400px; */
+    background-image: radial-gradient(rgb(93 , 93, 199),rgb(87, 196, 110));
+
+}
+
+
+texto
+sem quebra de linha
+.a {
+    white-space: nowrap;
+}
+
+exatamente como escrito
+.b {
+    white-space: pre;
+}
+
+.c {
+    white-space: pre-wrap;
+}
+
+
+ele quebra na c
+p {
+    border: solid 1px black;
+}
+
+.a {
+    white-space: nowrap;
+}
+
+.b {
+    white-space: pre;
+}
+
+.c {
+    white-space: pre-wrap;
+
+///
+
+.d {
+    white-space: normal;
+}
+
+
+
+
+.a {
+    text-decoration: overline;
+}
+
+.b {
+    text-decoration: line-through;
+}
+
+.c {
+   text-decoration: underline;
+}
+
+.d {
+   text-decoration: overline underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+
+
+
+.a {
+    text-transform: uppercase;
+}
+
+.b {
+    text-transform: lowercase;
+}
+
+.c {
+   text-transform: capitalize;
+}
+
+.d {
+   
+}
+
+//
+
+
+
+.a {
+    text-indent: 20px;
+}
+
+.b {
+    text-indent: ;
+}
+
+.c {
+   
+}
+
+.d {
+   
+}
+
+
+
+h1 {
+    text-shadow: 2px 2px black;
+}
+
+
+h1 {
+    text-shadow: 2px 2px 5px black;
+}
+
+
+
+p {
+    border: 1px solid black;
+    width: 150px;
+    word-break: break-word;
+}
+
+
+p {
+    border: 1px solid black;
+    width: 150px;
+    word-break: break-all;
+}
+}
+
+
+
+
+
+div {
+    width: 100px;
+    height: 150px;
+    border: solid 1px black;
+    background-color: aquamarine;
+    overflow-y: scroll;
+    overflow-x: scroll;
+}
+
+p {
+    margin: 0;
+}
+
+
+
+div {
+    width: 100px;
+    height: 150px;
+    border: solid 1px black;
+    background-color: aquamarine;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+p {
+    margin: 0;
+}
+
+
+
+div {
+    width: 100px;
+    height: 150px;
+    border: solid 1px black;
+    background-color: aquamarine;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+p {
+    margin: 0;
+}
+
+
+div {
+    width: 100px;
+    height: 150px;
+    border: solid 1px black;
+    background-color: aquamarine;
+    overflow: auto;
+}
+
+p {
+    margin: 0;
+}
+
+
+div {
+    width: 100px;
+    height: 150px;
+    border: solid 1px black;
+    background-color: aquamarine;
+    overflow: hidden scroll ;
+}
+
+p {
+    margin: 0;
+}
+
+
+
+div {
+    width: 100px;
+    height: 150px;
+    border: solid 1px black;
+    background-color: aquamarine;
+    overflow: hidden scroll ;
+}
+
+p {
+    margin: 0;
+}
+
+
+
+
+
+
+
+.item {
+    background-color: aquamarine;
+}
+
+.item + li {
+     background-color: blueviolet;
+}
+/* equivalente */
+.item, .item + li{
+    background-color: blueviolet;
+}
+
+
+
+
+
+
+
+
+
+.item {
+    background-color: aquamarine;
+}
+
+.item ~ li {
+    background-color: brown;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* li filhos de ul */
+ul > li {
+    background-color: blueviolet;
+}
+
+
+
+
+/* li filhos de ul */
+em qualquer lugar
+ul  li {
+    background-color: blueviolet;
+}
+
+
+/* li filhos de ul */
+em qualquer lugar
+.listas-de-compras  li {
+    background-color: blueviolet;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ul li:nth-child(odd) {
+    background-color: blueviolet;
+}
+
+
+ul li:nth-child(even) {
+    background-color: blueviolet;
+}
+
+ul li:nth-child(2n) {
+    background-color: blueviolet;
+}
+ul li:nth-child(2n+1) {
+    background-color: blueviolet;
+}
+
+
+ul li:nth-child(8) {
+    background-color: blueviolet;
+}
+
+
+ul li:nth-child(n+5) {
+    background-color: blueviolet;
+}
+
+ul li:nth-child(n+5) {
+    background-color: blueviolet;
+}
+
+
+ul li:first-child {
+    background-color: blueviolet;
+}
+
+ul li:last-child {
+    background-color: blueviolet;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ul li:hover {
+    background-color: blueviolet;
+}
+
+
+
+ul li:hover {
+    background-color: blueviolet;
+}
+
+a:hover {
+    color: red;
+}
+
+a:active {
+    color: aqua;
+}
+a:visited {
+    color: aqua;
+}
+
+
+
+a:visited {
+    background-color: rgb(34, 145, 58);
+}
+a:hover {
+    color: red;
+}
+
+a:active {
+    color: aqua;
+}
+
+
+
+
+input:focus {
+    background-color: blueviolet;
+}
+
+
+
+h2::before {
+    content: "Texto do CSS ";
+}
+
+
+
+h2::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-color: black;
+}
+
+
+
+
+
+
+
+
+
+
+h2::before {
+    content: "";
+    width: 200px;
+    height: 200px;
+    display: block;
+    background-image: url("img/gato.jpg");
+    background-size: 100%;
+    background-color: black;
+}
+

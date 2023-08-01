@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Box Model</title>
+</head>
+<body>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit./p>
+</body>
+</html>
+
+
+p {
+    width: 150px;
+    padding: 30px;
+    border: solid 2px black;
+}
+
+
+    border: solid 2px black;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Display</title>
+</head>
+<body>
+      
+        <div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        </div>
+        
+</body>
+</html>
+
+
+
+
+div {
+    display: flex;
+}
+
+p {
+    background-color: aqua;
+    border: solid 1px black;
+}
+
+span {
+    
+}
+
+
+
+
+
+
+
+span {
+    display: block;
+    background-color: aqua;
+    border: solid 1px black;
+}
+
+
+
+Display
+
+A propriedade CSS display especifica o tipo de caixa de renderização usada por um elemento. No HTML, os valores padrões da propriedade display são feitas a partir do comportamento descrito nas especificações HTML ou da folha de estilo padrão do navegador/usuário.
+
+Além dos muitos tipos diferentes de exibição de caixa, o valor ‘none’ permite desativar a exibição de um elemento; quando você usa ‘none’, todos os elementos descendentes também tem a sua exibição desativada. O documento é renderizado como se o elemento não existisse na árvore do documento.
+
+Sintaxe:
+
+display: none
+
+display: inline
+
+display: block
+
+display: list-item
+
+display: inline-block
+
+display: inline-table
+
+display: table
+
+display: table-cell
+
+display: table-column
+
+display: table-column-group
+
+display: table-footer-group
+
+display: table-header-group
+
+display: table-row
+
+display: table-row-group
+
+display: flex
+
+display: inline-flex
+
+display: grid
+
+display: inline-grid
+
+display: inherit
+
+display: run-in
+
+
+
+
+
+
+
+
+.inline span {
+    display: inline;
+    background-color: aqua;
+    border: solid 1px black;
+}
+
+
+conteudo inline nao conseguimos altearr o tamanho wid e hei
+
+
+
+
+
+.inline span {
+    display: block;
+    background-color: aqua;
+    border: solid 1px black;
+    width: 150px;
+    height: 500px;
+}
+
+
+
+
+
+.inline {
+    display: flex;
+}
+
+.inline span {
+    display: block;
+    background-color: aqua;
+    border: solid 1px black;
+    width: 150px;
+    height: 500px;
+}
+
+
+
+
+
+
+
+
+.inline span {
+    display: inline;
+    background-color: aqua;
+    border: solid 1px black;
+    width: 150px;
+    height: 500px;
+    margin: 20px;
+}
+
+
+
+
+
+
+
+
+
+.inline span {
+    display: inline-block;
+    background-color: aqua;
+    border: solid 1px black;
+    width: 150px;
+    height: 100px;
+    margin: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+ span {
+   
+    background-color: aqua;
+    border: solid 1px black;
+  
+}
+
+.inline-flex {
+    display: flex;
+}
+
+
+ 
+        <div class="inline-flex">
+        <span>1</span>
+        <span>2</span>
+        <span>asdasda</span>
+        </div>
+        <div class="inline-flex">
+            <span>1</span>
+            <span>2</span>
+            <span>asdasda</span>
+            </div>
+
+
+
+
+
+
+
+.inline-flex {
+    display: inline-flex;
+}
+
+
+
+some
+
+p {
+    display: none;
+}
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Box Model</title>
+</head>
+<body>
+    <div class="container">
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+
+    </div>
+</body>
+</html>
+
+
+p {
+    width: 100%px;
+    min-width: 250px;
+    padding: 30px;
+    
+    margin: 30px 20px 30px 15px;
+    border: solid 2px black;
+}
+
+.container {
+    width: 500px;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+display
+
+
+<p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+
+
+
+
+
+padrao
+p {
+    position: static;
+}
+
+
+
+
+
+
+
+
+
+.square {
+    width: 50px;
+    height: 50px;
+    background-color: blueviolet;
+    border: solid 1px black;
+    position: fixed;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+///
+
+
+p {
+    position: static;
+}
+
+.square {
+    width: 50px;
+    height: 50px;
+    background-color: blueviolet;
+    border: solid 1px black;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.container {
+    width: 500px;
+    height:300px ;
+    border: solid 1px black;
+}
+
+.m-bottom {
+    margin-bottom: 200px;
+}
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Position</title>
+</head>
+<body>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim in rerum, eum deleniti ipsum libero dolores eaque pariatur ipsa velit natus maxime alias praesentium impedit minus! Officia culpa dolorem ducimus.</p>
+        <div class="container">
+        <div class="square">
+        </div>    
+        </div>
+        <div aria-checked="m-bottom">
+
+        </div>
+</body>
+</html>
+
+
+
+
+
+
+
+.square {
+    width: 50px;
+    height: 50px;
+    background-color: blueviolet;
+    border: solid 1px black;
+    position: fixed;
+    top: 10px;
+    right: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/;;
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Position</title>
+</head>
+<body>
+        <ul>
+            <li>Nome</li>
+            <li>Contato</li>
+            <li>Sobre</li>
+            <li>Categoria</li>
+        </ul>
+        <p class="paragrafo">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis, sapiente vero porro in ratione optio, iste ad unde doloribus voluptatibus adipisci minus iusto enim quo numquam illo repellat fugiat tempora.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis, sapiente vero porro in ratione optio, iste ad unde doloribus voluptatibus adipisci minus iusto enim quo numquam illo repellat fugiat tempora.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis, sapiente vero porro in ratione optio, iste ad unde doloribus voluptatibus adipisci minus iusto enim quo numquam illo repellat fugiat tempora.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis, sapiente vero porro in ratione optio, iste ad unde doloribus voluptatibus adipisci minus iusto enim quo numquam illo repellat fugiat tempora.</p>
+        
+        <a href="#" class="icone">
+            <img src="img/whatsapp-icon.png" alt="imagem whatsapp">
+        </a>
+
+        <div class="m-bottom">
+
+        </div>
+</body>
+</html>
+
+
+
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+ul {
+    display: flex;
+    padding: 20px 0;
+    justify-content: center;
+    gap: 10px;
+    background-color: brown;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+}
+.paragrafo {
+    margin-top: 70px;
+}
+
+.icone {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+}
+li  {
+    list-style: none;
+    font-size: 18px;
+    color: #fff;
+}
+.m-bottom {
+    margin-bottom: 2000px;
+}
+
+
+
+
+
+
+.sticky {
+    background-color: tomato;
+    position: sticky;
+    top: 61px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+ul {
+    display: flex;
+    padding: 20px 0;
+    justify-content: center;
+    gap: 10px;
+    background-color: brown;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+}
+.paragrafo {
+    margin-top: 70px;
+}
+
+.icone {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+}
+li  {
+    list-style: none;
+    font-size: 18px;
+    color: #fff;
+}
+.m-bottom {
+    margin-bottom: 2000px;
+}
+
+
+.sticky {
+    background-color: tomato;
+    position: sticky;
+    top: 61px;
+}
+
+
+.box {
+    width: 900px;
+    height: 300px;
+    margin: 0 auto;
+    border: solid 2px black;
+}
+
+.relative {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(28, 61, 153);
+    position: relative;
+    top: 150px;
+    right: 20px;
+    
+}
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Position</title>
+</head>
+<body>
+        <ul>
+            <li>Nome</li>
+            <li>Contato</li>
+            <li>Sobre</li>
+            <li>Categoria</li>
+        </ul>
+        <p class="paragrafo">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis, sapiente vero porro in ratione optio, iste ad unde doloribus voluptatibus adipisci minus iusto enim quo numquam illo repellat fugiat tempora.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis, sapiente vero porro in ratione optio, iste ad unde doloribus voluptatibus adipisci minus iusto enim quo numquam illo repellat fugiat tempora.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis, sapiente vero porro in ratione optio, iste ad unde doloribus voluptatibus adipisci minus iusto enim quo numquam illo repellat fugiat tempora.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis, sapiente vero porro in ratione optio, iste ad unde doloribus voluptatibus adipisci minus iusto enim quo numquam illo repellat fugiat tempora.</p>
+        
+        <p class="sticky">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore consectetur qui tempora? Impedit deleniti incidunt cupiditate distinctio illum fugiat minima at possimus! Vitae eum sapiente a autem ipsam culpa. Ipsum!</p>
+        <a href="#" class="icone">
+            <img src="img/whatsapp-icon.png" alt="imagem whatsapp">
+        </a>
+
+        <div class="box">
+            <div class="relative"></div>
+        </div>
+        <div class="m-bottom">
+
+        </div>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet, maiores. Quod consectetur tempore porro dolores modi aliquam, nam cum eius, voluptatum mollitia voluptatem. Laudantium, excepturi debitis quasi nesciunt quod eaque!</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.absolute {
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+
+
+
+.absolute {
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+    position: absolute;
+    top: 20px;
+    right: 50px;
+}
+
+
+
+.box {
+    width: 900px;
+    height: 300px;
+    margin: 0 auto;
+    border: solid 2px black;
+    position: relative;
+}
+
+.absolute {
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+    position: absolute;
+    top: 20px;
+    right: 0;
+}
+
+
+
+
+
+
+
+
+
+.relative {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(28, 61, 153);
+    position: relative;
+    left: 50%;
+    z-index: 1;
+
+}
+
+.absolute {
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+    position: absolute;    
+    right: 120px;
+    top: 20px;
+    z-index:2;
+}

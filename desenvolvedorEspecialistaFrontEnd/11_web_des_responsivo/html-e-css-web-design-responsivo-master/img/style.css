@@ -1,0 +1,295 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    padding: 20px 0;
+    background-color: rgb(1, 2, 12);
+    color: #fff;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    font-weight: 800;
+    padding: 0;
+    margin: 10px 0;
+}
+
+ul li {
+    cursor: pointer;
+    border-bottom: solid 2px #000;
+}
+
+ul li:hover {
+    border-bottom: solid 2px #fff;
+    transition: .6s;
+}
+
+.menu-mobile {
+    display: none;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-field {
+    display: flex;
+    gap: 10px;
+}
+
+.search-field button {
+    padding: 0 20px;
+    background-color: transparent;
+    color: #5252e2;
+    border: solid 2px #5252e2;
+    border-radius: 7px;
+    font-weight: 900;
+    font-size: .7rem;
+    cursor: pointer;
+}
+
+.search-field input:focus {
+    outline: none;
+}
+
+.search-area {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 0 10px;
+    border-radius: 7px;
+}
+
+.search-area img {
+    margin-right: 5px;
+}
+
+.search-area input {
+    border: none;
+    width: 100%;
+}
+
+
+/* Topo */
+.principal {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.principal h1 {
+    font-size: 48px;
+    font-weight: 800;
+}
+
+.principal p {
+    font-size: 24px;
+    font-weight: 100;
+    width: 500px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.btn-field {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-blue {
+    padding: 10px 45px;
+    font-size: 14px;
+    font-weight: 900;
+    color: #fff;
+    background-color: #5252e2;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-grey {
+    padding: 10px 45px;
+    font-size: 14px;
+    font-weight: 900;
+    color: #fff;
+    background-color: #8d8a8a;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-blue:hover, .btn-grey:hover {
+    transform: scale(1.05);
+    transition: .6s;
+}
+
+
+/* Galeria */
+.galeria-fotos {
+    background-color: #eeeeee;
+    padding: 50px 0;
+}
+
+.card-field {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 50px;
+    column-gap: 30px;
+}
+
+.card {
+    background-color: #fff;
+    padding: 5px;
+    box-shadow: 1px 1px 10px #00000043;
+}
+
+
+/* FOOTER */
+footer {
+    padding: 50px 0;
+}
+
+footer p {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+footer ul {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+footer ul li {
+    width: 15px;
+    height: 15px;
+    border: solid 1px rgb(0, 0, 0);
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer ul li:hover {
+    transform: scale(1.05);
+    transition: .6s;
+}
+
+/* BREAKPOINTS */
+
+@media(max-width: 992px) {
+    .card-field {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 50px;
+        column-gap: 30px;
+    }
+}
+
+@media(max-width: 600px) {
+    .card-field {
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 50px;
+        column-gap: 30px;
+    }
+
+    .principal p {
+        font-size: 18px;
+        width: 100%;
+    }
+
+    .btn-blue, .btn-grey {
+        padding: 10px 20px;
+    }
+
+    header {
+        padding: 35px 0;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+
+    .menu-mobile {
+        display: block;
+    }
+
+    .hamburger, .close {
+        border: none;
+        cursor: pointer;
+        /* position absolute position the icons relative to the body because they have no position relative parents*/
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .close {
+        background: black;
+    }
+
+    .hamburger img, .close img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .navbar {
+        position: absolute;
+        /* a higher z-index put navbar above hamburger */
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 40vh;
+        overflow: hidden;
+        /* basic menu styling*/
+        list-style: none;
+        background: black;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-evenly;
+        align-items: center;
+        /* animate slide up/down */
+        transform: translateY(-100%);
+        transition: transform 0.6s ease;
+    }
+
+    /* :target is called when its anchor id #navbar is called by clicking on the hamburger which has href="#navbar" */
+
+    .navbar:target {
+        transform: translateY(0);
+    }
+
+    li {
+        display: block;
+        color: white;
+        font-weight: bold;
+        font-size: 1.2rem;
+        text-decoration: none;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        padding: 10px;
+
+    }
+
+    .menu-mobile li:hover {
+        color: #fff;
+        background-color: #5252e2;
+        transition: .6s;
+
+    }
+}

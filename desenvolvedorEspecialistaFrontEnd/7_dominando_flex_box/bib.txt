@@ -1,0 +1,618 @@
+Comportamento padrão dos elementos
+
+Todo elemento HTML possui uma maneira natural de se comportar, ou seja, mesmo sem aplicar estilizações a tag. O parágrafo “<p></p>“, por exemplo, possui margem tanto na parte superior, quanto na parte inferior de 1rem. Isso também ocorre com o comportamento do display de cada elemento, cada uma das tags tem um certo comportamento natural de display.
+
+Para seguir com total entendimento do Flexbox, vamos entender o comportamento natural das tags no display. Alguns elementos possuem o display ‘block’, outros possuem o display ‘inline’. O que estamos vendo são comportamentos naturais, ou ‘default’, dos elementos, porém, podemos alterar quaisquer comportamentos com CSS.
+O que são elementos com display block?
+
+Esses elementos têm o comportamento de ocupar toda extensão, em largura, de quem a envolve. Se declararmos três parágrafos, eles ficarão um em baixo do outro, pois, são elementos com display block.
+
+Tags que possui naturalmente display block.
+
+    <address>
+    <article>
+    <aside>
+    <blockquote>
+    <canvas>
+    <dd>
+    <div>
+    <dl>
+    <dt>
+    <fieldset>
+    <figcaption>
+    <figure>
+    <footer>
+    <form>
+    <h1>-<h6>
+    <header>
+    <hr>
+    <li>
+    <main>
+    <nav>
+    <noscript>
+    <ol>
+    <output>
+    <p>
+    <pre>
+    <section>
+    <table>
+    <tfoot>
+    <ul>
+    <video>
+
+O que são elementos inline?
+
+Os inline, são elementos que irão ocupar apenas o necessário do seu conteúdo, como, por exemplo, a tag ‘span’. Nesse caso, se colocarmos três tags span juntas cada um irá ficar do lado do outro.
+
+Tags que possuem naturalmente display inline:
+
+    <a>
+    <abbr>
+    <acronym>
+    <b>
+    <bdo>
+    <big>
+    <br>
+    <button>
+    <cite>
+    <code>
+    <dfn>
+    <em>
+    <i>
+    <img>
+    <input>
+    <kbd>
+    <label>
+    <map>
+    <object>
+    <q>
+    <samp>
+    <script>
+    <select>
+    <small>
+    <span>
+    <strong>
+    <sub>
+    <sup>
+    <textarea>
+    <time>
+    <tt>
+    <var>
+
+
+
+
+
+
+    <div class="flex">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+    </div>
+    <div class="flex">
+        <span>1</span>
+        <span>1</span>
+        <span>1</span>
+        <span>1</span>
+        
+    </div>
+
+
+
+span {
+    display: block;
+}
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>FlexBox</title>
+</head>
+<body>
+    <div class="flex">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+    </div>
+ 
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+.flex {
+    border: 3px solid black;
+    background-color: aquamarine;
+    margin: 50px 20px;
+}
+
+.item {
+    padding: 25px;
+    background-color: blueviolet;
+    border: 3px solid green;
+    margin: 0;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+
+
+
+.flex {
+    border: 3px solid black;
+    background-color: aquamarine;
+    margin: 50px 20px;
+    display: flex;
+}
+
+
+.flex {
+    border: 3px solid black;
+    background-color: aquamarine;
+    margin: 50px 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.flex {
+    border: 3px solid black;
+    background-color: aquamarine;
+    margin: 50px 20px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+
+
+.flex {
+    border: 3px solid black;
+    background-color: aquamarine;
+    margin: 50px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+
+.flex {
+    border: 3px solid black;
+    background-color: aquamarine;
+    margin: 50px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+
+.flex {
+    border: 3px solid black;
+    background-color: aquamarine;
+    margin: 50px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+
+
+.flex {
+    border: 3px solid black;
+    background-color: aquamarine;
+    margin: 50px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+
+.flex {
+    border: 3px solid black;
+    background-color: aquamarine;
+    margin: 50px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>FlexBox</title>
+</head>
+<body>
+    <div class="flex">
+        <div class="item">1</div>
+        <div class="item2">2</div>
+        <div class="item">3</div>
+        <div class="item2">4</div>
+        <div class="item">5</div>
+    </div>
+ 
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+.flex {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 3px solid black;
+    background-color: aquamarine;
+    margin: 50px 20px;
+    gap: 20px ;
+    
+  
+}
+
+.item {
+    padding: 25px;
+    background-color: blueviolet;
+    border: 3px solid green;
+    margin: 0;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.item2 {
+    padding: 40px;
+    background-color: blueviolet;
+    border: 3px solid green;
+    margin: 0;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+
+
+.flex {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    border: 3px solid black;
+    background-color: aquamarine;
+    margin: 50px 20px;
+    gap: 20px ;
+    
+  
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 3px solid black;
+    background-color: aquamarine;
+    margin: 50px 20px;
+    gap: 20px ;
+    
+  
+}
+
+
+// flex wrap e padrao nowarp
+quebra quando diminu proxima linha
+
+.flex {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 3px solid black;
+    background-color: aquamarine;
+    margin: 50px 20px;
+    gap: 20px ;
+    
+  
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.flex {
+    display: flex; 
+    flex-direction: column;    
+    border: 3px solid black;
+    background-color: aquamarine;
+    margin: 50px 20px;
+    gap: 20px ;
+    
+  
+}
+
+
+
+
+.flex {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;   
+    border: 3px solid black;
+    background-color: aquamarine;
+    margin: 50px 20px;
+    height: 600px;
+    
+  
+}
+
+
+.flex {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;   
+    align-items: center;
+    border: 3px solid black;
+    background-color: aquamarine;
+    margin: 50px 20px;
+    height: 600px;
+    
+  
+}
+
+
+
+.flex {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;   
+    align-items: start;
+    border: 3px solid black;
+    background-color: aquamarine;
+    margin: 50px 20px;
+    height: 600px;
+    
+  
+}
+
+
+
+.flex {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;   
+    align-items: start;
+    border: 3px solid black;
+    background-color: aquamarine;
+    margin: 50px 20px;
+    height: 600px;
+    gap: 20px;
+    
+  
+}
+
+
+
+.flex {
+    display: flex; 
+    flex-flow: row-reverse wrap;
+    justify-content: center;   
+    align-items: start;
+    border: 3px solid black;
+    background-color: aquamarine;
+    margin: 50px 20px;
+    height: 600px;
+    gap: 20px;   
+  
+}
+
+
+
+.flex {
+    display: flex; 
+    flex-flow: column wrap;
+    justify-content: center;   
+    align-items: start;
+    border: 3px solid black;
+    background-color: aquamarine;
+    margin: 50px 20px;
+    height: 600px;
+    gap: 20px;   
+  
+}
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>FlexBox</title>
+</head>
+<body>
+    <div class="flex">
+        <div class="item">1</div>
+        <div class="item center">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        
+    </div>
+ 
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+.flex {
+    display: flex; 
+    flex-flow: row wrap;   
+    border: 3px solid black;
+    background-color: aquamarine;
+    margin: 50px 20px;
+    height: 200px;
+    align-items: center;
+}
+
+.item {
+    padding: 25px;
+    background-color: blueviolet;
+    border: 3px solid green;
+    margin: 0;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.center {
+    align-self: flex-start;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>FlexBox</title>
+</head>
+<body>
+    <div class="flex">
+        <div class="item center">1</div>
+        <div class="item ">2</div>
+        <div class="item start">3</div>
+        <div class="item end">4</div>
+        <div class="item stretch">5</div>
+        
+    </div>
+ 
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.flex {
+    display: flex; 
+    flex-flow: row wrap;   
+    border: 3px solid black;
+    background-color: aquamarine;
+    margin: 50px 20px;
+    height: 200px;
+    align-items: center;
+}
+
+.item {
+    padding: 25px;
+    background-color: blueviolet;
+    border: 3px solid green;
+    margin: 0;
+    font-size: 24px;
+    font-weight: 900;
+    flex-grow: 1;
+}
+
+.start {
+    align-self: flex-start;
+    flex-grow: 1;
+}
+
+.end {
+    flex-grow: 2;
+    align-self: flex-end;
+
+}
+
+.center {
+   align-self: center;
+
+}
+
+.stretch {
+    align-self: stretch;
+    flex-grow: 4;
+}

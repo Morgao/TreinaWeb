@@ -1,5 +1,14 @@
 DESKTOP-F6O48PV
 SQL Server 16.01.1050.5
 TreinaWebCSharpIntermediario
+treinawebcsharpintermediario
 login sa:
 password : Mfreud27@@@
+
+waint on the following processes to shut down beferoe continuing with modifications
+
+
+  DbConnection conexao = new MySqlConnection("Server=localhost;Database=treinawebcsharpintermediario;Uid=root;Pwd=Mfreud27@@@;");
+            conexao.Open();
+            return conexao;
+            */

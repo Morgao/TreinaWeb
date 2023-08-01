@@ -1,0 +1,10 @@
+h2::before {
+    content: "";
+    width: 200px;
+    height: 200px;
+    display: block;
+    background-image: url("img/gato.jpg");
+    background-size: 100%;
+    background-color: black;
+}
+

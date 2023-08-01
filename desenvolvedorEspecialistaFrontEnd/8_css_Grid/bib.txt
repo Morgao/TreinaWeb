@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Grid</title>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+
+    </div>
+</body>
+</html>
+
+
+body {
+    margin: 10px;
+}
+
+.grid-container {
+    background-color: grey;
+    border: solid 2px black;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+}
+
+.grid-item {
+    background-color: blue;
+    border: solid 2px rgb(37, 167, 11);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+////
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Grid</title>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item header">header</div>
+        <div class="grid-item sidebar">sidebar</div>
+        <div class="grid-item conteudo-principal">Conteudo</div>
+        <div class="grid-item footer">footer</div>
+      
+
+
+    </div>
+</body>
+</html>
+
+
+
+
+body {
+    margin: 10px;
+}
+
+.grid-container {
+    background-color: grey;
+    border: solid 2px black;
+    display: grid;
+    grid-template-columns: 150px 1fr  ;
+    grid-template-rows: 100px 400px 100px;
+    grid-template-areas: "header header"
+                         "sidebar conteudo-principal"
+                         "footer footer";
+
+}
+
+.grid-item {
+    background-color: blue;
+    border: solid 2px rgb(37, 167, 11);
+}
+
+.header {
+    grid-area: header;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+.conteudo-principal {
+    grid-area: conteudo-principal;
+}
+
+.footer {
+    grid-area: footer;
+}
+
+
+
+
+
+
+
+
+
+
+
+.grid-container {
+    background-color: grey;
+    border: solid 2px black;
+    display: grid;
+    grid-template-columns: 150px 1fr  100px;
+    grid-template-rows: 100px 400px 100px;
+    grid-template-areas: "header header header"
+                         "sidebar conteudo-principal conteudo-principal"
+                         "footer footer footer2";
+    gap: 5px 50px;
+    /*column-gap: 20px;
+    row-gap: 20px;*/
+}
+
+
+
+
+.grid-container {
+    background-color: grey;
+    border: solid 2px black;
+    display: grid;
+    grid-template: auto auto auto / 150x auto auto;
+   /* grid-template-columns: 150px auto auto;
+    grid-template-rows: auto auto auto; */
+    grid-template-areas: "header header header"
+                         "sidebar conteudo-principal conteudo-principal"
+                         "footer footer footer2";
+    gap: 5px 50px;
+    /*column-gap: 20px;
+    row-gap: 20px;*/
+}
+
+
+
+.grid-container {
+    background-color: grey;
+    border: solid 2px black;
+    display: grid;
+    grid-template: repeat(3, auto) / repeat(3,auto);
+   /* grid-template: auto auto auto / auto auto auto; */
+   /* grid-template-columns: 150px auto auto;
+    grid-template-rows: auto auto auto; */
+    grid-template-areas: "header header header"
+                         "sidebar conteudo-principal conteudo-principal"
+                         "footer footer footer2";
+    gap: 5px 50px;
+    /*column-gap: 20px;
+    row-gap: 20px;*/
+}
+
+
+
+.grid-container {
+    background-color: grey;
+    border: solid 2px black;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+
+
+.grid-container {
+    background-color: grey;
+    border: solid 2px black;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
+////
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Grid</title>
+</head>
+
+<body>
+    <!-- <div class="grid-container">
+        <div class="grid-item header">header</div>
+        <div class="grid-item sidebar">sidebar</div>
+        <div>
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                <li>Item 4</li>
+            </ul>
+        </div>
+        <div class="grid-item conteudo-principal">
+            <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet excepturi ducimus dolores, ad cum velit
+                quae natus quo architecto eaque voluptatibus quos consequatur amet commodi, magni hic libero odit?
+                Tempore!</P>
+            <img src="img/exemplo.jpg" width="300px" alt="">
+            <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet excepturi ducimus dolores, ad cum velit
+                quae natus quo architecto eaque voluptatibus quos consequatur amet commodi, magni hic libero odit?
+                Tempore!</P>
+            <img src="img/exemplo.jpg" width="300px" alt="">
+
+            <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet excepturi ducimus dolores, ad cum velit
+                quae natus quo architecto eaque voluptatibus quos consequatur amet commodi, magni hic libero odit?
+                Tempore!</P>
+            <img src="img/exemplo.jpg" width="300px" alt="">
+
+
+        </div>
+
+        <div class="grid-item footer">footer</div>
+        <div class="grid-item footer2">footer2</div>
+
+
+
+    </div> -->
+    <div class="grid-container">
+        <div class="grid-item start">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item center">3</div>
+        <div class="grid-item stretch">4</div>
+        <div class="grid-item end">5</div>    
+    </div>
+</body>
+
+</html>
+
+
+
+
+body {
+    margin: 10px;
+}
+
+.grid-container {
+    background-color: grey;
+    border: solid 2px black;
+    display: grid;
+    grid-template-columns: repeat(5, 100px);
+    grid-template-rows: 200px;
+    justify-content: center;
+    align-items: center;
+    /* grid-template: repeat(3, auto) / repeat(3,auto);
+   /* grid-template: auto auto auto / auto auto auto; */
+   /* grid-template-columns: 150px auto auto;
+    grid-template-rows: auto auto auto; */
+    /* grid-template-areas: "header header header"
+                         "sidebar conteudo-principal conteudo-principal"
+                         "footer footer footer2";
+    gap: 5px 50px; */
+    /*column-gap: 20px;
+    row-gap: 20px;*/
+} 
+
+.grid-item {
+    background-color: blue;
+    border: solid 2px rgb(37, 167, 11);
+    font-size: 24px;
+    font-weight: 900;
+    padding: 10px ;
+}
+
+/* .header {
+    grid-area: header;
+    padding: 40px 0;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    padding: 0 40px;
+}
+
+.conteudo-principal {
+    grid-area: conteudo-principal;
+}
+
+.footer {
+    grid-area: footer;
+    padding: 40px 0;
+}
+
+.footer2 {
+    grid-area: footer2;
+} */
+
+
+.start {
+    align-self: flex-start;
+    justify-self: flex-start;
+}
+
+.center {
+    justify-self: center;
+
+}
+
+.stretch {
+    justify-self: stretch;
+}
+.end {
+    align-self: center;
+    justify-self:flex-end;
+}

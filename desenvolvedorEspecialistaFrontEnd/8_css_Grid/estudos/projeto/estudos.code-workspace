@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "estudos",
+			"path": ".."
+		},
+		{
+			"name": "img",
+			"path": "../../treinaweb-curso-css-grid-master/Grid/img"
+		}
+	],
+	"settings": {}
+}

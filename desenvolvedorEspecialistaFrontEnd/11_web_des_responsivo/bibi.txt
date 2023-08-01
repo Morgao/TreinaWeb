@@ -1,0 +1,13 @@
+      <picture>
+            <source media="(max-width: 1200px)" srcset="img/gato2.png" type="image/png">
+            <img src="img/gato.png" width="500px" class="img" alt="imagem de gato">
+        </picture>
+
+
+        <picture>
+            <source media="(max-width: 576px)" srcset="img/gato5.png" type="image/png">
+            <source media="(max-width: 768px)" srcset="img/gato4.png" type="image/png">
+            <source media="(max-width: 997px)" srcset="img/gato3.png" type="image/png">
+            <source media="(max-width: 1200px)" srcset="img/gato2.png" type="image/png">
+            <img src="img/gato.png" width="500px" class="img" alt="imagem de gato">
+        </picture>

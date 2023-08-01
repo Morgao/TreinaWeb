@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button class="btn-default btn-green">Botao Verde</button>
+    </div>
+    <div>
+        <button class="btn-default btn-blue">Botao Azul</button>
+    </div>
+</body>
+</html>
+
+
+.btn-default {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    
+}
+
+
+.btn-green {
+    color: black;
+    background-color: green;
+}
+
+.btn-blue {
+    color: white;
+    background-color: blue;
+}
+
+
+
+
+
+
+
+
+
+
+///
+
+
+.btn-default {
+    padding: 5px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    
+}
+
+.btn-green {
+    color: black;
+    background-color: green;
+}
+
+.btn-blue {
+    color: white;
+    background-color: blue;
+}
+
+.blocos {
+    display: flex;
+    flex-direction: row;
+    border: solid 2px black;
+}
+
+.blocos div {
+    background-color: brown;
+    font-size: 2rem;
+    padding: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width: 800px) {
+    .btn-blue {
+        background-color: aqua;
+    }
+}
+
+@media(max-width: 500px) {
+    .btn-blue {
+        background-color: rgb(143, 27, 137);
+    }
+
+    .blocos {
+       
+        flex-direction: column;
+    }
+
+    .blocos div {
+        font-size: 1rem;        
+    }
+}
+
+
+/* recomendado da ordem de declaracao 
+ 1- posicionamento // position absolute
+2- box model (wi, hei pad margin)
+3- tipografia (font wi fonte size font family)
+4- parte visual (color / backghoru color, border radios border)  */
