@@ -80,3 +80,31 @@ Partindo desse raciocínio, a imagem abaixo ilustra quais seriam os endereços d
 Por fim, sabendo o endereço na memória daquele elemento e o tamanho do seu tipo de dados, compilador assume que aquele elemento é composto pelo conteúdo que está armazenado naquele “pedaço” da memória que se inicia em um determinado endereço e possui um determinado tamanho. Por exemplo, na imagem acima, quando acessarmos o item de índice 3 (o quarto item do array), o compilador vai até o endereço 1048 e lê os próximos 16 bits sequenciais. Uma vez que o compilador também sabe o tipo daquele dado, ele saberá como interpretar aquele conjunto de bits recuperados da memória e representá-lo como um inteiro, decimal, string, etc.
 
 De forma geral, todo esse procedimento e regras são realizados de forma transparente para o programador. Ou seja, ao utilizar um array você não precisa se preocupar com o endereço na memória em que ele se encontra ou como o bloco de memória será alocado. No entanto, entender esse funcionamento nos permite utilizar essa estrutura de dados de forma mais consciente, evitando apenas utilizar algo sem compreender bem seu funcionamento.
+
+
+Como mensurar a eficiência de um algoritmo?
+
+Diferentes algoritmos foram desenvolvidos ao longo do tempo para realizar tarefas específicas, como as que estudamos nesse curso (ordenação e busca). De forma geral, cada novo algoritmo se propõe a ser mais eficiente que os já existentes, sendo essa a principal justificativa para sua elaboração. Afinal, por que investir recursos no desenvolvimento de um novo algoritmo de ordenação ou busca, se já existe um que funciona?
+
+A busca por soluções cada vez mais eficientes motiva o desenvolvimento de pesquisas em todas as áreas, e muitas vezes é o que embasa o surgimento e sucesso de novas técnicas e ferramentas. Porém, como podemos medir a eficiência de uma solução para que possamos compará-la com outra?
+
+Os critérios para medição da eficiência dependem dos objetivos da solução e dos recursos envolvidos no seu funcionamento. Por exemplo, a eficiência do motor de um carro popular pode ser medida com base no consumo de combustível. Então um motor que consome menos combustível é mais eficiente que outro, quando comparados no percurso de uma mesma distância. Já a eficiência de uma impressora pode ser medida a com base no número de impressões que ela realiza por período de tempo, ou pela quantidade de tinta gasta. Novamente, uma impressora que imprime mais folhas que outra no mesmo tempo, é mais eficiente (desde que as impressões sejam iguais). Da mesma forma, a impressora que gasta menos tinta para imprimir um mesmo documento também é mais eficiente.
+
+Quando falamos de algoritmos, sua eficiência normalmente é medida em termos dos recursos mais importantes envolvidos na sua execução: tempo e memória. A tarefa de analisar a complexidade e eficiência de um algoritmo então pode ser dividida em análise temporal (tempo gasto) e análise espacial (memória consumida).
+
+Dependendo do objetivo do algoritmo e de onde ele é executado, um ou outro critério pode ser mais relevante. Por exemplo, um algoritmo mais rápido normalmente é considerado mais eficiente. Porém, se ele consome muita memória e precisa ser executado em um ambiente com hardware limitado, seu melhor desempenho não o torna a melhor solução. Já um outro que consome pouca memória, porém é muito mais lento, quando avaliado em um ambiente com memória abundante, sua economia de memória acaba não sendo relevante.
+
+Para comparar dois algoritmos, eles precisam ser executados nas mesmas condições. Ou seja, eles devem ser submetidos à mesma quantidade de execução, utilizando os mesmos dados e em um mesmo ambiente (mesma configuração de hardware). Dessa forma, podemos concluir qual é o mais eficiente.
+
+Como prever o comportamento de um algoritmo com a evolução do tempo e da massa de dados?
+
+Ainda no contexto de análise de algoritmos, uma outra necessidade frequente é prever o comportamento de um algoritmo diante do crescimento (ou redução) do volume de dados ao qual ele é submetido.
+
+Uma vez implementado, é possível acompanhar seu desempenho em diferentes cenários, apenas submetendo-o a entradas variadas. No entanto, às vezes o ambiente é limitado e não permite a execução do algoritmo com volumes muito grandes de dados, ou mesmo é preciso avaliar um algoritmo ainda no papel.
+
+Para que seja possível realizar essa avaliação e posterior comparação de algoritmos, utilizamos uma técnica chamada análise assintótica, cujo foco é descrever o comportamento de funções (ou algoritmos) com base nas suas entradas, enfatizando principalmente a entrada de valores grandes (no caso de algoritmos, a execução com volumes grandes de dados).
+
+A análise assintótica nos permite descrever o comportamento de um algoritmo utilizando uma notação em termos de “N” (tamanho da entrada), que é denominada complexidade. Assim, é possível comparar dois algoritmos de acordo com sua complexidade, de forma que um algoritmo com maior complexidade tende a ser menos eficiente que um menos complexo.
+
+Esta análise será detalhada e demonstrada nos próximos vídeos.
+s

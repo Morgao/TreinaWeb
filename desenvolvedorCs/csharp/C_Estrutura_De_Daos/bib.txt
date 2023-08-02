@@ -1,0 +1,130 @@
+using System;
+namespace teste2
+{
+    internal class Program
+    {   
+      
+        static void Main(string[] args)
+        {
+            var alunos = new string[5];
+            alunos[0] = "Cleyson";
+            alunos[1] = "Ana";
+            alunos[2] = "José";
+            alunos[3] = "Maria";
+            alunos[4] = "Juvekluib";
+            imprimir(alunos);
+
+                
+        }
+
+        private static void imprimir(string[] array)
+        {
+            foreach (var item in array)
+            {
+                Console.WriteLine(item);
+            }
+        }
+        
+    }
+    
+}
+
+
+
+
+
+
+var alunos = new string[]{"Cleyson","Ana","José","Maria","Juvekluib"}
+ou
+var alunos = new string[5];
+            alunos[0] = "Cleyson";
+            alunos[1] = "Ana";
+            alunos[2] = "José";
+            alunos[3] = "Maria";
+            alunos[4] = "Juvekluib";
+
+
+
+metodo
+posicao do item // indice
+Console.WriteLine(Array.IndexOf(alunos,"Ana"));
+quando tem mais de um item com msm 
+Console.WriteLine(Array.LastIndexOf(alunos,"Ana"));
+
+Array.Reverse(alunos)
+inverte o array
+
+mudar o tamanho do array
+Array.Resize(ref alunos, 7)
+ou aumentar ou diminuir
+
+
+
+
+
+///
+var aluno1 = "Cleyson";
+            var aluno2 = "Eltons";
+            var alunos = new string[] { aluno1,aluno2 };
+           
+            
+           imprimir(alunos );
+            
+            aluno1 = "Wesley";
+            Console.WriteLine( "------" );
+            imprimir(alunos);
+
+            Console.ReadKey();
+
+
+var aluno1 = "Cleyson";
+            var aluno2 = "Eltons";
+            var alunos = new string[] { aluno1,aluno2 };
+           
+            
+           imprimir(alunos );
+            
+            aluno1 = "Wesley";
+            Console.WriteLine( "------" );
+            imprimir(alunos);
+            Console.WriteLine("------");
+            alunos[0] = "Wesley"
+            imprimir(alunos);
+            Console.ReadKey();
+
+
+
+
+
+
+
+
+
+ var aluno1 = "Cleyson";
+            var aluno2 = "Eltons";
+            var alunos = new string[] { aluno1,aluno2 };
+           
+            
+           imprimir(alunos );
+            
+            aluno1 = "Wesley";
+            Console.WriteLine( "------" );
+            imprimir(alunos);
+            Console.WriteLine("------");
+            alunos[0] = "Wesley";
+            imprimir(alunos);
+            Console.WriteLine("------");
+            var alunosCopia = new string[2];
+            Array.Copy(alunos, alunosCopia,alunos.Length );
+            imprimir(alunosCopia);
+            alunos[1] = "Cleyson";
+            imprimir(alunosCopia);
+            Console.ReadKey();
+
+
+
+coloca em ordem alfabetica
+var alunos = new string[] { aluno1,aluno2 };
+            Array.Sort(alunos);
+            imprimir(alunos);
+            
